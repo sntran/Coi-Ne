@@ -56,21 +56,43 @@ export function mount(screen) {
     phase = 'throw';
     squares.forEach((sq) => sq.classList.remove('has-pebble', 'is-visited', 'is-next'));
     start.replaceChildren(soi, pebble);
-    pebble.classList.remove('is-thrown');
     screen.say(['loco.throw']);
+  }
+
+  /** The pebble flies in an arc from the hand of the child to the square. */
+  async function fly(target) {
+    const from = pebble.getBoundingClientRect();
+    const to = target.getBoundingClientRect();
+    const dx = to.left + to.width / 2 - (from.left + from.width / 2);
+    const dy = to.top + to.height / 2 - (from.top + from.height / 2);
+    const dist = Math.hypot(dx, dy);
+    // The top of the arc stays on the screen.
+    const fromY = from.top + from.height / 2;
+    const high = Math.max(30, Math.min(220, 80 + dist * 0.35, fromY + dy / 2 - 40));
+    const duration = Math.min(1300, 600 + dist * 0.9);
+    pebble.classList.add('is-flying');
+    const flight = pebble.animate([
+      { transform: 'translate(0, 0) rotate(0deg) scale(1)', easing: 'cubic-bezier(0.2, 0.6, 0.4, 1)' },
+      { transform: `translate(${dx / 2}px, ${dy / 2 - high}px) rotate(200deg) scale(1.15)`, easing: 'cubic-bezier(0.6, 0, 0.8, 0.4)' },
+      { transform: `translate(${dx}px, ${dy}px) rotate(400deg) scale(0.75)` },
+    ], { duration, fill: 'forwards' });
+    await flight.finished.catch(() => {});
+    pebble.classList.remove('is-flying');
+    target.append(pebble);
+    flight.cancel();
+    pebble.animate([{ transform: 'scale(1.3, 0.7)' }, { transform: 'scale(1)' }], { duration: 250, easing: 'ease-out' });
+    target.classList.add('is-hit');
+    setTimeout(() => target.classList.remove('is-hit'), 500);
   }
 
   onTap(pebble, async () => {
     if (phase !== 'throw') return;
     phase = 'flying';
     sfx.up();
-    pebble.classList.add('is-thrown');
-    await wait(450);
-    if (!alive) return;
     const target = squares.get(round.pebble);
-    target.append(pebble);
+    await fly(target);
+    if (!alive) return;
     target.classList.add('has-pebble');
-    pebble.classList.remove('is-thrown');
     sfx.pebble();
     phase = 'hop';
     await speakAll([{ key: 'loco.landed', params: { n: round.pebble } }]);

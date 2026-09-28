@@ -1506,9 +1506,10 @@ svg { display: block; }
 .loco-square .loco-soi { position: absolute; width: 64px; bottom: 6px; z-index: 2; }
 .loco-soi.is-hop { animation: loco-hop 0.35s ease; }
 @keyframes loco-hop { 50% { transform: translateY(-22px) scale(1.05); } }
-.loco-pebble { width: 88px; height: 88px; display: grid; place-items: center; transition: transform 0.45s cubic-bezier(0.3, -0.4, 0.6, 1); }
+.loco-pebble { width: 88px; height: 88px; display: grid; place-items: center; position: relative; }
 .loco-pebble svg { width: 60px; height: 50px; }
-.loco-pebble.is-thrown { transform: translateY(-160px) scale(0.6) rotate(200deg); opacity: 0.7; }
+.loco-pebble.is-flying { z-index: 20; pointer-events: none; filter: drop-shadow(0 14px 6px rgb(59 42 42 / 0.25)); }
+.loco-square.is-hit { animation: pop 0.45s ease; }
 .loco-square .loco-pebble { position: absolute; width: 50px; height: 44px; pointer-events: none; }
 .loco-square .loco-pebble svg { width: 44px; height: 36px; }
 @media (min-width: 700px) and (min-height: 760px) {
