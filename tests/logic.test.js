@@ -357,3 +357,26 @@ test('dot-to-dot: level 1 has 10 dots or fewer, level 2 has 20 or fewer, and the
   const again = dotsRound(1, seeded(2), 'star');
   assert.notEqual(again.design.id, 'star');
 });
+
+import { makeRound as whereRound, zoneAt, OBJECTS, DROP_ZONES, POSITIONS } from '../js/logic/where.js';
+
+test('where is Sỏi: the rounds use positions that each thing can show', () => {
+  for (const ps of Object.values(OBJECTS)) for (const p of ps) assert.ok(POSITIONS.includes(p));
+  for (const seed of SEEDS) {
+    const r1 = whereRound(1, seeded(seed));
+    assert.equal(r1.objects.length, 3);
+    assert.ok(OBJECTS[r1.object].includes(r1.pos));
+    assert.equal(r1.objects[r1.hidden], r1.object);
+    const r2 = whereRound(2, seeded(seed));
+    assert.equal(new Set(r2.choices).size, 3);
+    assert.ok(r2.choices.includes(r2.pos));
+    const r3 = whereRound(3, seeded(seed));
+    assert.ok(DROP_ZONES[r3.object].some((z) => z.pos === r3.pos));
+  }
+  assert.equal(zoneAt('table', 100, 40), 'tren');
+  assert.equal(zoneAt('table', 100, 120), 'duoi');
+  assert.equal(zoneAt('table', 200, 120), 'canh');
+  assert.equal(zoneAt('box', 100, 120), 'trong');
+  assert.equal(zoneAt('basket', 100, 100), 'trong');
+  assert.equal(zoneAt('tree', 100, 100), null);
+});
