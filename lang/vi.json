@@ -50,7 +50,7 @@
   "settings.minus": "−",
   "settings.plus": "+",
   "settings.levels.coloring": "Một cấp. Chọn hình trong 6 nhóm.",
-  "settings.levels.numbers": "1: số và nhóm vật · 2: đếm đến 20 · 3: nhiều hơn, ít hơn · 4: cộng trong phạm vi 10",
+  "settings.levels.numbers": "1: số và nhóm vật · 2: nhìn nhanh, không đếm · 3: đếm đến 20 · 4: nhiều hơn, ít hơn · 5: cộng trong phạm vi 10",
   "settings.levels.patterns": "1–3: AB · 4–6: AAB, ABB · 7–9: ABC (màu, hình, cỡ)",
   "settings.levels.shapes": "1: 2 hình · 2: 4 hình · 3: 6 hình",
   "settings.levels.sorting": "1: một quy tắc · 2: hai quy tắc",
@@ -834,5 +834,7 @@
   "share.turn": "Giờ mình xoay đám ruộng lại nha.",
   "share.turned": "Bây giờ có {r} hàng, mỗi hàng {c} cây. Vẫn là {n} cây!",
   "share.plate": "dĩa của một bạn",
-  "share.hole": "chỗ để cấy"
+  "share.hole": "chỗ để cấy",
+  "numbers.quick": "Nhìn nhanh nha! Có mấy cục sỏi?",
+  "numbers.quickLook": "chạm để nhìn lại"
 }

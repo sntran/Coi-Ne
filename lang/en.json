@@ -50,7 +50,7 @@
   "settings.minus": "−",
   "settings.plus": "+",
   "settings.levels.coloring": "One level. Choose a picture from 6 groups.",
-  "settings.levels.numbers": "1: digits and groups · 2: count to 20 · 3: more or fewer · 4: add to 10",
+  "settings.levels.numbers": "1: digits and groups · 2: quick look, without counting · 3: count to 20 · 4: more or fewer · 5: add to 10",
   "settings.levels.patterns": "1–3: AB · 4–6: AAB, ABB · 7–9: ABC (color, shape, size)",
   "settings.levels.shapes": "1: 2 shapes · 2: 4 shapes · 3: 6 shapes",
   "settings.levels.sorting": "1: one rule · 2: two rules",
@@ -834,5 +834,7 @@
   "share.turn": "Now let's turn the field.",
   "share.turned": "Now there are {r} rows, with {c} plants in each row. It is still {n} plants!",
   "share.plate": "the plate of a friend",
-  "share.hole": "a hole to plant"
+  "share.hole": "a hole to plant",
+  "numbers.quick": "Look fast! How many pebbles?",
+  "numbers.quickLook": "tap to look again"
 }

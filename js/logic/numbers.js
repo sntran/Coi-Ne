@@ -1,13 +1,30 @@
 // Questions for the Numbers game. These functions do not use the DOM.
 // Level 1: match a digit (1 to 10) to a group with the same number of things.
-// Level 2: count to 20. Each tap on a thing speaks the next number.
-// Level 3: which group has more (or fewer)?
-// Level 4: add two groups to 10 or less.
+// Level 2: quick look. A group of 1 to 6 pebbles shows for a short time. The child sees the number
+//          without counting (subitizing).
+// Level 3: count to 20. Each tap on a thing speaks the next number.
+// Level 4: which group has more (or fewer)?
+// Level 5: add two groups to 10 or less.
 
 import { randInt, pick, shuffle } from './random.js';
 
 // Pictures to count. The names are in the language files: thing.<id>.1 and thing.<id>.n.
 export const THINGS = ['duck', 'goldfish', 'star', 'apple', 'lotus', 'lantern', 'chick', 'blossom'];
+
+// The places of the pebbles for 1 to 6, like on a dice. The box is 100 by 100.
+export const DICE = {
+  1: [[50, 50]],
+  2: [[28, 28], [72, 72]],
+  3: [[24, 24], [50, 50], [76, 76]],
+  4: [[28, 28], [72, 28], [28, 72], [72, 72]],
+  5: [[26, 26], [74, 26], [50, 50], [26, 74], [74, 74]],
+  6: [[30, 22], [70, 22], [30, 50], [70, 50], [30, 78], [70, 78]],
+};
+
+/** Turn the places a quarter turn around the middle of the box. */
+function turnQuarter(points) {
+  return points.map(([x, y]) => [100 - y, x]);
+}
 
 /** count different numbers from min to max. One of them is n. The others are near n. */
 export function nearbyChoices(rand, n, min, max, count = 3) {
@@ -34,10 +51,15 @@ export function makeQuestion(level, rand = Math.random) {
     return { level, type: 'match', thing, n, choices: counts, answer: n };
   }
   if (level === 2) {
+    const n = randInt(rand, 1, 6);
+    const dots = rand() < 0.5 ? DICE[n] : turnQuarter(DICE[n]);
+    return { level, type: 'quick', n, dots, choices: nearbyChoices(rand, n, 1, 6, 3), answer: n };
+  }
+  if (level === 3) {
     const n = randInt(rand, 6, 20);
     return { level, type: 'count', thing, n, answer: n };
   }
-  if (level === 3) {
+  if (level === 4) {
     const a = randInt(rand, 1, 10);
     let b = randInt(rand, 1, 9);
     if (b >= a) b += 1;

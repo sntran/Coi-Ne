@@ -4,7 +4,7 @@ export const STREAK_FOR_STAR = 5;
 
 export const MAX_LEVELS = Object.freeze({
   coloring: 1,
-  numbers: 4,
+  numbers: 5,
   patterns: 9,
   shapes: 3,
   sorting: 2,

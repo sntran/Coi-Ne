@@ -39,7 +39,8 @@ test('the params in a text are the same in both languages', () => {
 const PREFIXES = [
   'ui', 'praise', 'soi', 'home', 'game', 'settings', 'about', 'coloring', 'color', 'shape', 'size', 'num', 'thing',
   'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'memory', 'oanquan', 'taptamvong', 'oantuti',
-  'choichuyen', 'story', 'dongdao', 'pic', 'abc', 'app', 'rec',
+  'choichuyen', 'story', 'dongdao', 'pic', 'abc', 'app', 'rec', 'tones', 'trace', 'dots', 'where', 'feel', 'market',
+  'music', 'fest', 'stickers', 'rest', 'share',
 ];
 
 test('each text key in the JavaScript files is in the language files', () => {

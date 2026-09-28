@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { seeded, randInt, shuffle, sample } from '../js/logic/random.js';
-import { makeQuestion, checkAnswer, nearbyChoices } from '../js/logic/numbers.js';
+import { makeQuestion, checkAnswer, nearbyChoices, DICE } from '../js/logic/numbers.js';
 import { makePattern, checkPattern, UNITS, levelInfo, sameItem } from '../js/logic/patterns.js';
 import { makeRound as sortRound, boxFor, isRightBox } from '../js/logic/sorting.js';
 import { makeRound as shapeRound, findSlot, sameTurn, turn, DESIGNS } from '../js/logic/shapes.js';
@@ -37,6 +37,10 @@ test('numbers: the choices are different, near the answer, and have the answer',
   }
 });
 
+test('numbers: each dice pattern has the right number of pebbles', () => {
+  for (let n = 1; n <= 6; n++) assert.equal(DICE[n].length, n);
+});
+
 test('numbers: each level makes a correct question', () => {
   for (const seed of SEEDS) {
     const r = seeded(seed);
@@ -44,14 +48,20 @@ test('numbers: each level makes a correct question', () => {
     assert.ok(q1.n >= 1 && q1.n <= 10);
     assert.ok(q1.choices.includes(q1.n));
     assert.ok(checkAnswer(q1, q1.n));
-    const q2 = makeQuestion(2, r);
+    const quick = makeQuestion(2, r);
+    assert.ok(quick.n >= 1 && quick.n <= 6);
+    assert.equal(quick.dots.length, quick.n);
+    assert.ok(quick.dots.every(([x, y]) => x > 10 && x < 90 && y > 10 && y < 90));
+    assert.ok(quick.choices.includes(quick.n));
+    assert.ok(quick.choices.every((v) => v >= 1 && v <= 6));
+    const q2 = makeQuestion(3, r);
     assert.ok(q2.n >= 6 && q2.n <= 20);
-    const q3 = makeQuestion(3, r);
+    const q3 = makeQuestion(4, r);
     const [a, b] = q3.groups.map((g) => g.n);
     assert.notEqual(a, b);
     const more = a > b ? 0 : 1;
     assert.equal(q3.answer, q3.ask === 'more' ? more : 1 - more);
-    const q4 = makeQuestion(4, r);
+    const q4 = makeQuestion(5, r);
     assert.ok(q4.a >= 1 && q4.b >= 1 && q4.a + q4.b <= 10);
     assert.equal(q4.answer, q4.a + q4.b);
     assert.ok(q4.choices.includes(q4.answer));

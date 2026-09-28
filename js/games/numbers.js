@@ -52,6 +52,7 @@ export function mount(screen) {
     busy = false;
     const q = makeQuestion(level);
     if (q.type === 'match') return showMatch(q);
+    if (q.type === 'quick') return showQuick(q);
     if (q.type === 'count') return showCount(q);
     if (q.type === 'compare') return showCompare(q);
     return showAdd(q);
@@ -77,6 +78,43 @@ export function mount(screen) {
       el('div', { class: 'num-cards' }, cards),
     ]));
     screen.say([{ key: 'numbers.match', params: { n: q.n, t: thingName(q.thing, q.n) } }]);
+  }
+
+  // Quick look: the pebbles show for a short time. Then a leaf covers them. A tap shows them again.
+  function showQuick(q) {
+    const colors = ['#aab8cc', '#c9a27e', '#9fb7a0', '#d8a7b1'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const pebbles = q.dots.map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="13" ry="11" fill="${color}" stroke="#3b2a2a" stroke-width="2.5"/>
+      <path d="M${x - 6} ${y - 4} q4 -3 8 -2" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>`).join('');
+    const leaf = `<g class="quick-leaf"><path d="M8 92 C4 50 30 10 92 8 C96 60 60 94 8 92 Z" fill="#7cb87a" stroke="#3b2a2a" stroke-width="3"/>
+      <path d="M12 88 L88 12 M30 70 L22 48 M44 56 L36 30 M58 42 L52 20 M30 70 L54 76 M44 56 L70 62 M58 42 L80 46" fill="none" stroke="#4f8f5a" stroke-width="2.5" stroke-linecap="round"/></g>`;
+    const card = el('button', {
+      class: 'quick-card is-covered',
+      html: `<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="3" y="3" width="94" height="94" rx="16" fill="#f6e7cf"/><g class="quick-dots">${pebbles}</g>${leaf}</svg>`,
+      attrs: { type: 'button', 'aria-label': t('numbers.quickLook') },
+    });
+    let timer = 0;
+    const show = (ms) => {
+      clearTimeout(timer);
+      card.classList.remove('is-covered');
+      if (ms) timer = setTimeout(() => card.classList.add('is-covered'), ms);
+    };
+    onTap(card, () => {
+      if (!busy) show(1200);
+    });
+    const choices = q.choices.map((n) => digitCard(n, (value, b) => {
+      if (busy) return;
+      sfx.tap();
+      show(0);
+      done(checkAnswer(q, value), b, [{ key: `num.${q.n}` }]);
+    }));
+    screen.stage.replaceChildren(el('div', { class: 'num-layout' }, [
+      el('div', { class: 'num-top' }, [card]),
+      el('div', { class: 'num-digits' }, choices),
+    ]));
+    screen.say(['numbers.quick']).then(() => {
+      if (alive && !busy && card.isConnected) show(1500);
+    });
   }
 
   function showCount(q) {
