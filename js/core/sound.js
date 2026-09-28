@@ -53,3 +53,141 @@ export const sfx = {
   /** A ball comes down. */
   down() { tone(660, 0, 0.3, { type: 'sine', gain: 0.1, slide: 0.45 }); },
 };
+
+// Sounds of the musical instruments. The notes use the Vietnamese five-note scale
+// (hò, xự, xang, xê, cống), close to C, D, F, G, and A.
+
+export const SCALE = [261.63, 293.66, 349.23, 392.0, 440.0, 523.25, 587.33, 698.46, 784.0, 880.0, 1046.5];
+
+function noiseBuffer(seconds) {
+  const len = Math.floor(ctx.sampleRate * seconds);
+  const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+  return buf;
+}
+
+function envelope(g, t0, attack, peak, decay) {
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(peak, t0 + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + attack + decay);
+}
+
+export const instruments = {
+  /** Đàn t'rưng: a bamboo tube. A short and woody sound. */
+  trung(freq) {
+    if (!ctx) return;
+    const t0 = ctx.currentTime;
+    for (const [mult, gain] of [[1, 0.3], [2.76, 0.06], [5.4, 0.02]]) {
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq * mult;
+      envelope(g, t0, 0.005, gain, mult === 1 ? 0.7 : 0.2);
+      osc.connect(g).connect(ctx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.9);
+    }
+  },
+  /** Trống: the skin of the drum. */
+  drum() {
+    if (!ctx) return;
+    const t0 = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const g = ctx.createGain();
+    osc.frequency.setValueAtTime(130, t0);
+    osc.frequency.exponentialRampToValueAtTime(48, t0 + 0.45);
+    envelope(g, t0, 0.005, 0.6, 0.5);
+    osc.connect(g).connect(ctx.destination);
+    osc.start(t0);
+    osc.stop(t0 + 0.6);
+    const src = ctx.createBufferSource();
+    src.buffer = noiseBuffer(0.1);
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass';
+    f.frequency.value = 900;
+    const ng = ctx.createGain();
+    envelope(ng, t0, 0.002, 0.2, 0.08);
+    src.connect(f).connect(ng).connect(ctx.destination);
+    src.start(t0);
+  },
+  /** Trống: the wooden rim of the drum. A short "cắc" sound. */
+  rim() {
+    if (!ctx) return;
+    const t0 = ctx.currentTime;
+    const src = ctx.createBufferSource();
+    src.buffer = noiseBuffer(0.06);
+    const f = ctx.createBiquadFilter();
+    f.type = 'bandpass';
+    f.frequency.value = 2200;
+    f.Q.value = 3;
+    const g = ctx.createGain();
+    envelope(g, t0, 0.001, 0.5, 0.05);
+    src.connect(f).connect(g).connect(ctx.destination);
+    src.start(t0);
+    tone(1500, 0, 0.05, { type: 'square', gain: 0.03 });
+  },
+  /** Sáo trúc: the flute. The sound lasts until stop() is called. */
+  flute(freq) {
+    if (!ctx) return { stop() {} };
+    const t0 = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    const vib = ctx.createOscillator();
+    vib.frequency.value = 5.5;
+    const vibGain = ctx.createGain();
+    vibGain.gain.value = freq * 0.012;
+    vib.connect(vibGain).connect(osc.frequency);
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(0.2, t0 + 0.08);
+    const breath = ctx.createBufferSource();
+    breath.buffer = noiseBuffer(2);
+    breath.loop = true;
+    const bf = ctx.createBiquadFilter();
+    bf.type = 'bandpass';
+    bf.frequency.value = freq * 2;
+    const bg = ctx.createGain();
+    bg.gain.value = 0.015;
+    breath.connect(bf).connect(bg).connect(ctx.destination);
+    osc.connect(g).connect(ctx.destination);
+    osc.start(t0);
+    vib.start(t0);
+    breath.start(t0);
+    return {
+      stop() {
+        const t1 = ctx.currentTime;
+        g.gain.cancelScheduledValues(t1);
+        g.gain.setValueAtTime(g.gain.value, t1);
+        g.gain.exponentialRampToValueAtTime(0.0001, t1 + 0.12);
+        bg.gain.setValueAtTime(0.0001, t1 + 0.1);
+        osc.stop(t1 + 0.15);
+        vib.stop(t1 + 0.15);
+        breath.stop(t1 + 0.15);
+      },
+    };
+  },
+  /** Đàn bầu: pluck the string. bend(ratio) changes the pitch while the string sounds. */
+  bau(freq) {
+    if (!ctx) return { bend() {} };
+    const t0 = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    osc.type = 'sawtooth';
+    osc.frequency.value = freq;
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass';
+    f.frequency.setValueAtTime(2400, t0);
+    f.frequency.exponentialRampToValueAtTime(500, t0 + 1.5);
+    const g = ctx.createGain();
+    envelope(g, t0, 0.01, 0.2, 2.2);
+    osc.connect(f).connect(g).connect(ctx.destination);
+    osc.start(t0);
+    osc.stop(t0 + 2.4);
+    return {
+      bend(ratio) {
+        osc.frequency.setTargetAtTime(freq * ratio, ctx.currentTime, 0.05);
+      },
+    };
+  },
+};

@@ -427,3 +427,14 @@ test('floating market: the order is on the boats, and the basket takes only what
     }
   }
 });
+
+import { bendRatio, NOTES, INSTRUMENTS } from '../js/logic/music.js';
+
+test('instruments: the notes are in the scale, and the lever bends the pitch up to 7 half steps', () => {
+  assert.deepEqual(INSTRUMENTS, ['trung', 'trong', 'sao', 'bau']);
+  for (const notes of Object.values(NOTES)) for (const n of notes) assert.ok(n >= 0 && n <= 10);
+  assert.equal(bendRatio(0), 1);
+  assert.ok(Math.abs(bendRatio(1) - 2 ** (7 / 12)) < 1e-9);
+  assert.equal(bendRatio(-1), 1);
+  assert.equal(bendRatio(2), bendRatio(1));
+});

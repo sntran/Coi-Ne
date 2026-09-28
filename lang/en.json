@@ -750,5 +750,18 @@
   "market.thanks": "Thank you! Let's go home to Mom.",
   "market.boat": "boat that sells {f}",
   "market.basket": "your basket",
-  "home.explore": "Play and explore"
+  "home.explore": "Play and explore",
+  "game.music.name": "Musical instruments",
+  "settings.levels.music": "One level. Free play.",
+  "music.choose": "Which instrument do you want to play?",
+  "music.other": "Other instruments",
+  "music.trung": "the t'rưng, a bamboo xylophone",
+  "music.trong": "the drum",
+  "music.sao": "the bamboo flute",
+  "music.bau": "the đàn bầu, a one-string instrument",
+  "music.lever": "the lever",
+  "music.how.trung": "The t'rưng is made of bamboo, from the Central Highlands. Tap each bamboo tube.",
+  "music.how.trong": "Tap the middle of the drum: boom! Tap the edge: tap!",
+  "music.how.sao": "Hold a hole of the flute to hear it. Let go to stop.",
+  "music.how.bau": "Tap the string. Then move the lever up and down, and the sound bends."
 }

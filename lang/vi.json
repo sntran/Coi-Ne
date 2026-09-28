@@ -750,5 +750,18 @@
   "market.thanks": "Cảm ơn cô! Mình về nhà với má thôi.",
   "market.boat": "ghe bán {f}",
   "market.basket": "giỏ của con",
-  "home.explore": "Vui chơi và khám phá"
+  "home.explore": "Vui chơi và khám phá",
+  "game.music.name": "Nhạc cụ",
+  "settings.levels.music": "Một cấp. Chơi tự do.",
+  "music.choose": "Con muốn chơi nhạc cụ nào?",
+  "music.other": "Nhạc cụ khác",
+  "music.trung": "đàn t'rưng",
+  "music.trong": "cái trống",
+  "music.sao": "cây sáo trúc",
+  "music.bau": "đàn bầu",
+  "music.lever": "cần đàn",
+  "music.how.trung": "Đàn t'rưng làm bằng tre, ở Tây Nguyên. Con gõ vô từng ống tre nha.",
+  "music.how.trong": "Con gõ vô mặt trống: tùng! Gõ vô vành trống: cắc!",
+  "music.how.sao": "Con giữ một lỗ sáo để nghe tiếng sáo. Thả tay ra thì dừng.",
+  "music.how.bau": "Con chạm vô sợi dây. Rồi kéo cần đàn lên xuống, tiếng đàn sẽ uốn cong nè."
 }
