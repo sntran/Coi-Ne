@@ -55,7 +55,10 @@ function showStart() {
     unlockSpeech();
     unlockSound();
     sfx.happy();
-    route().then(() => speak('soi.look'));
+    const atHome = !location.hash.startsWith('#/play/');
+    route().then(() => {
+      if (atHome) speak('soi.look');
+    });
   };
   onTap(play, begin);
   play.addEventListener('click', begin);
