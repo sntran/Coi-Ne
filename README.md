@@ -37,6 +37,8 @@ Hold the gear button on the home screen for 3 seconds. The settings let you chan
 - The language: Vietnamese (the default) or English.
 - The voice: on or off. When the voice is off, the games show the text with a speaker icon.
 - The speech rate.
+- The voice for Vietnamese and for English, if the device has more than one voice. Tap a voice to hear it.
+- **Record your own voice** (see below).
 - The level of each game.
 - The **About** page: the goal of Coi Nè, and the source and license of each picture.
 
@@ -185,8 +187,29 @@ A small shape (for example an eye) becomes a detail that the child cannot tap.
 
 ## Add your recorded voice
 
-`speak(key)` first looks for a recorded file for the key. If the file exists, it plays the file.
-If not, it uses the voice of the device.
+The voice of the device can have an accent that is not yours. For example, most Vietnamese voices
+on devices have a Northern accent. Your own recordings replace the voice of the device.
+`speak(key)` looks for a sound in this order:
+
+1. A recording that you made in the app.
+2. A recorded file in `audio/vi/` or `audio/en/`.
+3. The voice of the device.
+
+### Record in the app (easy)
+
+1. Hold the gear button for 3 seconds to open the settings.
+2. Tap **Ghi âm giọng của ba mẹ** (Record your own voice).
+3. Choose the language. Open a group, for example **Câu hay dùng** (common phrases).
+4. Tap the red button to record a text. Tap it again to stop. The app saves the recording at once and plays it.
+   A green dot shows the texts that have a recording. The play button plays the text, and the trash button
+   deletes the recording.
+
+The recordings are in the IndexedDB storage of the browser on this device, because they are too large for
+`localStorage`. They work offline. They do not go to other devices.
+On an iPad or iPhone, add Coi Nè to the Home Screen (Share → Add to Home Screen), and use it from there.
+If you do not, Safari can delete the data of a website that you do not open for 7 days.
+
+### Add recorded files (for all devices)
 
 1. Find the key of the text in `lang/vi.json` or `lang/en.json`, for example `praise.great` ("Giỏi quá!").
 2. Record the text. Save it as `<key>.mp3`, for example `audio/vi/praise.great.mp3`.
@@ -195,7 +218,13 @@ If not, it uses the voice of the device.
 4. Run `node tools/build-sw.js`, so that the recorded files also work offline.
 
 Texts with a number or a name in them (for example `numbers.match`, "Tìm nhóm có {n} {t}.") always use
-the voice of the device, because the sentence changes.
+the voice of the device, because the sentence changes. The recorder does not show these texts.
+
+## Southern Vietnamese
+
+The Vietnamese texts use Southern words, for example "nha", "vô", "trái", "heo", "bắp", "thơm", "vớ",
+"dù", "nón", "tô phở", "chén cơm", "lồng đèn", "trái banh", "lượm", and "ba mẹ".
+The đồng dao texts are the traditional texts.
 
 ## Pictures and licenses
 

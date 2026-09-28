@@ -11,6 +11,11 @@ export async function loadLanguages() {
   }));
 }
 
+/** All the texts of one language. */
+export function loadedTexts(lang) {
+  return texts[lang];
+}
+
 export function getLang() {
   return current;
 }

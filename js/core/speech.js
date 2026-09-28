@@ -3,9 +3,14 @@
 // If the device has no voice for the language, it shows the text.
 
 import { t, getLang, otherLang } from './i18n.js';
+import { listClips, getClip } from './clips.js';
+import { clipId } from '../logic/recordings.js';
 
 const recorded = { vi: new Map(), en: new Map() };
-const options = { voice: true, rate: 0.9 };
+// The recordings of the parent, in IndexedDB. They come before the files and the device voice.
+const clips = new Set();
+const clipUrls = new Map();
+const options = { voice: true, rate: 0.9, voices: { vi: null, en: null } };
 let voices = [];
 let token = 0;
 let player = null;
@@ -28,6 +33,7 @@ export async function initSpeech() {
       // No list of recorded files. Use the voice of the device.
     }
   }));
+  for (const id of await listClips()) clips.add(id);
   if (synth) {
     refreshVoices();
     synth.addEventListener?.('voiceschanged', refreshVoices);
@@ -50,9 +56,55 @@ export function setSpeechOptions(next) {
   Object.assign(options, next);
 }
 
+/** Speak a text in one language with one voice, to test the voice. */
+export function testVoice(key, lang, voice) {
+  stopSpeech();
+  if (!synth || !voice) return;
+  const u = new SpeechSynthesisUtterance(t(key, undefined, lang));
+  u.voice = voice;
+  u.lang = voice.lang;
+  u.rate = options.rate;
+  synth.speak(u);
+}
+
+/** All the voices of the device for a language. */
+export function listVoices(lang) {
+  refreshVoices();
+  return voices.filter((v) => v.lang && v.lang.toLowerCase().replace('_', '-').startsWith(lang));
+}
+
+/** The voice for a language: the voice that the parent chose, or else the best voice of the device. */
 export function findVoice(lang) {
-  const list = voices.filter((v) => v.lang && v.lang.toLowerCase().replace('_', '-').startsWith(lang));
+  const list = listVoices(lang);
+  const chosen = options.voices?.[lang];
+  if (chosen) {
+    const match = list.find((v) => v.voiceURI === chosen || v.name === chosen);
+    if (match) return match;
+  }
   return list.find((v) => v.localService && v.default) || list.find((v) => v.localService) || list[0] || null;
+}
+
+/** Tell the voice that a recording of the parent was added or removed. */
+export function noteClip(lang, key, present) {
+  const id = clipId(lang, key);
+  if (present) clips.add(id);
+  else clips.delete(id);
+  const url = clipUrls.get(id);
+  if (url) URL.revokeObjectURL(url);
+  clipUrls.delete(id);
+}
+
+export function hasClip(lang, key) {
+  return clips.has(clipId(lang, key));
+}
+
+async function clipUrl(id) {
+  if (!clipUrls.has(id)) {
+    const blob = await getClip(id);
+    if (!blob) return null;
+    clipUrls.set(id, URL.createObjectURL(blob));
+  }
+  return clipUrls.get(id);
 }
 
 export function hasVoice(lang) {
@@ -137,6 +189,11 @@ function speakText(text, lang, my) {
 async function speakOne(item, my) {
   const lang = item.lang || getLang();
   const text = t(item.key, item.params, lang);
+  if (my !== token) return;
+  if (options.voice && !item.params && clips.has(clipId(lang, item.key))) {
+    const url = await clipUrl(clipId(lang, item.key));
+    if (url && (await playFile(url, my))) return;
+  }
   if (my !== token) return;
   if (options.voice && !item.params && recorded[lang].has(item.key)) {
     const ok = await playFile(`audio/${lang}/${recorded[lang].get(item.key)}`, my);

@@ -1,8 +1,13 @@
 // The parent gate and the settings for parents.
 // The settings button opens only after a parent holds it for 3 seconds.
 
-import { t } from './i18n.js';
-import { speak, findVoice, setSpeechOptions, stopSpeech } from './speech.js';
+import { t, loadedTexts } from './i18n.js';
+import {
+  speak, speakAll, findVoice, listVoices, testVoice, setSpeechOptions, stopSpeech, noteClip, hasClip,
+} from './speech.js';
+import { putClip, deleteClip } from './clips.js';
+import { canRecord, startRecording, releaseMicrophone } from './recorder.js';
+import { recordableGroups, clipId } from '../logic/recordings.js';
 import { el, onTap, iconButton } from './ui.js';
 import { icons } from './icons.js';
 import { getSettings, updateSettings, gameLevel, changeLevel, gameStars } from './state.js';
@@ -69,14 +74,43 @@ function choice(options, value, onPick) {
   return wrap;
 }
 
+/** The voices of the device for each language. A tap on a voice plays a sample and chooses the voice. */
 function voiceStatus() {
   const box = el('div', { class: 'set-voices' });
   for (const lang of ['vi', 'en']) {
     const voice = findVoice(lang);
+    const langName = { key: `settings.lang.${lang}` };
     const text = voice
-      ? t('settings.voiceFound', { lang: { key: `settings.lang.${lang}` }, name: voice.name })
-      : t('settings.voiceMissing', { lang: { key: `settings.lang.${lang}` } });
+      ? t('settings.voiceFound', { lang: langName, name: voice.name })
+      : t('settings.voiceMissing', { lang: langName });
     box.append(el('p', { class: voice ? 'voice-ok' : 'voice-warn', text }));
+    const list = listVoices(lang);
+    if (!list.length) continue;
+    const chosen = getSettings().voices[lang];
+    const pills = el('div', { class: 'set-choice set-voice-list' });
+    const pick = (value, sample) => {
+      updateSettings({ voices: { ...getSettings().voices, [lang]: value } });
+      setSpeechOptions({ voices: getSettings().voices });
+      if (sample) testVoice('settings.rateSample', lang, sample);
+      else speakAll([{ key: 'settings.rateSample', lang }]);
+      renderSettings();
+    };
+    const auto = el('button', { class: `set-pill ${!chosen ? 'is-on' : ''}`, text: t('settings.voiceAuto'), attrs: { type: 'button' } });
+    onTap(auto, () => pick(null, null));
+    pills.append(auto);
+    for (const v of list) {
+      const id = v.voiceURI || v.name;
+      const b = el('button', { class: `set-pill ${chosen === id ? 'is-on' : ''}`, text: `${v.name} (${v.lang})`, attrs: { type: 'button' } });
+      onTap(b, () => pick(id, v));
+      pills.append(b);
+    }
+    box.append(el('div', { class: 'set-row set-voice-row' }, [
+      el('div', { class: 'set-label' }, [
+        el('div', { text: t('settings.voiceChoose', { lang: langName }) }),
+        el('div', { class: 'set-hint', text: t('settings.voiceChooseHint') }),
+      ]),
+      pills,
+    ]));
   }
   return box;
 }
@@ -116,8 +150,123 @@ export function openSettings() {
 }
 
 export function closeSettings() {
+  stopRecording();
+  releaseMicrophone();
   panel?.remove();
   panel = null;
+}
+
+// The recorder page: the parent records each text with the own voice.
+
+let recording = null;
+
+function stopRecording() {
+  if (!recording) return;
+  const { row, ctrl } = recording;
+  recording = null;
+  row.classList.remove('is-recording');
+  const btn = row.querySelector('.rec-record');
+  if (btn) btn.innerHTML = icons.record;
+  ctrl.stop().catch(() => {});
+}
+
+function recordRow(lang, key, counter) {
+  const text = el('div', { class: 'rec-text', text: t(key, undefined, lang), attrs: { lang } });
+  const mark = el('span', { class: 'rec-mark', attrs: { 'aria-label': t('rec.hasClip') } });
+  const listen = iconButton('listen', 'rec.play', () => {
+    stopRecording();
+    speakAll([{ key, lang }]);
+  }, 'rec-btn');
+  const record = iconButton('record', 'rec.record', () => toggle(), 'rec-btn rec-record');
+  const remove = iconButton('clear', 'rec.delete', async () => {
+    if (!window.confirm(t('rec.deleteConfirm'))) return;
+    await deleteClip(clipId(lang, key)).catch(() => {});
+    noteClip(lang, key, false);
+    show();
+    counter();
+  }, 'rec-btn');
+  const row = el('div', { class: 'rec-row' }, [mark, text, el('div', { class: 'rec-actions' }, [listen, record, remove])]);
+  function show() {
+    const has = hasClip(lang, key);
+    row.classList.toggle('has-clip', has);
+    remove.hidden = !has;
+  }
+  async function toggle() {
+    if (recording && recording.row === row) {
+      // Stop and save.
+      const r = recording;
+      recording = null;
+      row.classList.remove('is-recording');
+      record.innerHTML = icons.record;
+      try {
+        const blob = await r.ctrl.stop();
+        if (blob.size > 0) {
+          await putClip(clipId(lang, key), blob);
+          noteClip(lang, key, true);
+          show();
+          counter();
+          speakAll([{ key, lang }]);
+        }
+      } catch {
+        panel?.querySelector('.rec-error')?.replaceChildren(t('rec.saveError'));
+      }
+      return;
+    }
+    stopRecording();
+    stopSpeech();
+    try {
+      const ctrl = await startRecording();
+      recording = { row, ctrl };
+      row.classList.add('is-recording');
+      record.innerHTML = icons.stop;
+      // The recorder stops by itself after a time. Then save the sound.
+      ctrl.done.then(() => { if (recording && recording.ctrl === ctrl) toggle(); });
+    } catch {
+      panel?.querySelector('.rec-error')?.replaceChildren(t('rec.noMic'));
+    }
+  }
+  show();
+  return row;
+}
+
+function renderRecorder(lang) {
+  stopRecording();
+  stopSpeech();
+  const back = iconButton('left', 'ui.back', () => {
+    stopRecording();
+    releaseMicrophone();
+    renderSettings();
+  }, 'set-close');
+  const groups = recordableGroups(loadedTexts(lang), lang);
+  const total = groups.reduce((n, g) => n + g.keys.length, 0);
+  const count = el('p', { class: 'set-hint rec-count' });
+  const counter = () => {
+    const n = groups.reduce((sum, g) => sum + g.keys.filter((k) => hasClip(lang, k)).length, 0);
+    count.textContent = t('rec.count', { n, total });
+  };
+  counter();
+  const langChoice = choice([['vi', 'settings.lang.vi'], ['en', 'settings.lang.en']], lang, (v) => renderRecorder(v));
+  const sections = groups.map((g) => {
+    const list = el('div', { class: 'rec-list' });
+    const summary = el('summary', { text: t(`rec.group.${g.id}`) });
+    const details = el('details', { class: 'rec-group' }, [summary, list]);
+    // Make the rows only when the parent opens the group, because there are many rows.
+    details.addEventListener('toggle', () => {
+      if (details.open && !list.childElementCount) list.append(...g.keys.map((k) => recordRow(lang, k, counter)));
+    });
+    return details;
+  });
+  const card = el('div', { class: 'settings-card rec-card' }, [
+    el('div', { class: 'set-head' }, [back, el('h2', { text: t('rec.open') })]),
+    el('p', { text: t('rec.intro') }),
+    el('p', { class: 'voice-warn', text: t('rec.keepNote') }),
+    canRecord() ? null : el('p', { class: 'voice-warn', text: t('rec.noSupport') }),
+    el('p', { class: 'rec-error voice-warn-text', attrs: { role: 'status' } }),
+    row('rec.language', langChoice),
+    count,
+    ...sections,
+  ]);
+  panel.replaceChildren(card);
 }
 
 function renderSettings() {
@@ -153,6 +302,11 @@ function renderSettings() {
     el('h3', { class: 'set-sub', text: t('settings.levels') }),
     levelRows(),
     el('div', { class: 'set-foot' }, [
+      (() => {
+        const rec = el('button', { class: 'set-pill is-on', text: t('rec.open'), attrs: { type: 'button' } });
+        onTap(rec, () => renderRecorder(getSettings().lang));
+        return rec;
+      })(),
       (() => {
         const about = el('button', { class: 'set-pill is-on', text: t('about.title'), attrs: { type: 'button' } });
         onTap(about, renderAbout);

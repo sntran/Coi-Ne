@@ -7,6 +7,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   lang: 'vi',
   voice: true,
   rate: 0.9,
+  voices: Object.freeze({ vi: null, en: null }),
 });
 
 export function createStore(storage, prefix = PREFIX) {
@@ -47,6 +48,12 @@ export function loadSettings(store) {
   s.voice = s.voice !== false;
   const rate = Number(s.rate);
   s.rate = Number.isFinite(rate) ? Math.min(1.3, Math.max(0.5, rate)) : DEFAULT_SETTINGS.rate;
+  // The voice that the parent chose for each language, or null for the best voice of the device.
+  const v = s.voices && typeof s.voices === 'object' ? s.voices : {};
+  s.voices = {
+    vi: typeof v.vi === 'string' && v.vi ? v.vi : null,
+    en: typeof v.en === 'string' && v.en ? v.en : null,
+  };
   return s;
 }
 

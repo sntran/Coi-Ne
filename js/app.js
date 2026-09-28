@@ -69,7 +69,7 @@ async function boot() {
   await Promise.all([loadLanguages(), loadImages()]);
   setLang(settings.lang);
   await initSpeech();
-  setSpeechOptions({ voice: settings.voice, rate: settings.rate });
+  setSpeechOptions({ voice: settings.voice, rate: settings.rate, voices: settings.voices });
   onCaption(showCaption);
   onSettingsChange(({ lang }) => {
     if (lang) {
