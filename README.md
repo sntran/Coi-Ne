@@ -14,7 +14,7 @@ The children in this family were born in the US. The parents were born in Vietna
 - Help the child connect Vietnamese and English. Vietnamese is the main language. English is a tap away.
 
 The child does not have to read. The voice speaks each instruction. There are no timers, no lives,
-no scores that go down, and no "game over" screen. A wrong answer gets a kind "Thử lại nhé".
+no scores that go down, and no "game over" screen. A wrong answer gets a kind "Thử lại nha".
 
 ## How to play
 

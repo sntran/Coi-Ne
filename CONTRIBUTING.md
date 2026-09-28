@@ -22,5 +22,5 @@ Do not put text in the HTML or the JavaScript. Each key must be in both files.
 - The child must be able to play without reading. Speak each instruction.
 - Make all touch targets at least 80 px.
 - Do not use timers, lives, scores that go down, or a "game over" screen.
-- A wrong answer gets a soft "Thử lại nhé". Do not use a sound that means "wrong".
+- A wrong answer gets a soft "Thử lại nha". Do not use a sound that means "wrong".
 - Put the game rules in `js/logic/`. These modules must not use the DOM. Add tests for them.
