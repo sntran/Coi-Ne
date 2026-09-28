@@ -1434,3 +1434,42 @@ svg { display: block; }
   .chichi-rhyme { display: block; font-size: 22px; }
   .chichi-hand { width: auto; height: min(100%, 340px); }
 }
+
+/* Nu na nu nống */
+
+.nuna-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.nuna-lyric { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; min-height: 52px; padding: 8px 18px; border-radius: 26px; background: #fff; box-shadow: 0 6px 18px rgb(59 42 42 / 0.1); }
+.nuna-word { font-size: 30px; font-weight: 800; color: #c9b9a6; transition: color 0.15s ease, transform 0.15s ease; }
+.nuna-word.is-sung { color: var(--ink); }
+.nuna-word.is-now { color: var(--lantern); transform: scale(1.15); }
+.nuna-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; }
+.nuna-kid { display: flex; flex-direction: column; align-items: center; }
+.nuna-body { width: 150px; height: 135px; margin-bottom: -18px; position: relative; z-index: 1; }
+.nuna-body svg { width: 100%; height: 100%; }
+.nuna-legs { display: flex; gap: 0; }
+.nuna-leg { width: 80px; height: 170px; display: grid; place-items: start center; border-radius: 30px; transition: transform 0.35s ease, background 0.2s ease; transform-origin: 50% 0; }
+.nuna-leg svg { width: 44px; height: 132px; }
+.nuna-leg.is-next { background: radial-gradient(ellipse at 50% 80%, #fff4c2 0 45%, transparent 70%); animation: breathe 1.2s ease-in-out infinite; }
+.nuna-leg.is-touched svg { animation: pop 0.3s ease; }
+.nuna-leg.is-folded { transform: scaleY(0.42); opacity: 0.8; pointer-events: none; }
+@media (min-width: 700px) and (min-height: 700px) {
+  .nuna-body { width: 230px; height: 207px; margin-bottom: -26px; }
+  .nuna-leg { width: 112px; height: 270px; }
+  .nuna-leg svg { width: 68px; height: 206px; }
+  .nuna-word { font-size: 38px; }
+}
+@media (orientation: portrait) and (max-width: 600px) {
+  .nuna-row { gap: 8px 14px; }
+  .nuna-body { width: 120px; height: 108px; }
+  .nuna-leg { height: 150px; }
+  .nuna-leg svg { height: 118px; }
+  .nuna-word { font-size: 26px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .nuna-layout { gap: 8px; }
+  .nuna-lyric { min-height: 40px; padding: 4px 14px; }
+  .nuna-word { font-size: 24px; }
+  .nuna-body { width: 110px; height: 96px; margin-bottom: -14px; }
+  .nuna-leg { height: 150px; }
+  .nuna-leg svg { height: 118px; }
+}
