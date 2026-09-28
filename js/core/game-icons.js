@@ -16,6 +16,13 @@ export const gameIcons = {
     <rect x="12" y="20" width="96" height="80" rx="16" fill="#fff8ec" ${st}/>
     ${pebble(34, 42, 9, '#e0463c')}${pebble(60, 42, 9, '#ffd166')}${pebble(86, 42, 9, '#7cb87a')}
     ${pebble(47, 72, 9, '#8fd3f4')}${pebble(73, 72, 9, '#f7a8c4')}`),
+  share: w(`
+    <ellipse cx="32" cy="80" rx="26" ry="14" fill="#fff" ${st}/><ellipse cx="88" cy="80" rx="26" ry="14" fill="#fff" ${st}/>
+    <circle cx="23" cy="72" r="9" fill="#ffd166" ${st}/><circle cx="41" cy="72" r="9" fill="#ffd166" ${st}/>
+    <circle cx="79" cy="72" r="9" fill="#ffd166" ${st}/><circle cx="97" cy="72" r="9" fill="#ffd166" ${st}/>
+    <circle cx="32" cy="30" r="14" fill="#f2c7a5" ${st}/><circle cx="88" cy="30" r="14" fill="#f2c7a5" ${st}/>
+    <path d="M26 33 q6 6 12 0 M82 33 q6 6 12 0" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M52 50 H68 M52 58 H68" stroke="#e0463c" stroke-width="5" stroke-linecap="round"/>`),
   patterns: w(`
     <circle cx="20" cy="60" r="12" fill="#e0463c" ${st}/><circle cx="48" cy="60" r="12" fill="#8fd3f4" ${st}/>
     <circle cx="76" cy="60" r="12" fill="#e0463c" ${st}/>
@@ -104,7 +111,7 @@ export const gameIcons = {
     <path d="M60 44 V62 M52 54 L60 62 L68 54" fill="none" ${st}/>`),
 };
 
-export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'dots', 'memory', 'where', 'feelings'];
+export const LEARNING_GAMES = ['coloring', 'numbers', 'share', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'dots', 'memory', 'where', 'feelings'];
 export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen'];
 export const EXPLORE_GAMES = ['market', 'music', 'festival'];
 export const ALL_GAMES = [...LEARNING_GAMES, ...FOLK_GAMES, ...EXPLORE_GAMES];

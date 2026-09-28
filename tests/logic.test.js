@@ -500,3 +500,73 @@ test('sticker book: a star gives a new sticker, and the book saves places', () =
   assert.deepEqual(normalizeBook({ scenes: { village: [{ id: 'bad', x: 0, y: 0 }, null] } }).scenes.village, []);
   assert.deepEqual(normalizeBook('x'), emptyBook());
 });
+
+import { makeRound as shareRound, startPlates, give, takeBack, isFair, isFull, moods, skipCounts, fullRows, checkTotal, THINGS as SHARE_THINGS } from '../js/logic/share.js';
+
+test('fair share: level 1 is fair only when the pool is empty and the plates are equal', () => {
+  const images = readJson('data/images.json');
+  for (const pic of [...SHARE_THINGS, 'seedling']) assert.ok(images[pic], pic);
+  for (const seed of SEEDS) {
+    const round = shareRound(1, seeded(seed));
+    assert.ok(round.friends === 2 || round.friends === 3);
+    assert.equal(round.total, round.friends * round.each);
+    assert.ok(round.total >= 3 && round.total <= 6);
+    let s = startPlates(round);
+    assert.equal(s.pool, round.total);
+    // Give all the things to the first friend: not fair, and the others are sad.
+    for (let i = 0; i < round.total; i++) s = give(round, s, 0).state;
+    assert.equal(give(round, s, 1).event, 'empty');
+    assert.ok(!isFair(s));
+    assert.deepEqual(moods(s), ['happy', ...Array(round.friends - 1).fill('sad')]);
+    // Take back and share one by one.
+    while (s.plates[0]) s = takeBack(s, 0).state;
+    assert.equal(takeBack(s, 0).event, 'none');
+    for (let i = 0; i < round.total; i++) s = give(round, s, i % round.friends).state;
+    assert.ok(isFair(s));
+    assert.ok(moods(s).every((m) => m === 'happy'));
+  }
+});
+
+test('fair share: a friend with fewer things waits while the pool has more things', () => {
+  const round = { level: 1, friends: 2, each: 2, total: 4 };
+  const s = give(round, startPlates(round), 0).state;
+  assert.deepEqual(moods(s), ['happy', 'wait']);
+});
+
+test('fair share: level 2 plates take only the number that the friend wants', () => {
+  for (const seed of SEEDS) {
+    const round = shareRound(2, seeded(seed));
+    assert.ok(round.friends >= 2 && round.friends <= 4);
+    assert.ok(round.each >= 2);
+    assert.ok(round.total <= 10);
+    assert.equal(round.choices.length, 3);
+    assert.ok(round.choices.includes(round.total));
+    let s = startPlates(round);
+    assert.equal(s.pool, round.total + round.extra);
+    for (let p = 0; p < round.friends; p++) {
+      for (let i = 0; i < round.each; i++) s = give(round, s, p).state;
+      assert.equal(give(round, s, p).event, 'full');
+    }
+    assert.ok(isFull(round, s));
+    assert.equal(s.pool, round.extra);
+    assert.ok(checkTotal(round, round.total));
+    assert.ok(!checkTotal(round, round.total + 1));
+  }
+});
+
+test('fair share: count by groups, and level 3 finds the full rows', () => {
+  assert.deepEqual(skipCounts(2, 3), [2, 4, 6]);
+  assert.deepEqual(skipCounts(5, 2), [5, 10]);
+  for (const seed of SEEDS) {
+    const round = shareRound(3, seeded(seed));
+    assert.equal(round.total, round.rows * round.cols);
+    assert.ok(round.total <= 12);
+    assert.ok(round.choices.includes(round.total));
+  }
+  const round = { rows: 2, cols: 3 };
+  const planted = new Set(['0,0', '0,1', '0,2', '1,0']);
+  assert.deepEqual(fullRows(round, planted), [0]);
+  planted.add('1,1');
+  planted.add('1,2');
+  assert.deepEqual(fullRows(round, planted), [0, 1]);
+});

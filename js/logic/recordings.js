@@ -4,7 +4,7 @@
 const NOT_SPOKEN = new Set([
   'coloring.gallery', 'coloring.groups', 'coloring.palette', 'coloring.undo', 'coloring.clear', 'coloring.save',
   'coloring.delete', 'numbers.group', 'numbers.plusSign', 'oanquan.kid', 'sorting.item', 'memory.card',
-  'letters.grid', 'taptamvong.hand', 'taptamvong.cup', 'soi.name',
+  'letters.grid', 'taptamvong.hand', 'taptamvong.cup', 'soi.name', 'share.plate', 'share.hole',
 ]);
 const NOT_SPOKEN_PREFIXES = ['settings.', 'about.', 'app.', 'ui.', 'rec.'];
 
@@ -35,7 +35,7 @@ export function groupOf(key) {
   if (/^(color|shape|size)\./.test(key)) return 'colors';
   if (key.startsWith('num.')) return 'numbers';
   if (key.startsWith('abc.')) return 'letters';
-  if (/^(pic|thing|coloring\.group|shapes\.design|oantuti\.hand)\./.test(key) || key === 'choichuyen.ball' || key === 'choichuyen.stick') return 'pictures';
+  if (/^(pic|thing|share\.thing|coloring\.group|shapes\.design|oantuti\.hand)\./.test(key) || key === 'choichuyen.ball' || key === 'choichuyen.stick') return 'pictures';
   if (key.startsWith('dongdao.') || key.startsWith('story.')) return 'rhymes';
   return 'instructions';
 }
