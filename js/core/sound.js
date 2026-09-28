@@ -191,3 +191,56 @@ export const instruments = {
     };
   },
 };
+
+/** True when the device can play the sounds of the games. */
+export function hasSound() {
+  return Boolean(ctx);
+}
+
+/**
+ * The call of a goat: "beee". A buzzy tone that shakes fast, like the voice of a goat.
+ * @param {number} gain the loudness, from 0 to 1
+ * @param {number} pan from -1 (left) to 1 (right)
+ */
+export function bleat(gain = 0.5, pan = 0) {
+  if (!ctx) return;
+  const t0 = ctx.currentTime;
+  const dur = 0.55;
+  const osc = ctx.createOscillator();
+  osc.type = 'sawtooth';
+  osc.frequency.setValueAtTime(470, t0);
+  osc.frequency.linearRampToValueAtTime(420, t0 + dur);
+  // The fast shake of the voice.
+  const shake = ctx.createOscillator();
+  shake.frequency.value = 11;
+  const shakeDepth = ctx.createGain();
+  shakeDepth.gain.value = 0.5;
+  const amp = ctx.createGain();
+  amp.gain.value = 0.5;
+  shake.connect(shakeDepth).connect(amp.gain);
+  const nose = ctx.createBiquadFilter();
+  nose.type = 'bandpass';
+  nose.frequency.value = 1300;
+  nose.Q.value = 1.4;
+  const soft = ctx.createBiquadFilter();
+  soft.type = 'lowpass';
+  soft.frequency.value = 3200;
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.0001, t0);
+  g.gain.exponentialRampToValueAtTime(Math.max(0.001, 0.9 * gain), t0 + 0.06);
+  g.gain.setValueAtTime(0.9 * gain, t0 + dur - 0.15);
+  g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  let out = g;
+  if (ctx.createStereoPanner) {
+    const p = ctx.createStereoPanner();
+    p.pan.value = pan;
+    g.connect(p);
+    out = p;
+  }
+  osc.connect(amp).connect(nose).connect(soft).connect(g);
+  out.connect(ctx.destination);
+  osc.start(t0);
+  shake.start(t0);
+  osc.stop(t0 + dur + 0.05);
+  shake.stop(t0 + dur + 0.05);
+}
