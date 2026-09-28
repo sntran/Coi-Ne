@@ -740,7 +740,7 @@
   "market.fruit.cam.1": "orange",
   "market.fruit.cam.n": "oranges",
   "game.market.name": "Floating market",
-  "settings.levels.market": "1: buy up to 3 · 2: buy up to 5 · 3: buy two kinds of fruit",
+  "settings.levels.market": "1: buy up to 3 · 2: buy up to 5 · 3: buy two kinds of fruit · 4: buy fruit in bags",
   "market.intro": "This is a floating market in the Mekong Delta. People sell fruit on boats. The tall pole shows what each boat sells.",
   "market.order1": "Mom says: buy {n} {f}.",
   "market.order2": "Mom says: buy {n1} {f1} and {n2} {f2}.",
@@ -836,5 +836,7 @@
   "share.plate": "the plate of a friend",
   "share.hole": "a hole to plant",
   "numbers.quick": "Look fast! How many pebbles?",
-  "numbers.quickLook": "tap to look again"
+  "numbers.quickLook": "tap to look again",
+  "market.orderBags": "Mom says: buy {b} bags of {f}, with {p} in each bag.",
+  "market.bagsResult": "{b} bags, with {p} in each bag: {n} {f} in all."
 }

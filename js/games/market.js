@@ -6,7 +6,7 @@ import { sfx } from '../core/sound.js';
 import { el, onTap, answer, wait, reloadGame, langBadge, burst } from '../core/ui.js';
 import { picture, imageFile } from '../core/images.js';
 import { gameLevel } from '../core/state.js';
-import { FRUITS, makeOrder, addFruit } from '../logic/market.js';
+import { FRUITS, makeOrder, addFruit, bagCounts, needOf } from '../logic/market.js';
 
 const INK = '#3b2a2a';
 const fruitName = (fruit, n) => ({ key: `market.fruit.${fruit}.${n === 1 ? '1' : 'n'}` });
@@ -40,6 +40,7 @@ export function mount(screen) {
 
   function prompt() {
     const [a, b] = order.items;
+    if (a.bags) return [{ key: 'market.orderBags', params: { b: a.bags, f: fruitName(a.fruit, 2), p: a.per } }];
     if (!b) return [{ key: 'market.order1', params: { n: a.n, f: fruitName(a.fruit, a.n) } }];
     return [{ key: 'market.order2', params: { n1: a.n, f1: fruitName(a.fruit, a.n), n2: b.n, f2: fruitName(b.fruit, b.n) } }];
   }
@@ -47,6 +48,15 @@ export function mount(screen) {
   function drawCard() {
     card.replaceChildren(...order.items.map((item) => {
       const have = order.basket[item.fruit] || 0;
+      if (item.bags) {
+        const bags = bagCounts(item, have).map((inBag) => el('div', { class: 'market-bag' }, Array.from({ length: item.per }, (_, i) => (
+          el('span', { class: `market-slot ${i < inBag ? 'is-full' : ''}` }, [i < inBag ? picture(FRUITS[item.fruit]) : null])
+        ))));
+        return el('div', { class: 'market-need' }, [
+          el('div', { class: 'market-need-pic' }, [picture(FRUITS[item.fruit]), langBadge(`market.fruit.${item.fruit}.1`)]),
+          el('div', { class: 'market-bags' }, bags),
+        ]);
+      }
       const slots = Array.from({ length: item.n }, (_, i) => el('span', { class: `market-slot ${i < have ? 'is-full' : ''}` }, [i < have ? picture(FRUITS[item.fruit]) : null]));
       return el('div', { class: 'market-need' }, [
         el('div', { class: 'market-need-pic' }, [picture(FRUITS[item.fruit]), langBadge(`market.fruit.${item.fruit}.1`)]),
@@ -61,7 +71,9 @@ export function mount(screen) {
     river.querySelectorAll('.is-open').forEach((n) => n.classList.remove('is-open'));
     boat.classList.add('is-open');
     sfx.tap();
-    const fruits = Array.from({ length: 6 }, () => {
+    // The boat has 6 fruit, or more when the order needs more.
+    const count = Math.max(6, needOf(order, fruit) - (order.basket[fruit] || 0));
+    const fruits = Array.from({ length: count }, () => {
       const b = el('button', { class: 'choice market-fruit', attrs: { type: 'button', 'aria-label': t(`market.fruit.${fruit}.1`) } }, [picture(FRUITS[fruit])]);
       onTap(b, () => take(fruit, b));
       return b;
@@ -86,16 +98,35 @@ export function mount(screen) {
     button.disabled = true;
     sfx.pop();
     drawCard();
-    speak(`num.${order.basket[fruit]}`);
+    const item = order.items[0];
+    // In a bag, count from one again: the child sees the bags as groups.
+    const have = order.basket[fruit];
+    speak(`num.${item.bags ? ((have - 1) % item.per) + 1 : have}`);
     if (!r.done) return;
     busy = true;
     burst(card);
     await wait(700);
-    const res = await answer('market', true, card, ['market.thanks']);
+    const extra = item.bags ? await countBags(item) : [];
+    if (!alive) return;
+    const res = await answer('market', true, card, [...extra, 'market.thanks']);
     if (!alive) return;
     if (res.levelUp) return reloadGame();
     await wait(500);
     if (alive) start();
+  }
+
+  /** Count by bags: 2, 4, 6. */
+  async function countBags(item) {
+    const bags = [...card.querySelectorAll('.market-bag')];
+    for (let i = 0; i < bags.length; i++) {
+      if (!alive) return [];
+      bags[i].classList.add('is-counted');
+      bags[i].dataset.count = String((i + 1) * item.per);
+      sfx.pop();
+      await speak(`num.${(i + 1) * item.per}`);
+      await wait(150);
+    }
+    return [{ key: 'market.bagsResult', params: { b: item.bags, p: item.per, n: item.n, f: fruitName(item.fruit, item.n) } }];
   }
 
   function start() {

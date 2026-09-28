@@ -408,7 +408,7 @@ test('feelings: each feeling has a face of Sỏi, and each story has one right f
   }
 });
 
-import { makeOrder, addFruit, isComplete as orderDone, FRUITS, BOATS } from '../js/logic/market.js';
+import { makeOrder, addFruit, isComplete as orderDone, bagCounts, FRUITS, BOATS, BAG_FRUITS } from '../js/logic/market.js';
 
 test('floating market: the order is on the boats, and the basket takes only what is needed', () => {
   const images = readJson('data/images.json');
@@ -579,4 +579,24 @@ test('fair share: count by groups, and level 3 finds the full rows', () => {
   planted.add('1,1');
   planted.add('1,2');
   assert.deepEqual(fullRows(round, planted), [0, 1]);
+});
+
+test('floating market: level 4 buys equal bags of one fruit', () => {
+  for (const seed of SEEDS) {
+    let o = makeOrder(4, seeded(seed));
+    assert.equal(o.items.length, 1);
+    const [item] = o.items;
+    assert.ok(BAG_FRUITS.includes(item.fruit));
+    assert.ok(item.bags >= 2 && item.bags <= 3);
+    assert.ok(item.per >= 2);
+    assert.equal(item.n, item.bags * item.per);
+    assert.ok(item.n <= 10);
+    assert.equal(new Set(o.boats).size, BOATS);
+    for (let k = 0; k < item.n; k++) o = addFruit(o, item.fruit).order;
+    assert.ok(orderDone(o));
+  }
+  const item = { bags: 3, per: 2 };
+  assert.deepEqual(bagCounts(item, 0), [0, 0, 0]);
+  assert.deepEqual(bagCounts(item, 3), [2, 1, 0]);
+  assert.deepEqual(bagCounts(item, 6), [2, 2, 2]);
 });

@@ -740,7 +740,7 @@
   "market.fruit.cam.1": "trái cam",
   "market.fruit.cam.n": "trái cam",
   "game.market.name": "Chợ nổi",
-  "settings.levels.market": "1: mua đến 3 trái · 2: mua đến 5 trái · 3: mua hai loại trái",
+  "settings.levels.market": "1: mua đến 3 trái · 2: mua đến 5 trái · 3: mua hai loại trái · 4: mua theo bịch",
   "market.intro": "Đây là chợ nổi ở miền Tây. Người ta bán trái cây trên ghe. Cây bẹo cao cho biết ghe bán gì.",
   "market.order1": "Má dặn con mua {n} {f} nha.",
   "market.order2": "Má dặn con mua {n1} {f1} và {n2} {f2} nha.",
@@ -836,5 +836,7 @@
   "share.plate": "dĩa của một bạn",
   "share.hole": "chỗ để cấy",
   "numbers.quick": "Nhìn nhanh nha! Có mấy cục sỏi?",
-  "numbers.quickLook": "chạm để nhìn lại"
+  "numbers.quickLook": "chạm để nhìn lại",
+  "market.orderBags": "Má dặn con mua {b} bịch {f}, mỗi bịch {p} trái.",
+  "market.bagsResult": "{b} bịch, mỗi bịch {p} trái: có tất cả {n} {f}."
 }
