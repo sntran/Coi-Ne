@@ -801,5 +801,11 @@
   "fest.lixi.wish": "Thank you, Grandma! I wish you a long and happy life!",
   "fest.lanterns.intro": "It is dark now. Tap each lantern to light it.",
   "fest.lanterns.done": "All the lanterns are bright! Let's walk with the lanterns!",
-  "dongdao.onggiang": "Mister Moon, Mister Moon\nCome down and play with me\nThere are friends\nThere is a tray of sticky rice\nThere is a pot of sticky rice\nThere is a box of bánh chưng\nThere is a half jar of rice wine\nThere is a bird on a swing\nThe boy casts a net\nHe puts mussels in a basket\nThe girl holds her baby sister\nThey go to watch the fishing\nThere is a basket to wash the rice\nThere is a scoop for the water\nThere is a comb for the hair\nThere is a buffalo to plow the field\nThere is water spinach in the pond\nMister Star up in the sky"
+  "dongdao.onggiang": "Mister Moon, Mister Moon\nCome down and play with me\nThere are friends\nThere is a tray of sticky rice\nThere is a pot of sticky rice\nThere is a box of bánh chưng\nThere is a half jar of rice wine\nThere is a bird on a swing\nThe boy casts a net\nHe puts mussels in a basket\nThe girl holds her baby sister\nThey go to watch the fishing\nThere is a basket to wash the rice\nThere is a scoop for the water\nThere is a comb for the hair\nThere is a buffalo to plow the field\nThere is water spinach in the pond\nMister Star up in the sky",
+  "game.stickers.name": "Sticker book",
+  "stickers.intro": "This is your sticker book. Drag a sticker onto the picture. Each star gives you a new sticker!",
+  "stickers.new": "You got a new sticker!",
+  "stickers.scene.village": "the village",
+  "stickers.scene.night": "the moon night",
+  "stickers.scene.river": "the river"
 }

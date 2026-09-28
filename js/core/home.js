@@ -7,6 +7,7 @@ import { el, onTap, wait } from './ui.js';
 import { mascot, setExpression } from './mascot.js';
 import { gameIcons, LEARNING_GAMES, FOLK_GAMES, EXPLORE_GAMES } from './game-icons.js';
 import { settingsButton } from './settings.js';
+import { icons } from './icons.js';
 
 let opening = false;
 
@@ -53,7 +54,13 @@ export function renderHome(container) {
     await speak('soi.look');
     setExpression(soi, 'happy');
   });
-  const header = el('header', { class: 'home-header' }, [soi, settingsButton()]);
+  const book = el('button', { class: 'icon-btn sticker-btn', html: icons.stickers, attrs: { type: 'button', 'aria-label': t('game.stickers.name') } });
+  onTap(book, async () => {
+    sfx.tap();
+    await Promise.race([speak('game.stickers.name'), wait(2500)]);
+    location.hash = '#/play/stickers';
+  });
+  const header = el('header', { class: 'home-header' }, [book, soi, settingsButton()]);
   const root = el('div', { class: 'screen home-screen' }, [
     header,
     el('div', { class: 'home-groups' }, [

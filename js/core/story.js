@@ -63,6 +63,26 @@ function village(extra = '', night = false) {
 
 const pebbleDot = (x, y) => `<ellipse cx="${x}" cy="${y}" rx="3.5" ry="2.6" fill="#7d8ca3"/>`;
 
+function river() {
+  return `
+    <rect width="400" height="260" fill="#dff1fb"/>
+    <circle cx="60" cy="46" r="24" fill="#ffd166"/>
+    <path d="M0 120 Q100 104 200 118 Q300 104 400 118 V150 H0 Z" fill="#9fcf7a"/>
+    <g stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">
+      ${[70, 150, 320].map((x) => `<path d="M${x} 122 Q${x - 4} 90 ${x + 6} 60" fill="none" stroke="#9c6b43" stroke-width="6"/>
+        <path d="M${x + 6} 60 q-26 -2 -34 12 M${x + 6} 60 q24 -8 36 6 M${x + 6} 60 q-10 -20 -30 -18 M${x + 6} 60 q14 -20 32 -16" fill="none" stroke="#4f8f5a" stroke-width="5"/>`).join('')}
+    </g>
+    <path d="M0 140 H400 V260 H0 Z" fill="#7cc3e0"/>
+    <path d="M20 180 q20 -8 40 0 M140 210 q20 -8 40 0 M280 176 q20 -8 40 0 M320 230 q20 -8 40 0" fill="none" stroke="#dff1fb" stroke-width="3" stroke-linecap="round"/>`;
+}
+
+/** Backgrounds for the sticker book. */
+export const backdrops = {
+  village: () => village(''),
+  night: () => village('', true),
+  river,
+};
+
 /** The pictures for the stories. */
 export const scenes = {
   village: () => village(`${kid(150, 190, { shirt: '#e0463c', hair: 'buns', arms: 'up' })}${kid(250, 196, { shirt: '#3fa35b', pants: '#9c6b43', arms: 'up', flip: true })}${kid(360, 200, { shirt: '#f7923a', hair: 'bob' })}`),

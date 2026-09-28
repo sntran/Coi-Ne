@@ -13,7 +13,7 @@ import { ALL_GAMES } from './core/game-icons.js';
 import { loadImages } from './core/images.js';
 import { startRestClock } from './core/rest.js';
 
-const GAMES = new Set(ALL_GAMES);
+const GAMES = new Set([...ALL_GAMES, 'stickers']);
 const app = document.getElementById('app');
 let cleanup = () => {};
 let started = false;

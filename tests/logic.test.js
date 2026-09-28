@@ -469,3 +469,34 @@ test('festivals: the Southern fruit tray, lì xì, and lanterns', () => {
   assert.equal(r.done, true);
   assert.equal(lightLantern(lan, 0).event, 'old');
 });
+
+import {
+  STICKERS, FREE, unlockedCount, unlocked, newSticker, emptyBook, normalizeBook, placeSticker, moveSticker, removeSticker,
+} from '../js/logic/stickers.js';
+
+test('sticker book: a star gives a new sticker, and the book saves places', () => {
+  const images = readJson('data/images.json');
+  const vi = readJson('lang/vi.json');
+  for (const id of STICKERS) {
+    assert.ok(images[id], `no picture ${id}`);
+    assert.ok(vi[`pic.${id}`], `no name ${id}`);
+  }
+  assert.equal(new Set(STICKERS).size, STICKERS.length);
+  assert.equal(unlockedCount(0), FREE);
+  assert.equal(unlocked(2).length, FREE + 2);
+  assert.equal(unlockedCount(999), STICKERS.length);
+  assert.equal(newSticker(0, 1), STICKERS[FREE]);
+  assert.equal(newSticker(1, 1), null);
+  assert.equal(newSticker(999, 1000), null);
+  let book = placeSticker(emptyBook(), 'village', 'nonla', 0.5, 1.4);
+  const [p] = book.scenes.village;
+  assert.equal(p.y, 1);
+  book = moveSticker(book, 'village', p.key, 0.2, 0.3);
+  assert.deepEqual([book.scenes.village[0].x, book.scenes.village[0].y], [0.2, 0.3]);
+  const saved = normalizeBook(JSON.parse(JSON.stringify(book)));
+  assert.deepEqual(saved.scenes.village, book.scenes.village);
+  book = removeSticker(book, 'village', p.key);
+  assert.equal(book.scenes.village.length, 0);
+  assert.deepEqual(normalizeBook({ scenes: { village: [{ id: 'bad', x: 0, y: 0 }, null] } }).scenes.village, []);
+  assert.deepEqual(normalizeBook('x'), emptyBook());
+});

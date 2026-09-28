@@ -5,7 +5,9 @@ import { speak, speakAll, speakBoth, stopSpeech } from './speech.js';
 import { sfx } from './sound.js';
 import { icons } from './icons.js';
 import { mascot } from './mascot.js';
-import { record, changeLevel, gameLevel } from './state.js';
+import { record, changeLevel, gameLevel, totalStars } from './state.js';
+import { picture } from './images.js';
+import { newSticker } from '../logic/stickers.js';
 
 /**
  * Make an element.
@@ -208,6 +210,7 @@ export function tryAgain(target) {
  * @returns {Promise<{levelUp: boolean, level: number}>}
  */
 export async function answer(game, correct, anchor, extra = []) {
+  const starsBefore = totalStars();
   const result = record(game, correct);
   if (!correct) {
     await tryAgain(anchor);
@@ -215,7 +218,7 @@ export async function answer(game, correct, anchor, extra = []) {
   }
   await celebrate(anchor, extra);
   if (!result.star) return { levelUp: false, level: gameLevel(game) };
-  const yes = await starPrompt(result.suggestNext);
+  const yes = await starPrompt(result.suggestNext, newSticker(starsBefore, totalStars()));
   if (yes) {
     const level = changeLevel(game, gameLevel(game) + 1);
     return { levelUp: true, level };
@@ -223,13 +226,15 @@ export async function answer(game, correct, anchor, extra = []) {
   return { levelUp: false, level: gameLevel(game) };
 }
 
-/** Show a star. If there is a next level, ask the child to play it. */
-export function starPrompt(suggestNext) {
+/** Show a star, and the new sticker if there is one. If there is a next level, ask the child to play it. */
+export function starPrompt(suggestNext, sticker = null) {
   return new Promise((resolve) => {
     const layer = overlay('star-layer');
     const star = el('div', { class: 'big-star', html: icons.star });
     const soi = mascot('happy', 'star-soi');
-    const card = el('div', { class: 'dialog-card' }, [star, soi]);
+    const prize = sticker ? el('div', { class: 'star-sticker' }, [picture(sticker)]) : null;
+    const card = el('div', { class: 'dialog-card' }, [el('div', { class: 'star-row' }, [star, prize]), soi]);
+    const praise = sticker ? ['praise.star', 'stickers.new'] : ['praise.star'];
     layer.append(card);
     sfx.star();
     const finish = (value) => {
@@ -237,14 +242,14 @@ export function starPrompt(suggestNext) {
       resolve(value);
     };
     if (!suggestNext) {
-      speakAll(['praise.star']).then(() => wait(400)).then(() => finish(false));
+      speakAll(praise).then(() => wait(400)).then(() => finish(false));
       onTap(layer, () => finish(false));
       return;
     }
     const yes = iconButton('check', 'ui.yes', () => { stopSpeech(); finish(true); }, 'answer-yes');
     const no = iconButton('again', 'ui.no', () => { stopSpeech(); finish(false); }, 'answer-no');
     card.append(el('div', { class: 'dialog-actions' }, [yes, no]));
-    speakAll(['praise.star', 'praise.nextLevel']);
+    speakAll([...praise, 'praise.nextLevel']);
   });
 }
 

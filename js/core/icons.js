@@ -28,6 +28,10 @@ export const icons = {
   stop: s(`<rect x="16" y="16" width="32" height="32" rx="5" fill="#e0463c" stroke="${INK}" stroke-width="4"/>`),
   mic: s(`<rect x="24" y="8" width="16" height="30" rx="8" fill="#f7a8c4" stroke="${INK}" stroke-width="4"/>
     <path d="M16 30 Q16 46 32 46 Q48 46 48 30 M32 46 V56 M22 56 H42" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`),
+  stickers: s(`<rect x="10" y="8" width="44" height="50" rx="6" fill="#f7a8c4" stroke="${INK}" stroke-width="4"/>
+    <path d="M18 8 V58" stroke="${INK}" stroke-width="4"/>
+    <path d="M38 18 L41.5 26 L50 26.6 L43.5 32 L45.6 40 L38 35.6 L30.4 40 L32.5 32 L26 26.6 L34.5 26 Z" fill="#ffd166" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="36" cy="48" r="4" fill="#8fd3f4" stroke="${INK}" stroke-width="2"/>`),
   gallery: s(`<rect x="8" y="14" width="34" height="30" rx="4" fill="#fff" stroke="${INK}" stroke-width="4"/>
     <rect x="22" y="22" width="34" height="30" rx="4" fill="#ffd166" stroke="${INK}" stroke-width="4"/>
     <circle cx="33" cy="32" r="4" fill="#e0463c"/><path d="M26 48 L36 39 L42 44 L47 38 L53 48Z" fill="#7cb87a"/>`),

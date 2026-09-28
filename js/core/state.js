@@ -7,6 +7,7 @@ import {
 import {
   normalizeProgress, getLevel, setLevel, recordAnswer,
 } from '../logic/progress.js';
+import { normalizeBook } from '../logic/stickers.js';
 
 function browserStorage() {
   try {
@@ -24,6 +25,7 @@ const store = createStore(browserStorage());
 let settings = loadSettings(store);
 let progress = normalizeProgress(store.read('progress', null));
 let gallery = loadGallery(store);
+let stickerBook = normalizeBook(store.read('stickers', null));
 
 export function getSettings() {
   return settings;
@@ -70,4 +72,18 @@ export function putInGallery(item) {
 export function deleteFromGallery(id) {
   gallery = removeFromGallery(gallery, id);
   store.write('gallery', gallery);
+}
+
+/** All the stars of the child, in all games. */
+export function totalStars() {
+  return Object.values(progress.games).reduce((n, g) => n + (g.stars || 0), 0);
+}
+
+export function getStickerBook() {
+  return stickerBook;
+}
+
+export function saveStickerBook(book) {
+  stickerBook = book;
+  store.write('stickers', book);
 }
