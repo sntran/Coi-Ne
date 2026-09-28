@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '3edf1225e07c';
+const VERSION = 'db13b8890089';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -26,16 +26,20 @@ const FILES = [
   './js/core/state.js',
   './js/core/story.js',
   './js/core/ui.js',
+  './js/games/choichuyen.js',
   './js/games/coloring.js',
   './js/games/numbers.js',
   './js/games/oanquan.js',
+  './js/games/oantuti.js',
   './js/games/outline.js',
   './js/games/patterns.js',
   './js/games/taptamvong.js',
+  './js/logic/choichuyen.js',
   './js/logic/coloring.js',
   './js/logic/colors.js',
   './js/logic/numbers.js',
   './js/logic/oanquan.js',
+  './js/logic/oantuti.js',
   './js/logic/patterns.js',
   './js/logic/progress.js',
   './js/logic/random.js',
