@@ -77,6 +77,9 @@ async function boot() {
   window.addEventListener('hashchange', () => {
     if (started) route();
   });
+  window.addEventListener('coine:reload', () => {
+    if (started) route();
+  });
   showStart();
   waitForVoices();
   // The service worker keeps the files for offline use.

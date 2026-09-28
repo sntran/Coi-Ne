@@ -283,3 +283,8 @@ export function showCaption(text, lang) {
 export function langName(lang) {
   return t(`settings.lang.${lang}`, undefined, getLang());
 }
+
+/** Open the current game again, for example after the level changes. */
+export function reloadGame() {
+  window.dispatchEvent(new Event('coine:reload'));
+}
