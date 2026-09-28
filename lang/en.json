@@ -663,5 +663,8 @@
   "tones.pickTone": "Listen. Which tone is it?",
   "tones.nextFamily": "Another syllable",
   "game.tones.name": "Tones",
-  "settings.levels.tones": "1: listen to the six tones · 2: choose the picture of the word · 3: listen and choose the tone"
+  "settings.levels.tones": "1: listen to the six tones · 2: choose the picture of the word · 3: listen and choose the tone",
+  "game.trace.name": "Trace a letter",
+  "settings.levels.trace": "1: letters · 2: digits",
+  "trace.instruction": "Move your finger along the line. Start at the green dot."
 }

@@ -15,6 +15,7 @@ export const MAX_LEVELS = Object.freeze({
   oantuti: 1,
   choichuyen: 3,
   tones: 3,
+  trace: 2,
 });
 
 export function emptyProgress() {

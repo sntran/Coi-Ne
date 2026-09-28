@@ -304,3 +304,30 @@ test('tones: the pairs differ only in the tone, and the questions are correct', 
   assert.equal(distinct('hoi', 'nga'), false);
   assert.equal(distinct('sac', 'huyen'), true);
 });
+
+import { samplePath, advance, isDone as traceDone, glyphsFor, DIGITS } from '../js/logic/trace.js';
+
+test('tracing: the progress goes forward only near the next points, and never back', () => {
+  const pts = samplePath(100, (d) => ({ x: d, y: 0 }), 10);
+  assert.equal(pts.length, 11);
+  let i = advance(0, { x: 0, y: 3 }, pts, 5);
+  assert.equal(i, 1);
+  i = advance(i, { x: 90, y: 0 }, pts, 5);
+  assert.equal(i, 1, 'a jump to the end does not count');
+  i = advance(i, { x: 20, y: 0 }, pts, 5, 5);
+  assert.equal(i, 3);
+  i = advance(i, { x: 0, y: 0 }, pts, 5);
+  assert.equal(i, 3, 'the progress does not go back');
+  for (let x = 30; x <= 100; x += 10) i = advance(i, { x, y: 1 }, pts, 5);
+  assert.ok(traceDone(i, pts));
+});
+
+test('tracing: each letter and each digit has strokes', () => {
+  const strokes = readJson('data/strokes.json');
+  const letters = readJson('data/letters.json');
+  for (const lang of ['vi', 'en']) {
+    for (const g of glyphsFor(1, letters[lang])) assert.ok(strokes[g.glyph]?.length, `no strokes for ${g.glyph}`);
+  }
+  for (const d of DIGITS) assert.ok(strokes[d]?.length, `no strokes for ${d}`);
+  assert.equal(glyphsFor(2, []).length, 10);
+});
