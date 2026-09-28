@@ -154,7 +154,8 @@ export const scenes = {
     <path d="M216 174 l12 6 l-2 -10 z" fill="#e0463c" stroke="${INK}" stroke-width="2"/>
     ${kid(100, 200, { shirt: '#f58fb8', hair: 'bob', arms: 'up' })}
     ${kid(310, 196, { shirt: '#3fa35b', hair: 'buns', arms: 'up', flip: true })}
-    <g fill="${INK}" font-size="16" font-weight="700" font-family="sans-serif"><text x="70" y="146">be!</text><text x="318" y="140">be be!</text></g>`),
+    <g fill="none" stroke="${INK}" stroke-width="2.5" stroke-linecap="round">
+      <path d="M78 150 q-6 -8 0 -16 M70 154 q-10 -12 0 -24"/><path d="M332 146 q6 -8 0 -16 M340 150 q10 -12 0 -24"/></g>`),
   rongran: () => village(`
     ${[[70, '#9b6bd6', 'bob'], [120, '#3fa35b', 'short'], [170, '#f58fb8', 'buns'], [220, '#e0463c', 'short']].map(([x, shirt, hair]) => kid(x, 196, { shirt, hair, arms: 'front' })).join('')}
     <g transform="translate(250 190)">${mascotMarkup('happy').replace('<svg ', '<svg width="54" height="50" ')}</g>

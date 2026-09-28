@@ -94,6 +94,16 @@ Each folk game starts with a short picture story about children in a Vietnamese 
 | Tập tầm vông | 1: 2 hands. 2: Sỏi moves the hands. 3: 3 cups. |
 | Oẳn tù tì | Rock (búa), paper (bao), scissors (kéo) against Sỏi. |
 | Chơi chuyền | 1: 1 stick for each throw. 2: 2 sticks. 3: 3 sticks. The ball waits for the child. |
+| Chi chi chành chành | Hold a finger on the open hand while the đồng dao plays. On the last word, the hand closes. Pull the finger out fast. A finger that leaves too early only stops the song. 1: the hand closes slowly. 2: the hand closes fast, and one time it moves as a trick. |
+| Nu na nu nống | Each tap on the next leg sings one word, from left to right. The leg at the last word (rụt) folds in. This is counting one to one: one word, one leg. 1: 2 friends, one song, and the next leg shines. 2: 3 friends and two songs. The next leg shines only after a mistake. |
+| Nhảy lò cò | Tap the pebble to throw it onto a square. Then tap the squares 1 to 8 in order, and jump over the square with the pebble. 1: hop up. 2: hop up, then back down to 1. |
+| Bịt mắt bắt dê | A scarf covers the screen, and a goat hides under it. Move a finger slowly. Near the goat, the goat calls louder and more often. Keep the finger on the goat to catch it. 1: one large goat. 2: two small goats. |
+| Rồng rắn lên mây | Sỏi is the head of the dragon. Tap the friends to make the line while the song plays. Then answer the doctor: "Con lên mấy?" 1, 2, 3, … 10. At the end, drag the head to keep the tail away from the doctor. 1: the next number shines. 2: choose from three numbers, and the doctor is faster. |
+
+The sound of the goat in Bịt mắt bắt dê also goes to the left or the right. With headphones, the child can
+also hear where the goat is. The sound comes from the device, not from a file. On a device with no sound,
+the goat shows a little after 3 seconds. In the real game of Nu na nu nống, the children sing until only
+one leg is out. In Coi Nè, a game has one or two songs, because each word is one tap.
 
 ### Explore games (Khám phá)
 
@@ -142,6 +152,12 @@ The đồng dao texts are in `lang/vi.json`:
 - `dongdao.choichuyen.01` to `dongdao.choichuyen.28`: Chơi chuyền, one key for each line.
   Each throw of the ball sings the next line.
 - `dongdao.onggiang`: Ông giẳng ông giăng, in the Trung Thu festival.
+- `dongdao.chichi.1` to `dongdao.chichi.6`: Chi chi chành chành.
+- `dongdao.nuna.1` to `dongdao.nuna.10`: Nu na nu nống. The game sings one word for each tap.
+- `dongdao.rongran.1` to `dongdao.rongran.4`: the song of Rồng rắn lên mây, and the other
+  `dongdao.rongran.*` keys: the talk between the dragon and the doctor.
+
+Nhảy lò cò and Bịt mắt bắt dê have no đồng dao.
 
 Ô ăn quan has no well-known đồng dao, so the game has none. The folk games always sing the đồng dao in
 Vietnamese, also in English mode. `lang/en.json` has a simple English meaning of each line.
@@ -153,6 +169,17 @@ and the Tập tầm vông text from
 The Ông giẳng ông giăng text is from
 [thivien.net](https://www.thivien.net/Khuy%E1%BA%BFt-danh-Vi%E1%BB%87t-Nam/%C3%94ng-gi%E1%BA%B3ng-%C3%B4ng-gi%C4%83ng-xu%E1%BB%91ng-ch%C6%A1i-v%E1%BB%9Bi-t%C3%B4i/poem-_bk_ZgUUyidf5axGSiPloA) and
 [Trường mầm non Hoa Sen](https://mnhoasen.longbien.edu.vn/tho-ve-ca-dao-dong-dao/dong-dao-ong-giang-ong-giang/ctmb/6816/688657).
+The Chi chi chành chành text is the common text on
+[Wikipedia](https://vi.wikipedia.org/wiki/Chi_chi_ch%C3%A0nh_ch%C3%A0nh). The old text and other
+versions are on [thivien.net](https://www.thivien.net/Khuy%E1%BA%BFt-danh-Vi%E1%BB%87t-Nam/Chi-chi-ch%C3%A0nh-ch%C3%A0nh/poem-Rfn0ZJWnou8MELmfYRzq5w).
+The Nu na nu nống text is from
+[Trường mầm non Việt Hưng](https://mnviethung.hanoi.edu.vn/dong-dao-cua-be/dong-dao-nu-na-nu-nong/ctmb/12479/823329).
+[thivien.net](https://www.thivien.net/Khuy%E1%BA%BFt-danh-Vi%E1%BB%87t-Nam/Nu-na-nu-n%E1%BB%91ng-c%C3%A1i-c%E1%BB%91ng-n%E1%BA%B1m-trong/poem-kHboGjQD5XzLadDt7zy-aQ)
+has other versions, for example "Phật ngồi Phật khóc" and "Con cóc nhảy ra".
+The Rồng rắn lên mây song and talk are from
+[Wikipedia](https://vi.wikipedia.org/wiki/R%E1%BB%93ng_r%E1%BA%AFn_l%C3%AAn_m%C3%A2y). The doctor says
+"Thuốc hay vậy!" at the age of ten. Many villages have a different talk, for example on
+[vanvn.net](https://vanvn.net/rong-ran-len-may/).
 The parents must check the texts.
 
 ## Run the site on your computer

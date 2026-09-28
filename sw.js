@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '42d8ca1b4747';
+const VERSION = 'c213979ea329';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 

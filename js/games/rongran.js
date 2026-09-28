@@ -157,6 +157,10 @@ export function mount(screen) {
     if (!alive) return;
     await say(head, 'dongdao.rongran.medicine');
     if (!alive) return;
+    await say(doctor, 'dongdao.rongran.forWho');
+    if (!alive) return;
+    await say(head, 'dongdao.rongran.forChild');
+    if (!alive) return;
     askAge();
   }
 
