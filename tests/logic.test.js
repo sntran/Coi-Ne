@@ -380,3 +380,20 @@ test('where is Sỏi: the rounds use positions that each thing can show', () => 
   assert.equal(zoneAt('basket', 100, 100), 'trong');
   assert.equal(zoneAt('tree', 100, 100), null);
 });
+
+import { makeQuestion as feelQuestion, checkFeeling, FEELINGS, FACES, STORIES } from '../js/logic/feelings.js';
+import { EXPRESSIONS } from '../js/core/mascot.js';
+
+test('feelings: each feeling has a face of Sỏi, and each story has one right feeling', () => {
+  const images = readJson('data/images.json');
+  for (const f of FEELINGS) assert.ok(EXPRESSIONS.includes(FACES[f]), f);
+  for (const s of STORIES) {
+    assert.ok(FEELINGS.includes(s.feeling));
+    assert.ok(images[s.pic], s.pic);
+  }
+  for (const seed of SEEDS) {
+    const q = feelQuestion(2, seeded(seed));
+    assert.equal(q.choices.length, 3);
+    assert.equal(q.choices.filter((c) => checkFeeling(q, c)).length, 1);
+  }
+});

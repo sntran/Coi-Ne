@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '65abb601349a';
+const VERSION = '0e7da548f7ef';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -34,6 +34,7 @@ const FILES = [
   './js/games/choichuyen.js',
   './js/games/coloring.js',
   './js/games/dots.js',
+  './js/games/feelings.js',
   './js/games/letters.js',
   './js/games/memory.js',
   './js/games/numbers.js',
@@ -52,6 +53,7 @@ const FILES = [
   './js/logic/colors.js',
   './js/logic/dots-data.js',
   './js/logic/dots.js',
+  './js/logic/feelings.js',
   './js/logic/letters.js',
   './js/logic/memory.js',
   './js/logic/numbers.js',
@@ -76,6 +78,7 @@ const FILES = [
   './data/letters.json',
   './data/strokes.json',
   './pictures/twemoji/1f319.svg',
+  './pictures/twemoji/1f329.svg',
   './pictures/twemoji/1f331.svg',
   './pictures/twemoji/1f333.svg',
   './pictures/twemoji/1f334.svg',
@@ -169,6 +172,7 @@ const FILES = [
   './pictures/twemoji/1f9c3.svg',
   './pictures/twemoji/1f9d1-200d-2695-fe0f.svg',
   './pictures/twemoji/1f9e6.svg',
+  './pictures/twemoji/1f9f8.svg',
   './pictures/twemoji/1f9fa.svg',
   './pictures/twemoji/1fa80.svg',
   './pictures/twemoji/1fa81.svg',

@@ -1079,3 +1079,37 @@ svg { display: block; }
   .where-home { width: 120px; height: 120px; }
   .where-piece { width: 96px; }
 }
+
+/* Feelings */
+
+.feel-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+.feel-big { width: min(46vw, 250px); }
+.feel-big.is-small { width: min(34vw, 170px); }
+.feel-faces { display: grid; grid-template-columns: repeat(6, minmax(0, 130px)); gap: 12px; justify-content: center; width: 100%; }
+.feel-faces.is-three { grid-template-columns: repeat(3, minmax(0, 150px)); }
+.feel-face { aspect-ratio: 1; padding: 10%; }
+.choice.feel-face svg { width: 100%; height: 100%; }
+.feel-story { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 30px; padding: 12px 20px; box-shadow: 0 6px 18px rgb(59 42 42 / 0.1); cursor: pointer; }
+.feel-story-pic { width: min(30vw, 150px); height: min(30vw, 150px); }
+.feel-balloon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fbd3e3, #f58fb8 60%, #e56b9a);
+  box-shadow: 0 10px 24px rgb(229 107 154 / 0.35);
+  transform: scale(0.6);
+  transition: transform 4s ease-in-out;
+}
+.feel-balloon.is-in { transform: scale(1.2); }
+.feel-balloon.is-out { transform: scale(0.6); transition-duration: 4.5s; }
+@media (orientation: portrait) and (max-width: 700px) {
+  .feel-faces { grid-template-columns: repeat(3, minmax(0, 110px)); }
+  .feel-faces.is-three { grid-template-columns: repeat(3, minmax(0, 110px)); }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .feel-layout { flex-direction: row; }
+  .feel-faces { grid-template-columns: repeat(3, minmax(0, 96px)); }
+  .feel-faces.is-three { grid-template-columns: repeat(3, minmax(0, 110px)); }
+  .feel-big { width: 170px; }
+  .feel-story { flex-direction: column; }
+}
