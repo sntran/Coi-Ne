@@ -23,6 +23,11 @@ export const MAX_LEVELS = Object.freeze({
   music: 1,
   festival: 1,
   share: 3,
+  chichi: 2,
+  nuna: 2,
+  loco: 2,
+  bitmat: 2,
+  rongran: 2,
 });
 
 export function emptyProgress() {

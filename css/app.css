@@ -1412,3 +1412,25 @@ svg { display: block; }
   .share-field.is-turned .share-hole { width: 60px; height: 60px; }
   .share-layout .digit-choice .big-digit { font-size: 54px; }
 }
+
+/* Chi chi chành chành */
+
+.chichi-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.chichi-top { display: flex; align-items: center; gap: 12px; min-height: 90px; }
+.chichi-soi { width: 90px; flex: none; }
+.chichi-rhyme { font-size: 26px; font-weight: 800; color: var(--ink); min-height: 1.4em; }
+.chichi-hand { width: min(80vw, calc((100dvh - 260px) * 200 / 230), 440px); aspect-ratio: 200 / 230; touch-action: none; cursor: pointer; }
+.chichi-hand svg { width: 100%; height: 100%; overflow: visible; }
+.chichi-finger { transform-box: view-box; transition: transform var(--close, 1s) cubic-bezier(0.5, 0, 0.9, 0.6); }
+.chichi-hand.is-closing .chichi-finger { transform: scaleY(-0.62); }
+.chichi-hand.is-trick .chichi-finger { transform: scaleY(0.72); transition-duration: 0.18s; }
+.chichi-tip { opacity: 0; transition: opacity 0.1s ease; }
+.chichi-hand.is-held .chichi-tip { opacity: 1; }
+.chichi-hand.is-held .chichi-spot { opacity: 0; }
+.chichi-spot { animation: breathe 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@media (orientation: landscape) and (max-height: 560px) {
+  .chichi-layout { flex-direction: row; gap: 20px; }
+  .chichi-top { flex-direction: column; max-width: 260px; }
+  .chichi-rhyme { display: block; font-size: 22px; }
+  .chichi-hand { width: auto; height: min(100%, 340px); }
+}

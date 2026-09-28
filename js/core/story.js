@@ -124,6 +124,42 @@ export const scenes = {
       <path d="M108 104 L113 118 L128 118 L116 127 L121 142 L108 133 L95 142 L100 127 L88 118 L103 118 Z" fill="#e0463c"/>
       <ellipse cx="284" cy="120" rx="16" ry="11" fill="#f7923a"/><path d="M298 120 L310 112 V128 Z" fill="#ffd23f"/></g>
     <circle cx="108" cy="124" r="22" fill="#ffd166" opacity="0.25"/><circle cx="284" cy="120" r="22" fill="#ffd166" opacity="0.25"/>`, true),
+  chichi: () => village(`
+    ${kid(120, 196, { shirt: '#3f6fd8', pose: 'sit', arms: 'front' })}
+    ${kid(290, 196, { shirt: '#f58fb8', hair: 'buns', pose: 'sit', arms: 'front', flip: true })}
+    ${kid(205, 170, { shirt: '#f7923a', hair: 'bob', pose: 'sit', arms: 'front' })}
+    <g stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">
+      <path d="M176 224 Q172 206 186 202 L226 200 Q240 204 236 222 Q226 236 204 236 Q182 236 176 224 Z" fill="${SKIN}"/>
+      <path d="M186 204 L180 190 M196 201 L194 186 M208 200 L210 185 M220 201 L226 188" stroke="${SKIN}" stroke-width="7" stroke-linecap="round"/>
+      <path d="M150 222 L196 218 M262 222 L214 216" stroke="${SKIN}" stroke-width="6" stroke-linecap="round"/>
+    </g>`),
+  nuna: () => village(`
+    ${[[110, '#e0463c', 'buns'], [200, '#3fa35b', 'short'], [290, '#9b6bd6', 'bob']].map(([x, shirt, hair]) => `
+      <g stroke="${INK}" stroke-width="2.5"><rect x="${x - 15}" y="222" width="11" height="32" rx="5" fill="#3f6fd8"/><rect x="${x + 4}" y="222" width="11" height="32" rx="5" fill="#3f6fd8"/>
+      <ellipse cx="${x - 9}" cy="254" rx="8" ry="5" fill="${SKIN}"/><ellipse cx="${x + 9}" cy="254" rx="8" ry="5" fill="${SKIN}"/></g>
+      ${kid(x, 188, { shirt, hair, pose: 'sit', arms: 'down' }).replace(/<path d="M-10 34[^>]*\/>/, '')}`).join('')}
+    <path d="M232 246 l-8 -10" stroke="${SKIN}" stroke-width="6" stroke-linecap="round"/>`),
+  loco: () => village(`
+    <g stroke="#fff" stroke-width="2.5" fill="none" opacity="0.95">
+      <path d="M120 250 L150 214 H200 L186 250 Z M150 214 L166 196 H212 L200 214 M166 196 L178 182 H226 L212 196"/>
+      <path d="M178 182 L190 168 H262 L248 182 Z M226 182 L236 168 M190 168 L200 156 H244 L234 168"/>
+      <path d="M200 156 L208 146 H280 L270 156 Z M244 156 L252 146"/>
+    </g>
+    <ellipse cx="226" cy="175" rx="5" ry="4" fill="#7d8ca3" stroke="${INK}" stroke-width="1.5"/>
+    ${kid(150, 172, { shirt: '#e0463c', hair: 'buns', arms: 'up' }).replace('M8 40 L9 62', 'M8 40 L16 52')}
+    ${kid(320, 196, { shirt: '#6cc6f0', arms: 'front', flip: true })}`),
+  bitmat: () => village(`
+    ${kid(200, 186, { shirt: '#f7923a', hair: 'short', arms: 'up' })}
+    <rect x="182" y="170" width="36" height="9" rx="3" fill="#e0463c" stroke="${INK}" stroke-width="2"/>
+    <path d="M216 174 l12 6 l-2 -10 z" fill="#e0463c" stroke="${INK}" stroke-width="2"/>
+    ${kid(100, 200, { shirt: '#f58fb8', hair: 'bob', arms: 'up' })}
+    ${kid(310, 196, { shirt: '#3fa35b', hair: 'buns', arms: 'up', flip: true })}
+    <g fill="${INK}" font-size="16" font-weight="700" font-family="sans-serif"><text x="70" y="146">be!</text><text x="318" y="140">be be!</text></g>`),
+  rongran: () => village(`
+    ${[[70, '#9b6bd6', 'bob'], [120, '#3fa35b', 'short'], [170, '#f58fb8', 'buns'], [220, '#e0463c', 'short']].map(([x, shirt, hair]) => kid(x, 196, { shirt, hair, arms: 'front' })).join('')}
+    <g transform="translate(250 190)">${mascotMarkup('happy').replace('<svg ', '<svg width="54" height="50" ')}</g>
+    ${kid(340, 190, { shirt: '#f4ecd8', pants: '#9c6b43', hair: 'short', arms: 'front', flip: true })}
+    <g stroke="${INK}" stroke-width="2"><path d="M330 184 Q340 200 350 184" fill="#fff"/><path d="M314 162 L340 148 L366 162 Z" fill="#ecc98f"/></g>`),
   soi: () => village(`<g transform="translate(140 110) scale(1)">${mascotMarkup('happy').replace('<svg ', '<svg width="120" height="110" ')}</g>
     ${kid(300, 196, { shirt: '#e0463c', hair: 'buns', arms: 'up', flip: true })}`),
 };

@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '4ee800a493f5';
+const VERSION = '935d7a759a64';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -31,6 +31,7 @@ const FILES = [
   './js/core/story.js',
   './js/core/ui.js',
   './js/core/where-scenes.js',
+  './js/games/chichi.js',
   './js/games/choichuyen.js',
   './js/games/coloring.js',
   './js/games/dots.js',
@@ -53,6 +54,8 @@ const FILES = [
   './js/games/tones.js',
   './js/games/trace.js',
   './js/games/where.js',
+  './js/logic/bitmat.js',
+  './js/logic/chichi.js',
   './js/logic/choichuyen.js',
   './js/logic/coloring.js',
   './js/logic/colors.js',
@@ -61,10 +64,12 @@ const FILES = [
   './js/logic/feelings.js',
   './js/logic/festival.js',
   './js/logic/letters.js',
+  './js/logic/loco.js',
   './js/logic/market.js',
   './js/logic/memory.js',
   './js/logic/music.js',
   './js/logic/numbers.js',
+  './js/logic/nuna.js',
   './js/logic/oanquan.js',
   './js/logic/oantuti.js',
   './js/logic/patterns.js',
@@ -72,6 +77,7 @@ const FILES = [
   './js/logic/random.js',
   './js/logic/recordings.js',
   './js/logic/rest.js',
+  './js/logic/rongran.js',
   './js/logic/save.js',
   './js/logic/shapes.js',
   './js/logic/share.js',

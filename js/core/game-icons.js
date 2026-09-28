@@ -104,6 +104,32 @@ export const gameIcons = {
     <path d="M60 28 L68 46 L88 46 L72 58 L78 78 L60 66 L42 78 L48 58 L32 46 L52 46 Z" fill="#e0463c" ${st}/>
     <path d="M52 78 L46 104 M68 78 L74 104" stroke="#ffd166" stroke-width="5" stroke-linecap="round"/>
     ${[[18, 86], [30, 70], [100, 84], [92, 100], [22, 104]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" fill="#ffd23f" stroke="${INK}" stroke-width="2.5"/>`).join('')}`),
+  chichi: w(`
+    <path d="M22 78 Q16 52 36 46 L84 44 Q104 50 98 76 Q88 100 60 100 Q30 100 22 78 Z" fill="#f2c7a5" ${st}/>
+    <path d="M36 48 L28 26 M50 44 L46 18 M66 44 L68 18 M82 46 L92 24" fill="none" stroke="${INK}" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36 48 L28 26 M50 44 L46 18 M66 44 L68 18 M82 46 L92 24" fill="none" stroke="#f2c7a5" stroke-width="6" stroke-linecap="round"/>
+    <path d="M60 76 L60 50" stroke="${INK}" stroke-width="13" stroke-linecap="round"/><path d="M60 76 L60 50" stroke="#ffd9a8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="60" cy="80" r="5" fill="#e0463c"/>`),
+  nuna: w(`
+    <circle cx="36" cy="26" r="13" fill="#f2c7a5" ${st}/><circle cx="84" cy="26" r="13" fill="#f2c7a5" ${st}/>
+    <rect x="22" y="40" width="28" height="22" rx="8" fill="#e0463c" ${st}/><rect x="70" y="40" width="28" height="22" rx="8" fill="#3fa35b" ${st}/>
+    ${[24, 40, 72, 88].map((x, i) => `<rect x="${x - 6}" y="${i === 2 ? 62 : 62}" width="12" height="${i === 2 ? 20 : 40}" rx="6" fill="#3f6fd8" ${st}/>`).join('')}
+    ${[24, 40, 88].map((x) => `<ellipse cx="${x}" cy="104" rx="8" ry="6" fill="#f2c7a5" ${st}/>`).join('')}
+    <path d="M52 94 L60 86" stroke="#ffd166" stroke-width="5" stroke-linecap="round"/>`),
+  loco: w(`
+    <path d="M40 112 L46 84 H74 L80 112 Z M46 84 L50 64 H70 L74 84 M50 64 L54 46 H66 L70 64 M36 46 H84 L80 28 H40 Z M60 46 V28" fill="#fff8ec" ${st}/>
+    <g font-family="sans-serif" font-weight="900" font-size="15" fill="${INK}" text-anchor="middle"><text x="60" y="104">1</text><text x="60" y="80">2</text><text x="60" y="60">3</text></g>
+    <ellipse cx="50" cy="39" rx="7" ry="5" fill="#aab8cc" stroke="${INK}" stroke-width="3"/>
+    <path d="M96 30 q10 -18 16 0 q-6 14 -16 0" fill="#e0463c" ${st}/>`),
+  bitmat: w(`
+    <circle cx="48" cy="56" r="30" fill="#f2c7a5" ${st}/>
+    <path d="M18 50 Q18 22 48 22 Q78 22 78 50 Q64 34 48 36 Q32 34 18 50Z" fill="${INK}"/>
+    <rect x="16" y="50" width="64" height="14" rx="5" fill="#e0463c" ${st}/><path d="M78 56 l14 10 l-2 -16 z" fill="#e0463c" ${st}/>
+    <path d="M38 74 q10 8 20 0" fill="none" ${st}/>
+    <path d="M86 88 q8 -8 16 0 q6 8 -2 14 h-12 q-8 -6 -2 -14z" fill="#fff" ${st}/><path d="M88 86 l-4 -8 M100 86 l4 -8" ${st}/>`),
+  rongran: w(`
+    ${[[98, '#e0463c'], [74, '#3fa35b'], [50, '#f58fb8'], [26, '#9b6bd6']].map(([x, c], i) => `<g transform="translate(${x} ${60 + Math.sin(i * 1.4) * 10})"><rect x="-10" y="4" width="20" height="26" rx="8" fill="${c}" ${st}/><circle cx="0" cy="-8" r="11" fill="#f2c7a5" ${st}/></g>`).join('')}
+    <path d="M18 24 q10 -14 22 -4 q10 -12 22 0" fill="none" stroke="#8fd3f4" stroke-width="6" stroke-linecap="round"/>`),
   choichuyen: w(`
     <circle cx="60" cy="26" r="14" fill="#e0463c" ${st}/><path d="M52 18 q4 -4 9 -3" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
     <path d="M18 96 L50 80 M30 104 L72 92 M56 102 L96 84 M78 106 L104 96 M40 90 L82 100" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>
@@ -112,6 +138,6 @@ export const gameIcons = {
 };
 
 export const LEARNING_GAMES = ['coloring', 'numbers', 'share', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'dots', 'memory', 'where', 'feelings'];
-export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen'];
+export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen', 'chichi', 'nuna', 'loco', 'bitmat', 'rongran'];
 export const EXPLORE_GAMES = ['market', 'music', 'festival'];
 export const ALL_GAMES = [...LEARNING_GAMES, ...FOLK_GAMES, ...EXPLORE_GAMES];

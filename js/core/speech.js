@@ -188,14 +188,15 @@ function speakText(text, lang, my) {
 
 async function speakOne(item, my) {
   const lang = item.lang || getLang();
-  const text = t(item.key, item.params, lang);
+  // An item with a text and no key is one word of a text, for example one word of a đồng dao.
+  const text = item.text ?? t(item.key, item.params, lang);
   if (my !== token) return;
-  if (options.voice && !item.params && clips.has(clipId(lang, item.key))) {
+  if (options.voice && !item.params && item.key && clips.has(clipId(lang, item.key))) {
     const url = await clipUrl(clipId(lang, item.key));
     if (url && (await playFile(url, my))) return;
   }
   if (my !== token) return;
-  if (options.voice && !item.params && recorded[lang].has(item.key)) {
+  if (options.voice && !item.params && item.key && recorded[lang].has(item.key)) {
     const ok = await playFile(`audio/${lang}/${recorded[lang].get(item.key)}`, my);
     if (ok) return;
   }
@@ -210,7 +211,7 @@ async function speakOne(item, my) {
 
 /**
  * Speak a list of items one after the other. A new call stops the old one.
- * @param {Array<string|{key: string, lang?: string, params?: object, pause?: number}>} items
+ * @param {Array<string|{key?: string, text?: string, lang?: string, params?: object, pause?: number}>} items
  */
 export async function speakAll(items) {
   stopSpeech();

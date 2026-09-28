@@ -5,6 +5,7 @@ const NOT_SPOKEN = new Set([
   'coloring.gallery', 'coloring.groups', 'coloring.palette', 'coloring.undo', 'coloring.clear', 'coloring.save',
   'coloring.delete', 'numbers.group', 'numbers.plusSign', 'oanquan.kid', 'sorting.item', 'memory.card',
   'letters.grid', 'taptamvong.hand', 'taptamvong.cup', 'soi.name', 'share.plate', 'share.hole', 'numbers.quickLook',
+  'chichi.hand', 'nuna.leg', 'loco.stone', 'bitmat.field', 'rongran.friend', 'rongran.doctor',
 ]);
 const NOT_SPOKEN_PREFIXES = ['settings.', 'about.', 'app.', 'ui.', 'rec.'];
 
