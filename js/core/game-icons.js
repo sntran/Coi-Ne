@@ -55,6 +55,12 @@ export const gameIcons = {
     <path d="M40 14 L66 44 M70 14 L44 44" fill="none" stroke="#9aa6b4" stroke-width="7" stroke-linecap="round"/>
     <circle cx="36" cy="50" r="9" fill="#fff" stroke="#e0463c" stroke-width="6"/>
     <circle cx="74" cy="50" r="9" fill="#fff" stroke="#e0463c" stroke-width="6"/>`),
+  tones: w(`
+    <path d="M14 70 H40" stroke="#7cb87a" stroke-width="10" stroke-linecap="round"/>
+    <path d="M50 84 L76 40" stroke="#e0463c" stroke-width="10" stroke-linecap="round"/>
+    <path d="M84 40 L106 76" stroke="#3f6fd8" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="60" cy="100" r="8" fill="#9c6b43"/>
+    <path d="M40 40 Q52 18 66 28 Q74 36 62 42" fill="none" stroke="#9b6bd6" stroke-width="8" stroke-linecap="round"/>`),
   choichuyen: w(`
     <circle cx="60" cy="26" r="14" fill="#e0463c" ${st}/><path d="M52 18 q4 -4 9 -3" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
     <path d="M18 96 L50 80 M30 104 L72 92 M56 102 L96 84 M78 106 L104 96 M40 90 L82 100" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>
@@ -62,5 +68,5 @@ export const gameIcons = {
     <path d="M60 44 V62 M52 54 L60 62 L68 54" fill="none" ${st}/>`),
 };
 
-export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'memory'];
+export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'memory'];
 export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen'];

@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '8b3d87b0c757';
+const VERSION = 'ca7e20eb7bb8';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -42,6 +42,7 @@ const FILES = [
   './js/games/shapes.js',
   './js/games/sorting.js',
   './js/games/taptamvong.js',
+  './js/games/tones.js',
   './js/logic/choichuyen.js',
   './js/logic/coloring.js',
   './js/logic/colors.js',
@@ -59,12 +60,14 @@ const FILES = [
   './js/logic/shapes.js',
   './js/logic/sorting.js',
   './js/logic/taptamvong.js',
+  './js/logic/tones.js',
   './lang/en.json',
   './lang/vi.json',
   './data/coloring.json',
   './data/images.json',
   './data/letters.json',
   './pictures/twemoji/1f319.svg',
+  './pictures/twemoji/1f331.svg',
   './pictures/twemoji/1f333.svg',
   './pictures/twemoji/1f334.svg',
   './pictures/twemoji/1f336.svg',
@@ -78,6 +81,7 @@ const FILES = [
   './pictures/twemoji/1f343.svg',
   './pictures/twemoji/1f344.svg',
   './pictures/twemoji/1f345.svg',
+  './pictures/twemoji/1f346.svg',
   './pictures/twemoji/1f347.svg',
   './pictures/twemoji/1f349.svg',
   './pictures/twemoji/1f34a.svg',
@@ -128,6 +132,9 @@ const FILES = [
   './pictures/twemoji/1f455.svg',
   './pictures/twemoji/1f457.svg',
   './pictures/twemoji/1f462.svg',
+  './pictures/twemoji/1f468.svg',
+  './pictures/twemoji/1f469.svg',
+  './pictures/twemoji/1f475.svg',
   './pictures/twemoji/1f476.svg',
   './pictures/twemoji/1f478.svg',
   './pictures/twemoji/1f4a1.svg',
@@ -143,6 +150,7 @@ const FILES = [
   './pictures/twemoji/1f6f6.svg',
   './pictures/twemoji/1f955.svg',
   './pictures/twemoji/1f95a.svg',
+  './pictures/twemoji/1f965.svg',
   './pictures/twemoji/1f980.svg',
   './pictures/twemoji/1f981.svg',
   './pictures/twemoji/1f986.svg',
@@ -163,6 +171,7 @@ const FILES = [
   './pictures/twemoji/2602.svg',
   './pictures/twemoji/26bd.svg',
   './pictures/twemoji/26f5.svg',
+  './pictures/twemoji/2702.svg',
   './pictures/twemoji/2708.svg',
   './pictures/twemoji/270a.svg',
   './pictures/twemoji/270b.svg',

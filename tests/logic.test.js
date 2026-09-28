@@ -275,3 +275,32 @@ test('coloring: fill, undo, clear, and white removes a color', () => {
   assert.equal(canUndo(s), false);
   assert.equal(undo(s), s);
 });
+
+import { makeQuestion as toneQuestion, checkTone, distinct, TONES, PAIRS, FAMILIES } from '../js/logic/tones.js';
+
+test('tones: the pairs differ only in the tone, and the questions are correct', () => {
+  const vi = readJson('lang/vi.json');
+  const images = readJson('data/images.json');
+  const strip = (s) => s.normalize('NFD').replace(/[̣̀́̃̉]/g, '').normalize('NFC');
+  for (const [a, b] of PAIRS) {
+    assert.equal(strip(vi[a.key]), strip(vi[b.key]), `${vi[a.key]} and ${vi[b.key]}`);
+    assert.notEqual(a.tone, b.tone);
+    assert.ok(images[a.pic] && images[b.pic]);
+  }
+  for (const f of FAMILIES) {
+    const words = TONES.map((tone) => vi[`tones.w.${f.id}.${tone}`]);
+    assert.equal(new Set(words.map(strip)).size, 1);
+    assert.equal(new Set(words).size, 6);
+  }
+  for (const seed of SEEDS) {
+    const q2 = toneQuestion(2, seeded(seed));
+    assert.equal(q2.choices.length, 2);
+    assert.ok(checkTone(q2, q2.answer));
+    const q3 = toneQuestion(3, seeded(seed));
+    assert.equal(q3.choices.length, 3);
+    assert.ok(q3.choices.includes(q3.answer));
+    for (let i = 0; i < 3; i++) for (let j = i + 1; j < 3; j++) assert.ok(distinct(q3.choices[i], q3.choices[j]), 'hỏi and ngã are never together');
+  }
+  assert.equal(distinct('hoi', 'nga'), false);
+  assert.equal(distinct('sac', 'huyen'), true);
+});

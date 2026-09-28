@@ -796,5 +796,54 @@
     "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f469.svg": {
+    "title": "Twemoji: Woman",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f469.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f475.svg": {
+    "title": "Twemoji: Old woman",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f475.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f468.svg": {
+    "title": "Twemoji: Man",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f468.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f346.svg": {
+    "title": "Twemoji: Eggplant",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f346.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/2702.svg": {
+    "title": "Twemoji: Scissors",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/2702.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f965.svg": {
+    "title": "Twemoji: Coconut",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f965.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f331.svg": {
+    "title": "Twemoji: Seedling",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f331.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
   }
 }

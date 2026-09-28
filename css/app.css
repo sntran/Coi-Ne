@@ -984,3 +984,34 @@ svg { display: block; }
 .rest-soi { width: min(46vw, 240px); margin-top: -40px; animation: breathe 3.5s ease-in-out infinite; }
 .rest-continue { background: #fff4c2; }
 .rest-continue .icon path { fill: #34406b; stroke: #34406b; }
+
+/* Tones */
+
+.tone-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+.tone-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 190px)); gap: 16px; width: 100%; justify-content: center; }
+.tone-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 10px; aspect-ratio: 1; }
+.tone-card.is-plain { width: 150px; }
+.tone-gesture-wrap { width: 86%; }
+.choice .tone-gesture-wrap svg, .tone-gesture { width: 100%; height: auto; }
+.tone-path { stroke-dasharray: 100 100; stroke-dashoffset: 0; }
+.is-playing .tone-path { animation: draw-tone 0.9s ease both; }
+.tone-dot { opacity: 0; }
+.is-playing .tone-dot { opacity: 1; }
+.tone-word { font-size: 44px; font-weight: 800; line-height: 1.1; }
+.choice .tone-pic { width: 44px; height: 44px; }
+.tone-choices { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; }
+.tone-pic-choice { width: 170px; height: 170px; }
+@keyframes draw-tone { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@media (orientation: portrait) and (max-width: 600px) {
+  .tone-grid { grid-template-columns: repeat(2, minmax(0, 170px)); gap: 12px; }
+  .tone-word { font-size: 36px; }
+  .tone-card.is-plain { width: 110px; }
+  .tone-pic-choice { width: 140px; height: 140px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .tone-layout { flex-direction: row; }
+  .tone-grid { grid-template-columns: repeat(6, minmax(0, 120px)); }
+  .tone-word { font-size: 30px; }
+  .tone-card.is-plain { width: 110px; }
+  .tone-pic-choice { width: 130px; height: 130px; }
+}
