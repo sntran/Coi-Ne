@@ -16,8 +16,8 @@ const STORY = [
   { scene: 'bitmat', key: 'story.bitmat.2' },
   { scene: 'soi', key: 'story.bitmat.3' },
 ];
-// The finger must stay on the goat for this time. A fast move over the goat does not catch it.
-const HOLD_MS = 300;
+// The finger must stay on the goat for this time. A ring around the finger fills in this time.
+const HOLD_MS = 700;
 // After this time, the goat shows a little.
 const HINT_MS = 25000;
 
@@ -43,12 +43,21 @@ export function mount(screen) {
   let timer = 0;
   let hintTimer = 0;
   let busy = false;
+  let shown = false;
+  let saidNear = false;
 
   const field = el('div', { class: 'bitmat-field', attrs: { role: 'application', 'aria-label': t('bitmat.field') } });
-  const hand = el('div', { class: 'bitmat-hand' });
+  // The light under the finger. It is cold far from the goat and warm near the goat.
+  const hand = el('div', {
+    class: 'bitmat-hand',
+    html: '<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bitmat-ring" cx="50" cy="50" r="44" pathLength="100"/></svg>',
+  });
+  hand.style.setProperty('--hold', `${HOLD_MS}ms`);
+  // One goat picture for each goat to catch. A caught goat gets its color.
+  const goals = el('div', { class: 'bitmat-goals' });
   const soi = mascot('happy', 'bitmat-soi');
   const scarf = el('div', { class: 'bitmat-scarf' });
-  field.append(scarf, hand);
+  field.append(scarf, hand, goals);
   screen.stage.replaceChildren(el('div', { class: 'bitmat-layout' }, [field, soi]));
 
   function place(node, p) {
@@ -56,17 +65,52 @@ export function mount(screen) {
     node.style.top = `${p.y * 100}%`;
   }
 
-  function newRound() {
+  function drawGoals() {
+    goals.replaceChildren(...round.goats.map((_, i) => el('span', {
+      class: `bitmat-goal ${round.caught.includes(i) ? 'is-caught' : ''}`,
+      html: GOAT,
+    })));
+  }
+
+  /** At the start, the goat stands in the yard. Then the scarf comes down and the goat hides. */
+  async function showGoats() {
+    field.classList.add('is-open');
+    const demo = round.goats.map((_, i) => {
+      const goat = el('div', { class: 'bitmat-goat bitmat-demo', html: GOAT });
+      place(goat, { x: round.goats.length > 1 ? 0.35 + i * 0.3 : 0.5, y: 0.55 });
+      goat.style.setProperty('--size', '30%');
+      field.append(goat);
+      return goat;
+    });
+    bleat(0.6, 0);
+    await speak(round.goats.length > 1 ? 'bitmat.showTwo' : 'bitmat.show');
+    if (!alive) return;
+    field.classList.remove('is-open');
+    demo.forEach((g) => g.classList.add('is-hiding'));
+    await wait(800);
+    demo.forEach((g) => g.remove());
+  }
+
+  async function newRound() {
     round = makeRound(level);
-    busy = false;
+    busy = true;
+    saidNear = false;
     field.querySelectorAll('.bitmat-goat').forEach((g) => g.remove());
+    field.classList.remove('is-hint');
+    drawGoals();
+    if (!shown) {
+      shown = true;
+      await showGoats();
+      if (!alive) return;
+    }
+    busy = false;
     round.goats.forEach((g, i) => {
       const goat = el('div', { class: 'bitmat-goat', html: GOAT, dataset: { goat: String(i) } });
       place(goat, g);
       goat.style.setProperty('--size', `${round.radius * 2 * 100}%`);
       field.append(goat);
     });
-    field.classList.remove('is-open', 'is-hint');
+    field.classList.remove('is-open');
     field.classList.toggle('is-quiet', !hasSound());
     clearTimeout(hintTimer);
     hintTimer = setTimeout(() => {
@@ -99,15 +143,24 @@ export function mount(screen) {
     place(hand, finger);
     hand.classList.add('is-on');
     const i = nearestGoat(round, finger);
-    if (i >= 0 && isOnGoat(round, finger, i)) {
+    if (i < 0) return;
+    const near = nearness(finger, round.goats[i]);
+    hand.style.setProperty('--near', near.toFixed(2));
+    if (isOnGoat(round, finger, i)) {
       if (onGoat === i) return;
       onGoat = i;
+      hand.classList.add('is-holding');
+      if (!saidNear) {
+        saidNear = true;
+        speak('bitmat.near');
+      }
       clearTimeout(holdTimer);
       holdTimer = setTimeout(() => {
         if (alive && onGoat === i && pointer !== null) caught(i);
       }, HOLD_MS);
     } else {
       onGoat = -1;
+      hand.classList.remove('is-holding');
       clearTimeout(holdTimer);
     }
   }
@@ -117,8 +170,10 @@ export function mount(screen) {
     busy = true;
     clearTimeout(timer);
     onGoat = -1;
+    hand.classList.remove('is-holding');
     const r = catchGoat(round, i);
     round = r.round;
+    drawGoals();
     const goat = field.querySelector(`.bitmat-goat[data-goat="${i}"]`);
     goat.classList.add('is-caught');
     sfx.happy();
@@ -161,7 +216,7 @@ export function mount(screen) {
     pointer = null;
     onGoat = -1;
     clearTimeout(holdTimer);
-    hand.classList.remove('is-on');
+    hand.classList.remove('is-on', 'is-holding');
   };
   field.addEventListener('pointerup', up);
   field.addEventListener('pointercancel', up);

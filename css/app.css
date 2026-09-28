@@ -1553,9 +1553,20 @@ svg { display: block; }
 .bitmat-goat svg { width: 100%; height: auto; }
 .bitmat-goat.is-caught { z-index: 4; animation: pop 0.5s ease; }
 .bitmat-goat.is-caught::before { content: ''; position: absolute; inset: -12%; border-radius: 50%; background: radial-gradient(circle, #fff4c2 0 55%, transparent 70%); z-index: -1; }
-.bitmat-hand { position: absolute; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; z-index: 5; pointer-events: none; opacity: 0;
-  background: radial-gradient(circle, rgb(255 244 194 / 0.9) 0 30%, rgb(255 244 194 / 0.25) 55%, transparent 70%); transition: opacity 0.15s ease; }
+.bitmat-hand { --near: 0; --warm: calc(210 - var(--near) * var(--near) * 185); position: absolute; width: 90px; height: 90px; margin: -45px 0 0 -45px; border-radius: 50%; z-index: 5; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle, hsl(var(--warm) 95% 72% / 0.95) 0 26%, hsl(var(--warm) 95% 65% / 0.35) 52%, transparent 70%);
+  transform: scale(calc(0.8 + var(--near) * 0.9)); transition: opacity 0.15s ease, transform 0.15s ease; }
 .bitmat-hand.is-on { opacity: 1; }
+.bitmat-hand svg { width: 100%; height: 100%; overflow: visible; }
+.bitmat-ring { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transform: rotate(-90deg); transform-origin: 50% 50%; }
+.bitmat-hand.is-holding .bitmat-ring { animation: ring-fill var(--hold, 0.7s) linear forwards; }
+@keyframes ring-fill { to { stroke-dashoffset: 0; } }
+.bitmat-goals { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 6; display: flex; gap: 8px; padding: 6px 10px; border-radius: 20px; background: rgb(255 255 255 / 0.85); pointer-events: none; }
+.bitmat-goal { width: 54px; height: 46px; filter: grayscale(1) opacity(0.45); transition: filter 0.3s ease; }
+.bitmat-goal svg { width: 100%; height: 100%; }
+.bitmat-goal.is-caught { filter: none; animation: pop 0.5s ease; }
+.bitmat-demo { z-index: 1; transition: opacity 0.7s ease, transform 0.7s ease; }
+.bitmat-demo.is-hiding { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
 .bitmat-soi { position: absolute; right: 12px; bottom: 10px; width: 90px; z-index: 6; pointer-events: none; }
 .bitmat-soi::after { content: ''; position: absolute; left: 12%; right: 12%; top: 38%; height: 16%; border-radius: 6px; background: var(--lantern); box-shadow: 0 0 0 3px var(--ink); }
 @media (orientation: landscape) and (max-height: 560px) {
