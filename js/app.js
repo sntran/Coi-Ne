@@ -11,6 +11,7 @@ import { onSettingsChange, closeSettings } from './core/settings.js';
 import { getSettings } from './core/state.js';
 import { LEARNING_GAMES, FOLK_GAMES } from './core/game-icons.js';
 import { loadImages } from './core/images.js';
+import { startRestClock } from './core/rest.js';
 
 const GAMES = new Set([...LEARNING_GAMES, ...FOLK_GAMES]);
 const app = document.getElementById('app');
@@ -24,7 +25,7 @@ async function route(keepSettings = false) {
   if (!keepSettings) closeSettings();
   cleanup();
   cleanup = () => {};
-  document.querySelectorAll('.overlay:not(.settings-layer)').forEach((o) => o.remove());
+  document.querySelectorAll('.overlay:not(.settings-layer):not(.rest-layer)').forEach((o) => o.remove());
   const match = location.hash.match(/^#\/play\/([a-z]+)(?:\/(.*))?$/);
   const id = match && GAMES.has(match[1]) ? match[1] : null;
   if (!id) {
@@ -55,6 +56,7 @@ function showStart() {
     unlockSpeech();
     unlockSound();
     sfx.happy();
+    startRestClock();
     const atHome = !location.hash.startsWith('#/play/');
     route().then(() => {
       if (atHome) speak('soi.look');

@@ -617,5 +617,10 @@
   "rec.group.numbers": "Numbers",
   "rec.group.letters": "Letters",
   "rec.group.pictures": "Names of the pictures",
-  "rec.group.rhymes": "Rhymes and stories"
+  "rec.group.rhymes": "Rhymes and stories",
+  "settings.rest": "Rest time",
+  "settings.restHint": "After this many minutes, Sỏi gets sleepy and asks the child to rest. Hold the button for 3 seconds to play again.",
+  "settings.restMinutes": "{n} minutes",
+  "rest.sleepy": "Sỏi is sleepy now. Let's rest a little! Drink some water, and play with your family.",
+  "rest.continue": "Parents: hold this button for 3 seconds to play again"
 }

@@ -165,9 +165,10 @@ svg { display: block; }
   stroke-linecap: round;
   stroke-dasharray: 0 100;
 }
-.settings-btn.is-holding .hold-ring-bar {
+.hold-btn { position: relative; touch-action: none; }
+.hold-btn.is-holding .hold-ring-bar {
   stroke-dasharray: 100 0;
-  transition: stroke-dasharray 3s linear;
+  transition: stroke-dasharray var(--hold, 3s) linear;
 }
 .home-groups {
   display: grid;
@@ -353,7 +354,7 @@ svg { display: block; }
   left: 50%;
   bottom: calc(16px + var(--safe-bottom));
   transform: translate(-50%, 140%);
-  z-index: 70;
+  z-index: 95;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -973,3 +974,13 @@ svg { display: block; }
 .rec-actions { display: flex; gap: 6px; flex: none; }
 .rec-btn { width: 52px; height: 52px; min-width: 52px; min-height: 52px; }
 .rec-row.is-recording .rec-record { animation: breathe 1s ease-in-out infinite; }
+
+/* Rest time */
+
+.rest-layer { background: linear-gradient(#1f2748, #34406b); z-index: 90; }
+.rest-card { display: grid; justify-items: center; gap: 18px; width: min(560px, 92vw); }
+.rest-sky-wrap { width: 100%; }
+.rest-sky { width: 100%; height: auto; }
+.rest-soi { width: min(46vw, 240px); margin-top: -40px; animation: breathe 3.5s ease-in-out infinite; }
+.rest-continue { background: #fff4c2; }
+.rest-continue .icon path { fill: #34406b; stroke: #34406b; }

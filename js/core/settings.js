@@ -8,10 +8,11 @@ import {
 import { putClip, deleteClip } from './clips.js';
 import { canRecord, startRecording, releaseMicrophone } from './recorder.js';
 import { recordableGroups, clipId } from '../logic/recordings.js';
-import { el, onTap, iconButton } from './ui.js';
+import { el, onTap, iconButton, holdButton } from './ui.js';
 import { icons } from './icons.js';
 import { getSettings, updateSettings, gameLevel, changeLevel, gameStars } from './state.js';
 import { MAX_LEVELS } from '../logic/progress.js';
+import { REST_OPTIONS } from '../logic/rest.js';
 import { LEARNING_GAMES, FOLK_GAMES } from './game-icons.js';
 
 export const HOLD_MS = 3000;
@@ -24,30 +25,7 @@ export function onSettingsChange(fn) {
 
 /** The settings button. Hold it for 3 seconds to open the settings. */
 export function settingsButton() {
-  const ring = `<svg viewBox="0 0 100 100" class="hold-ring" aria-hidden="true">
-    <circle cx="50" cy="50" r="46" pathLength="100" class="hold-ring-bar"/></svg>`;
-  const b = el('button', {
-    class: 'icon-btn settings-btn',
-    html: icons.gear + ring,
-    attrs: { type: 'button', 'aria-label': t('settings.holdHint') },
-  });
-  let timer = 0;
-  const cancel = () => {
-    clearTimeout(timer);
-    b.classList.remove('is-holding');
-  };
-  b.addEventListener('contextmenu', (e) => e.preventDefault());
-  b.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    cancel();
-    b.classList.add('is-holding');
-    timer = setTimeout(() => {
-      b.classList.remove('is-holding');
-      openSettings();
-    }, HOLD_MS);
-  });
-  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => b.addEventListener(ev, cancel));
-  return b;
+  return holdButton('gear', 'settings.holdHint', openSettings, 'settings-btn', HOLD_MS);
 }
 
 function row(labelKey, control, hintKey) {
@@ -62,10 +40,10 @@ function row(labelKey, control, hintKey) {
 
 function choice(options, value, onPick) {
   const wrap = el('div', { class: 'set-choice' });
-  for (const [v, labelKey] of options) {
+  for (const [v, labelKey, n] of options) {
     const b = el('button', {
       class: `set-pill ${v === value ? 'is-on' : ''}`,
-      text: t(labelKey),
+      text: t(labelKey, n == null ? undefined : { n }),
       attrs: { type: 'button', 'aria-pressed': String(v === value) },
     });
     onTap(b, () => onPick(v));
@@ -298,6 +276,10 @@ function renderSettings() {
       renderSettings();
     }), 'settings.voiceHint'),
     row('settings.rate', el('div', { class: 'set-rate' }, [rate, rateValue])),
+    row('settings.rest', choice(REST_OPTIONS.map((m) => [m, m ? 'settings.restMinutes' : 'settings.off', m]), s.rest, (v) => {
+      updateSettings({ rest: v });
+      renderSettings();
+    }), 'settings.restHint'),
     voiceStatus(),
     el('h3', { class: 'set-sub', text: t('settings.levels') }),
     levelRows(),

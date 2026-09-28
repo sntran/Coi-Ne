@@ -26,6 +26,45 @@ const FACES = {
     <path d="M50 76 q5 -4 10 0 t10 0" stroke="${INK}" stroke-width="3.5" fill="none" stroke-linecap="round"/>
     <circle cx="104" cy="22" r="4" fill="#fff" stroke="${BODY_DARK}" stroke-width="2"/>
     <circle cx="113" cy="10" r="6" fill="#fff" stroke="${BODY_DARK}" stroke-width="2"/>`,
+  sad: `
+    <path d="M37 51 L51 45" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M71 45 L85 51" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="45" cy="60" rx="6" ry="6.5" fill="${INK}"/>
+    <ellipse cx="77" cy="60" rx="6" ry="6.5" fill="${INK}"/>
+    <circle cx="47" cy="58" r="2" fill="#fff"/>
+    <circle cx="79" cy="58" r="2" fill="#fff"/>
+    <path d="M49 82 q12 -10 24 0" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M36 68 q-4 8 0 11 q4 -3 0 -11z" fill="#8fd3f4" stroke="#5fb3db" stroke-width="1.5"/>`,
+  angry: `
+    <path d="M36 46 L52 53" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M86 46 L70 53" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="45" cy="60" rx="5.5" ry="6" fill="${INK}"/>
+    <ellipse cx="77" cy="60" rx="5.5" ry="6" fill="${INK}"/>
+    <path d="M49 80 q12 -7 24 0" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="33" cy="70" rx="8" ry="5" fill="#e0463c" opacity="0.45"/>
+    <ellipse cx="89" cy="70" rx="8" ry="5" fill="#e0463c" opacity="0.45"/>`,
+  scared: `
+    <path d="M37 42 q7 -7 14 -3" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M71 39 q7 -4 14 3" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="45" cy="57" rx="8" ry="9" fill="#fff" stroke="${INK}" stroke-width="2.5"/>
+    <ellipse cx="77" cy="57" rx="8" ry="9" fill="#fff" stroke="${INK}" stroke-width="2.5"/>
+    <circle cx="45" cy="58" r="3" fill="${INK}"/>
+    <circle cx="77" cy="58" r="3" fill="${INK}"/>
+    <path d="M48 80 q4 -5 8 0 t8 0 t8 0" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M99 42 q-5 8 0 12 q5 -4 0 -12z" fill="#8fd3f4" stroke="#5fb3db" stroke-width="1.5"/>`,
+  surprised: `
+    <path d="M36 40 q8 -8 16 -3" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M70 37 q8 -5 16 3" stroke="${INK}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="45" cy="56" r="8" fill="${INK}"/>
+    <circle cx="77" cy="56" r="8" fill="${INK}"/>
+    <circle cx="48" cy="53" r="3" fill="#fff"/>
+    <circle cx="80" cy="53" r="3" fill="#fff"/>
+    <ellipse cx="61" cy="79" rx="8" ry="10" fill="${INK}"/>`,
+  sleepy: `
+    <path d="M38 60 q7 6 14 0" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M70 60 q7 6 14 0" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="61" cy="78" rx="5" ry="4" fill="${INK}"/>
+    <path d="M88 30 h10 l-10 12 h10 M102 16 h8 l-8 10 h8" stroke="${BODY_DARK}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 };
 
 export const EXPRESSIONS = Object.keys(FACES);

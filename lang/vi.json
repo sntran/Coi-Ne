@@ -617,5 +617,10 @@
   "rec.group.numbers": "Số",
   "rec.group.letters": "Chữ cái",
   "rec.group.pictures": "Tên các hình",
-  "rec.group.rhymes": "Đồng dao và truyện"
+  "rec.group.rhymes": "Đồng dao và truyện",
+  "settings.rest": "Giờ nghỉ",
+  "settings.restHint": "Sau số phút này, Sỏi buồn ngủ và mời con nghỉ. Ba mẹ giữ nút 3 giây để chơi tiếp.",
+  "settings.restMinutes": "{n} phút",
+  "rest.sleepy": "Sỏi buồn ngủ rồi. Mình nghỉ một chút nha! Con đi uống nước, rồi chơi với ba mẹ nha.",
+  "rest.continue": "Ba mẹ giữ nút này 3 giây để chơi tiếp"
 }

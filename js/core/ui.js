@@ -288,3 +288,35 @@ export function langName(lang) {
 export function reloadGame() {
   window.dispatchEvent(new Event('coine:reload'));
 }
+
+/**
+ * A button that works only after a hold of some seconds. It is a gate for parents.
+ * A ring around the button fills while the parent holds it.
+ */
+export function holdButton(iconName, labelKey, onDone, className = '', ms = 3000) {
+  const ring = `<svg viewBox="0 0 100 100" class="hold-ring" aria-hidden="true">
+    <circle cx="50" cy="50" r="46" pathLength="100" class="hold-ring-bar"/></svg>`;
+  const b = el('button', {
+    class: `icon-btn hold-btn ${className}`,
+    html: (icons[iconName] || '') + ring,
+    attrs: { type: 'button', 'aria-label': t(labelKey) },
+  });
+  b.style.setProperty('--hold', `${ms}ms`);
+  let timer = 0;
+  const cancel = () => {
+    clearTimeout(timer);
+    b.classList.remove('is-holding');
+  };
+  b.addEventListener('contextmenu', (e) => e.preventDefault());
+  b.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    cancel();
+    b.classList.add('is-holding');
+    timer = setTimeout(() => {
+      b.classList.remove('is-holding');
+      onDone();
+    }, ms);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => b.addEventListener(ev, cancel));
+  return b;
+}

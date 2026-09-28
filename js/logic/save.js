@@ -1,4 +1,6 @@
 // Save and load. These functions do not use the DOM.
+
+import { DEFAULT_REST, normalizeRest } from './rest.js';
 // The storage object has the same API as localStorage: getItem and setItem.
 
 export const PREFIX = 'coine.';
@@ -8,6 +10,7 @@ export const DEFAULT_SETTINGS = Object.freeze({
   voice: true,
   rate: 0.9,
   voices: Object.freeze({ vi: null, en: null }),
+  rest: DEFAULT_REST,
 });
 
 export function createStore(storage, prefix = PREFIX) {
@@ -54,6 +57,7 @@ export function loadSettings(store) {
     vi: typeof v.vi === 'string' && v.vi ? v.vi : null,
     en: typeof v.en === 'string' && v.en ? v.en : null,
   };
+  s.rest = normalizeRest(s.rest);
   return s;
 }
 

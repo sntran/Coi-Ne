@@ -56,10 +56,10 @@ test('bad saved progress becomes a clean progress', () => {
 test('settings: save and load, with safe values', () => {
   const store = createStore(memoryStorage());
   assert.deepEqual(loadSettings(store), { ...DEFAULT_SETTINGS });
-  saveSettings(store, { lang: 'en', voice: false, rate: 1.1, voices: { vi: 'com.apple.voice.Linh', en: null } });
-  assert.deepEqual(loadSettings(store), { lang: 'en', voice: false, rate: 1.1, voices: { vi: 'com.apple.voice.Linh', en: null } });
+  saveSettings(store, { lang: 'en', voice: false, rate: 1.1, voices: { vi: 'com.apple.voice.Linh', en: null }, rest: 15 });
+  assert.deepEqual(loadSettings(store), { lang: 'en', voice: false, rate: 1.1, voices: { vi: 'com.apple.voice.Linh', en: null }, rest: 15 });
   saveSettings(store, { lang: 'fr', voice: 'yes', rate: 9, voices: { vi: 3, en: '' } });
-  assert.deepEqual(loadSettings(store), { lang: 'vi', voice: true, rate: 1.3, voices: { vi: null, en: null } });
+  assert.deepEqual(loadSettings(store), { lang: 'vi', voice: true, rate: 1.3, voices: { vi: null, en: null }, rest: 20 });
   saveSettings(store, { voices: 'bad' });
   assert.deepEqual(loadSettings(store).voices, { vi: null, en: null });
 });
