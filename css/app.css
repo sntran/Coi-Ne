@@ -1034,3 +1034,25 @@ svg { display: block; }
   .trace-board { height: 100%; flex: none; }
   .trace-reward { width: 120px; height: auto; }
 }
+
+/* Dot-to-dot */
+
+.dots-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.dots-board { flex: 1 1 auto; min-height: 0; height: min(100%, 76dvh); max-width: 100%; aspect-ratio: 1; background: #fff; border-radius: 30px; box-shadow: 0 8px 22px rgb(59 42 42 / 0.1); }
+.dots-svg { width: 100%; height: 100%; touch-action: none; }
+.dot-num { font-size: 6px; font-weight: 800; fill: #7a6660; pointer-events: none; }
+.dot.is-next .dot-num { fill: var(--lantern); font-size: 7.5px; }
+.dot-ring { fill: rgb(224 70 60 / 0.18); stroke: var(--lantern); stroke-width: 1; animation: breathe 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dots-fill { animation: pop 0.5s ease; transform-box: fill-box; transform-origin: center; }
+.dots-reward { position: relative; height: 96px; display: grid; place-items: center; flex: none; }
+.dots-reward .lang-badge { top: 0; right: -30px; }
+.dots-pic { width: 84px; height: 84px; animation: pop 0.5s ease; }
+@media (orientation: landscape) {
+  .dots-layout { flex-direction: row; }
+  .dots-board { height: 100%; flex: none; }
+  .dots-reward { width: 130px; height: auto; }
+}
+@media (orientation: portrait) {
+  .dots-board { flex: none; height: auto; width: min(100%, calc(100dvh - 250px)); }
+  .trace-board { flex: none; height: auto; width: min(100%, calc((100dvh - 250px) * 100 / 120)); }
+}

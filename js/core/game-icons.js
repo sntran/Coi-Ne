@@ -66,6 +66,10 @@ export const gameIcons = {
     <path d="M42 90 L60 30 L78 90 M49 68 H71" fill="none" stroke="#efe5d6" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M42 90 L60 30 L70 62" fill="none" stroke="#e0463c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M70 62 L84 98 L96 90 L100 102 L86 110 Z" fill="#f2c7a5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`),
+  dots: w(`
+    <path d="M60 14 L74 44 L106 46 L82 66 L90 98 L60 80 L30 98" fill="none" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M30 98 L38 66 L14 46 L46 44 Z" fill="none" stroke="#d8c3a8" stroke-width="4" stroke-dasharray="4 6"/>
+    ${[[60, 14], [74, 44], [106, 46], [82, 66], [90, 98], [60, 80], [30, 98], [38, 66], [14, 46], [46, 44]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="6" fill="${i < 7 ? '#e0463c' : INK}"/>`).join('')}`),
   choichuyen: w(`
     <circle cx="60" cy="26" r="14" fill="#e0463c" ${st}/><path d="M52 18 q4 -4 9 -3" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
     <path d="M18 96 L50 80 M30 104 L72 92 M56 102 L96 84 M78 106 L104 96 M40 90 L82 100" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>
@@ -73,5 +77,5 @@ export const gameIcons = {
     <path d="M60 44 V62 M52 54 L60 62 L68 54" fill="none" ${st}/>`),
 };
 
-export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'memory'];
+export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'dots', 'memory'];
 export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen'];

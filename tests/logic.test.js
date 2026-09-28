@@ -331,3 +331,29 @@ test('tracing: each letter and each digit has strokes', () => {
   for (const d of DIGITS) assert.ok(strokes[d]?.length, `no strokes for ${d}`);
   assert.equal(glyphsFor(2, []).length, 10);
 });
+
+import { makeRound as dotsRound, tapDot, hitRadius, DESIGNS as DOT_DESIGNS } from '../js/logic/dots.js';
+
+test('dot-to-dot: level 1 has 10 dots or fewer, level 2 has 20 or fewer, and the dots go in order', () => {
+  const images = readJson('data/images.json');
+  const vi = readJson('lang/vi.json');
+  for (const d of DOT_DESIGNS[1]) assert.ok(d.points.length <= 10, d.id);
+  for (const d of DOT_DESIGNS[2]) assert.ok(d.points.length <= 20, d.id);
+  for (const d of [...DOT_DESIGNS[1], ...DOT_DESIGNS[2]]) {
+    assert.ok(images[d.pic], `no picture ${d.pic}`);
+    assert.ok(vi[d.name], `no name ${d.name}`);
+    for (const p of d.points) assert.ok(p[0] >= 0 && p[0] <= 100 && p[1] >= 0 && p[1] <= 100);
+    d.points.forEach((_, i) => assert.ok(hitRadius(d.points, i) >= 4));
+  }
+  let s = dotsRound(1, seeded(1));
+  const n = s.design.points.length;
+  assert.equal(tapDot(s, 1).event, 'wrong');
+  for (let i = 0; i < n; i++) {
+    const r = tapDot(s, i);
+    assert.equal(r.event, i === n - 1 ? 'done' : 'next');
+    s = r.state;
+    if (i > 0) assert.equal(tapDot(s, i - 1).event, 'old');
+  }
+  const again = dotsRound(1, seeded(2), 'star');
+  assert.notEqual(again.design.id, 'star');
+});

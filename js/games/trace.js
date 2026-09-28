@@ -56,6 +56,8 @@ export function mount(screen) {
       s.length = len;
       s.points = samplePath(len, (d) => s.guide.getPointAtLength(d), 4);
       s.done.setAttribute('stroke-dasharray', `0 ${len + 1}`);
+      // A round line end shows a dot even for a length of 0. Hide the stroke until the child starts it.
+      s.done.style.visibility = 'hidden';
     }
     current = 0;
     markStart();
@@ -102,6 +104,7 @@ export function mount(screen) {
     s.index = next;
     const part = (Math.min(s.index, s.points.length - 1) / (s.points.length - 1)) * s.length;
     s.done.setAttribute('stroke-dasharray', `${part} ${s.length + 1}`);
+    s.done.style.visibility = '';
     markStart();
     if (!isDone(s.index, s.points)) return;
     s.done.setAttribute('stroke-dasharray', `${s.length + 1} 0`);

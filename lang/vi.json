@@ -666,5 +666,10 @@
   "settings.levels.tones": "1: nghe sáu thanh · 2: chọn hình đúng thanh · 3: nghe và chọn thanh",
   "game.trace.name": "Tập viết",
   "settings.levels.trace": "1: chữ cái · 2: chữ số",
-  "trace.instruction": "Đưa ngón tay theo nét chữ nha. Bắt đầu ở chấm xanh."
+  "trace.instruction": "Đưa ngón tay theo nét chữ nha. Bắt đầu ở chấm xanh.",
+  "pic.heart": "trái tim",
+  "game.dots.name": "Nối điểm",
+  "settings.levels.dots": "1: đến 10 điểm · 2: đến 20 điểm",
+  "dots.instruction": "Nối các chấm theo số nha: một, hai, ba… Coi hình gì hiện ra!",
+  "dots.findNumber": "Tìm số {n} nha."
 }
