@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = 'db13b8890089';
+const VERSION = '8f1928588029';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -13,6 +13,7 @@ const FILES = [
   './credits.json',
   './css/app.css',
   './js/app.js',
+  './js/core/drag.js',
   './js/core/game-icons.js',
   './js/core/home.js',
   './js/core/i18n.js',
@@ -28,15 +29,21 @@ const FILES = [
   './js/core/ui.js',
   './js/games/choichuyen.js',
   './js/games/coloring.js',
+  './js/games/letters.js',
+  './js/games/memory.js',
   './js/games/numbers.js',
   './js/games/oanquan.js',
   './js/games/oantuti.js',
   './js/games/outline.js',
   './js/games/patterns.js',
+  './js/games/shapes.js',
+  './js/games/sorting.js',
   './js/games/taptamvong.js',
   './js/logic/choichuyen.js',
   './js/logic/coloring.js',
   './js/logic/colors.js',
+  './js/logic/letters.js',
+  './js/logic/memory.js',
   './js/logic/numbers.js',
   './js/logic/oanquan.js',
   './js/logic/oantuti.js',
@@ -44,11 +51,14 @@ const FILES = [
   './js/logic/progress.js',
   './js/logic/random.js',
   './js/logic/save.js',
+  './js/logic/shapes.js',
+  './js/logic/sorting.js',
   './js/logic/taptamvong.js',
   './lang/en.json',
   './lang/vi.json',
   './data/coloring.json',
   './data/images.json',
+  './data/letters.json',
   './pictures/twemoji/1f319.svg',
   './pictures/twemoji/1f333.svg',
   './pictures/twemoji/1f334.svg',

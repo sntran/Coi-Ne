@@ -1,0 +1,446 @@
+{
+  "vi": [
+    {
+      "id": "a",
+      "glyph": "a",
+      "base": "a",
+      "pic": "tshirt",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "aw",
+      "glyph": "ă",
+      "base": "a",
+      "pic": "rice",
+      "first": true,
+      "clear": false
+    },
+    {
+      "id": "aa",
+      "glyph": "â",
+      "base": "a",
+      "pic": "teapot",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "b",
+      "glyph": "b",
+      "base": "b",
+      "pic": "cow2",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "c",
+      "glyph": "c",
+      "base": "c",
+      "pic": "goldfish",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "d",
+      "glyph": "d",
+      "base": "d",
+      "pic": "watermelon",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "dd",
+      "glyph": "đ",
+      "base": "d",
+      "pic": "lantern",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "e",
+      "glyph": "e",
+      "base": "e",
+      "pic": "baby",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "ee",
+      "glyph": "ê",
+      "base": "e",
+      "pic": "frog",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "g",
+      "glyph": "g",
+      "base": "g",
+      "pic": "hen",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "h",
+      "glyph": "h",
+      "base": "h",
+      "pic": "blossom",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "i",
+      "glyph": "i",
+      "base": "i",
+      "pic": "bird",
+      "first": false,
+      "clear": true
+    },
+    {
+      "id": "k",
+      "glyph": "k",
+      "base": "k",
+      "pic": "candy",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "l",
+      "glyph": "l",
+      "base": "l",
+      "pic": "leaf",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "m",
+      "glyph": "m",
+      "base": "m",
+      "pic": "cat",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "n",
+      "glyph": "n",
+      "base": "n",
+      "pic": "mushroom",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "o",
+      "glyph": "o",
+      "base": "o",
+      "pic": "bee",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "oo",
+      "glyph": "ô",
+      "base": "o",
+      "pic": "automobile",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "ow",
+      "glyph": "ơ",
+      "base": "o",
+      "pic": "chili",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "p",
+      "glyph": "p",
+      "base": "p",
+      "pic": "battery",
+      "first": true,
+      "clear": false
+    },
+    {
+      "id": "q",
+      "glyph": "q",
+      "base": "q",
+      "pic": "fan",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "r",
+      "glyph": "r",
+      "base": "r",
+      "pic": "turtle",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "s",
+      "glyph": "s",
+      "base": "s",
+      "pic": "star",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "t",
+      "glyph": "t",
+      "base": "t",
+      "pic": "apple",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "u",
+      "glyph": "u",
+      "base": "u",
+      "pic": "boot",
+      "first": true,
+      "clear": false
+    },
+    {
+      "id": "uw",
+      "glyph": "ư",
+      "base": "u",
+      "pic": "lion",
+      "first": false,
+      "clear": true
+    },
+    {
+      "id": "v",
+      "glyph": "v",
+      "base": "v",
+      "pic": "elephant",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "x",
+      "glyph": "x",
+      "base": "x",
+      "pic": "bicycle",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "y",
+      "glyph": "y",
+      "base": "y",
+      "pic": "nurse",
+      "first": true,
+      "clear": false
+    }
+  ],
+  "en": [
+    {
+      "id": "a",
+      "glyph": "a",
+      "base": "a",
+      "pic": "apple",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "b",
+      "glyph": "b",
+      "base": "b",
+      "pic": "bear",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "c",
+      "glyph": "c",
+      "base": "c",
+      "pic": "cat",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "d",
+      "glyph": "d",
+      "base": "d",
+      "pic": "dog",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "e",
+      "glyph": "e",
+      "base": "e",
+      "pic": "egg",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "f",
+      "glyph": "f",
+      "base": "f",
+      "pic": "goldfish",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "g",
+      "glyph": "g",
+      "base": "g",
+      "pic": "grapes",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "h",
+      "glyph": "h",
+      "base": "h",
+      "pic": "hat",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "i",
+      "glyph": "i",
+      "base": "i",
+      "pic": "icecream",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "j",
+      "glyph": "j",
+      "base": "j",
+      "pic": "juice",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "k",
+      "glyph": "k",
+      "base": "k",
+      "pic": "kite",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "l",
+      "glyph": "l",
+      "base": "l",
+      "pic": "lion",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "m",
+      "glyph": "m",
+      "base": "m",
+      "pic": "moon",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "n",
+      "glyph": "n",
+      "base": "n",
+      "pic": "nest",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "o",
+      "glyph": "o",
+      "base": "o",
+      "pic": "orange",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "p",
+      "glyph": "p",
+      "base": "p",
+      "pic": "pig",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "q",
+      "glyph": "q",
+      "base": "q",
+      "pic": "princess",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "r",
+      "glyph": "r",
+      "base": "r",
+      "pic": "rabbit",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "s",
+      "glyph": "s",
+      "base": "s",
+      "pic": "sun",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "t",
+      "glyph": "t",
+      "base": "t",
+      "pic": "tree",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "u",
+      "glyph": "u",
+      "base": "u",
+      "pic": "umbrella",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "v",
+      "glyph": "v",
+      "base": "v",
+      "pic": "violin",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "w",
+      "glyph": "w",
+      "base": "w",
+      "pic": "whale",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "x",
+      "glyph": "x",
+      "base": "x",
+      "pic": "fox",
+      "first": false,
+      "clear": true
+    },
+    {
+      "id": "y",
+      "glyph": "y",
+      "base": "y",
+      "pic": "yoyo",
+      "first": true,
+      "clear": true
+    },
+    {
+      "id": "z",
+      "glyph": "z",
+      "base": "z",
+      "pic": "zebra",
+      "first": true,
+      "clear": true
+    }
+  ]
+}
