@@ -621,6 +621,17 @@ svg { display: block; }
 .oaq-cell.is-selected rect, .oaq-cell.is-active rect { fill: #ffe08a; }
 .oaq-arrow { cursor: pointer; filter: drop-shadow(0 4px 4px rgb(0 0 0 / 0.2)); }
 .oaq-arrow-pulse { animation: breathe 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.oaq-arrow.is-soi { pointer-events: none; }
+.oaq-cell.is-soi-pick rect { fill: #cfd8e6; }
+.oaq-cell.is-picked rect { fill: #fff8ec; stroke-dasharray: 10 6; }
+.oaq-cell.is-sown rect, .oaq-quan.is-sown { fill: #ffe9a8; }
+.oaq-cell.is-taken rect, .oaq-quan.is-taken { fill: #ffb3a8; animation: pop 0.5s ease; transform-box: fill-box; transform-origin: center; }
+.oaq-new { animation: oaq-drop 0.35s ease-out; transform-box: fill-box; transform-origin: center; }
+@keyframes oaq-drop { from { transform: translateY(-26px) scale(1.4); opacity: 0.4; } to { transform: none; opacity: 1; } }
+.oaq-hand { pointer-events: none; opacity: 0; transition: transform 0.26s ease-in-out, opacity 0.2s ease; }
+.oaq-hand.is-on { opacity: 1; }
+.oaq-hand-ring { fill: #fff; stroke: #e56b9a; }
+.oaq-hand.is-soi .oaq-hand-ring { stroke: #7d8ca3; }
 .oaq-pocket { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 6px 16px; border-radius: 24px; background: #fff; box-shadow: 0 4px 10px rgb(59 42 42 / 0.1); font-weight: 800; font-size: 26px; }
 .oaq-pebble-icon { width: 26px; height: 20px; border-radius: 50%; background: #9aa6b4; border: 2px solid var(--ink); }
 .oaq-stone { width: 40px; height: 30px; border-radius: 50%; background: #7d8ca3; border: 2px solid var(--ink); }

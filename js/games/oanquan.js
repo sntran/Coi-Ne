@@ -31,7 +31,7 @@ function center(i) {
 }
 
 const PEBBLE_COLORS = ['#9aa6b4', '#b5a48f', '#8e9bab', '#c2b39b', '#a7b3c1', '#9c8f7e'];
-function pebbles(i, count) {
+function pebbles(i, count, fresh = false) {
   const c = center(i);
   const g = svgEl('g', { class: 'oaq-pebbles' });
   const spread = isQuan(i) ? 9 : 8.2;
@@ -41,8 +41,11 @@ function pebbles(i, count) {
     const a = k * 2.39996 + i;
     const x = c.x + Math.cos(a) * Math.min(r, 40) + (i === 0 ? -10 : i === 6 ? 10 : 0);
     const y = c.y + Math.sin(a) * Math.min(r, 40) + (isQuan(i) ? offset * (k % 2 ? 1 : -1) * 0.5 : 0);
+    // The pebble that just fell into the square pops.
+    const isNew = fresh && k === count - 1;
     g.append(svgEl('ellipse', {
       cx: x.toFixed(1), cy: y.toFixed(1), rx: 7.5, ry: 6, fill: PEBBLE_COLORS[(k + i) % PEBBLE_COLORS.length], stroke: INK, 'stroke-width': 1.5,
+      class: isNew ? 'oaq-new' : null,
     }));
   }
   return g;
@@ -62,6 +65,23 @@ export function mount(screen) {
   const soiPocket = el('div', { class: 'oaq-pocket' });
   const kidPocket = el('div', { class: 'oaq-pocket' });
   const board = svgEl('svg', { class: 'oaq-board', role: 'img' });
+  // The board is drawn again after each change. The hand is in its own layer, so it can move.
+  const cellsG = svgEl('g');
+  const handText = svgEl('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': 24, 'font-weight': 900, fill: INK });
+  const handFace = svgEl('g', {}, [handText]);
+  const handG = svgEl('g', { class: 'oaq-hand' }, [
+    svgEl('circle', { r: 27, class: 'oaq-hand-ring', 'stroke-width': 5 }),
+    svgEl('ellipse', { cx: 0, cy: 16, rx: 9, ry: 7, fill: '#9aa6b4', stroke: INK, 'stroke-width': 1.5 }),
+    handFace,
+  ]);
+  const rootG = svgEl('g', {}, [cellsG, handG]);
+  board.append(rootG);
+  // What changed in the last move: 'picked', 'sown', or 'taken' for each place.
+  const trail = new Map();
+  let fresh = null;
+  let soiChoice = null;
+  let inHand = 0;
+  let explained = false;
   const soiRow = el('div', { class: 'oaq-row oaq-row-soi' }, [soi, soiPocket]);
   const kidRow = el('div', { class: 'oaq-row oaq-row-kid' }, [el('div', { class: 'oaq-kid', html: kidIcon() }), kidPocket]);
   const layout = el('div', { class: 'oaq-layout' }, [soiRow, el('div', { class: 'oaq-board-wrap' }, [board]), kidRow]);
@@ -91,17 +111,20 @@ export function mount(screen) {
   function render() {
     const isV = vertical.matches;
     board.setAttribute('viewBox', isV ? '0 0 320 720' : '0 0 720 320');
-    board.replaceChildren();
-    const g = svgEl('g', { transform: isV ? 'translate(320 0) rotate(90)' : '' });
-    board.append(g);
+    rootG.setAttribute('transform', isV ? 'translate(320 0) rotate(90)' : '');
+    handFace.setAttribute('transform', isV ? 'rotate(-90)' : '');
+    const g = cellsG;
+    g.replaceChildren();
     // The board is drawn on the ground.
-    g.append(svgEl('path', { d: 'M110 60 A100 100 0 0 0 110 260 Z', class: 'oaq-quan', fill: '#e8c38f', stroke: INK, 'stroke-width': 4 }));
-    g.append(svgEl('path', { d: 'M610 60 A100 100 0 0 1 610 260 Z', class: 'oaq-quan', fill: '#e8c38f', stroke: INK, 'stroke-width': 4 }));
+    const mark = (i) => (trail.has(i) ? ` is-${trail.get(i)}` : '');
+    g.append(svgEl('path', { d: 'M110 60 A100 100 0 0 0 110 260 Z', class: `oaq-quan${mark(0)}`, fill: '#e8c38f', stroke: INK, 'stroke-width': 4 }));
+    g.append(svgEl('path', { d: 'M610 60 A100 100 0 0 1 610 260 Z', class: `oaq-quan${mark(6)}`, fill: '#e8c38f', stroke: INK, 'stroke-width': 4 }));
     for (let i = 0; i < 12; i++) {
       if (isQuan(i)) continue;
       const b = cellBox(i);
       const mine = owner(i) === 0;
-      const cell = svgEl('g', { class: `oaq-cell ${mine ? 'is-mine' : ''} ${selected === i ? 'is-selected' : ''}`, 'data-pos': i });
+      const pick = soiChoice && soiChoice.pos === i ? ' is-soi-pick' : '';
+      const cell = svgEl('g', { class: `oaq-cell ${mine ? 'is-mine' : ''} ${selected === i ? 'is-selected' : ''}${mark(i)}${pick}`, 'data-pos': i });
       cell.append(svgEl('rect', { x: b.x, y: b.y, width: b.w, height: b.h, fill: mine ? '#f6dcb4' : '#f1d3a6', stroke: INK, 'stroke-width': 4 }));
       g.append(cell);
     }
@@ -110,7 +133,7 @@ export function mount(screen) {
       if (isQuan(i) && view.stones[i]) {
         g.append(svgEl('ellipse', { cx: c.x + (i === 0 ? -8 : 8), cy: c.y, rx: 26, ry: 20, fill: '#7d8ca3', stroke: INK, 'stroke-width': 2.5, class: 'oaq-big' }));
       }
-      g.append(pebbles(i, view.cells[i]));
+      g.append(pebbles(i, view.cells[i], fresh === i));
       const n = view.cells[i];
       if (!isQuan(i) || n > 0) {
         const bx = isQuan(i) ? c.x + (i === 0 ? -30 : 30) : cellBox(i).x + 86;
@@ -122,6 +145,18 @@ export function mount(screen) {
         badge.append(tx);
         g.append(badge);
       }
+    }
+    if (soiChoice) {
+      // Sỏi shows the square and the way before Sỏi moves.
+      const from = center(soiChoice.pos);
+      const to = center(next(soiChoice.pos, soiChoice.dir));
+      const angle = (Math.atan2(to.y - from.y, to.x - from.x) * 180) / Math.PI;
+      const arrow = svgEl('g', { class: 'oaq-arrow is-soi', transform: `translate(${to.x} ${to.y}) rotate(${angle})` });
+      const pulse = svgEl('g', { class: 'oaq-arrow-pulse' });
+      pulse.append(svgEl('circle', { r: 40, fill: '#7d8ca3', stroke: '#fff', 'stroke-width': 5 }));
+      pulse.append(svgEl('path', { d: 'M-18 0 H16 M4 -14 L18 0 L4 14', fill: 'none', stroke: '#fff', 'stroke-width': 8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+      arrow.append(pulse);
+      g.append(arrow);
     }
     if (selected != null && !busy) {
       for (const dir of [1, -1]) {
@@ -160,29 +195,60 @@ export function mount(screen) {
     screen.say('oanquan.chooseDir');
   });
 
-  const pace = () => (rules.sowOnly ? 750 : 600);
+  // Sỏi plays a little slower, so the child can see each pebble.
+  const pace = (player) => (rules.sowOnly ? 750 : player === 1 ? 750 : 600);
+
+  /** The hand holds the pebbles and moves above the squares. The number shows the pebbles in the hand. */
+  function moveHand(pos, player) {
+    const c = center(pos);
+    handG.style.transform = `translate(${c.x}px, ${c.y - 30}px)`;
+    handG.classList.add('is-on');
+    handG.classList.toggle('is-soi', player === 1);
+    handText.textContent = String(inHand);
+  }
+
+  function hideHand() {
+    handG.classList.remove('is-on');
+  }
 
   async function animate(events, player) {
     let picks = 0;
     for (const ev of events) {
       if (!alive) return;
       if (ev.type === 'pick') {
+        inHand = ev.count;
         view.cells[ev.pos] = 0;
         selected = null;
+        soiChoice = null;
+        fresh = null;
+        trail.set(ev.pos, 'picked');
         render();
-        highlight(ev.pos);
+        moveHand(ev.pos, player);
         sfx.tap();
         picks += 1;
         // The player picks up the pebbles of the next square and goes on. The count starts again.
         if (picks > 1) await speak('oanquan.continue');
-        await wait(400);
+        await wait(500);
       } else if (ev.type === 'drop') {
+        inHand -= 1;
+        moveHand(ev.pos, player);
+        await wait(260);
+        if (!alive) return;
         view.cells[ev.pos] += 1;
+        fresh = ev.pos;
+        trail.set(ev.pos, 'sown');
         render();
-        highlight(ev.pos);
         sfx.pebble();
-        await Promise.all([Promise.race([speak(`num.${ev.count}`), wait(1100)]), wait(pace())]);
+        if (inHand === 0) hideHand();
+        await Promise.all([Promise.race([speak(`num.${ev.count}`), wait(1100)]), wait(pace(player))]);
       } else if (ev.type === 'capture') {
+        hideHand();
+        fresh = null;
+        // The square shines first, and then the pebbles go to the player.
+        trail.set(ev.pos, 'taken');
+        render();
+        await wait(600);
+        if (!alive) return;
         view.cells[ev.pos] = 0;
         if (ev.stone) view.stones[ev.pos] = false;
         view.captured[player].pebbles += ev.pebbles;
@@ -193,6 +259,7 @@ export function mount(screen) {
         const key = player === 0 ? (ev.stone ? 'oanquan.captureQuan' : 'oanquan.capture') : (ev.stone ? 'oanquan.soiCaptureQuan' : 'oanquan.soiCapture');
         await speak(key);
       } else if (ev.type === 'stop') {
+        hideHand();
         if (ev.reason === 'quan') await speak('oanquan.stopQuan');
         else if (ev.reason === 'empty') await speak('oanquan.stopEmpty');
       } else if (ev.type === 'refill') {
@@ -201,18 +268,16 @@ export function mount(screen) {
     }
   }
 
-  function highlight(pos) {
-    const node = board.querySelector(`.oaq-cell[data-pos="${pos}"]`);
-    node?.classList.add('is-active');
-  }
-
   async function chooseDir(dir) {
     if (busy || selected == null) return;
     const pos = selected;
     busy = true;
     sfx.tap();
+    trail.clear();
     const result = playMove(game, pos, dir);
     await animate(result.events, 0);
+    hideHand();
+    fresh = null;
     game = result.state;
     view = structuredClone(game);
     render();
@@ -248,19 +313,29 @@ export function mount(screen) {
     if (!alive) return;
     const move = chooseMove(game, Math.random, level === 3 ? 0.55 : 0.35);
     if (!move) return finish();
-    selected = move.pos;
-    busy = false;
+    // Show the square and the way that Sỏi chooses.
+    trail.clear();
+    soiChoice = move;
     render();
-    busy = true;
-    await wait(1100);
+    await speak('oanquan.soiPicks');
+    await wait(700);
+    if (!alive) return;
     setExpression(soi, 'curious');
     const result = playMove(game, move.pos, move.dir);
     await animate(result.events, 1);
+    hideHand();
+    fresh = null;
+    soiChoice = null;
     game = result.state;
     view = structuredClone(game);
     setExpression(soi, 'happy');
     render();
     if (!alive) return;
+    if (!explained && !game.over) {
+      // The bright squares stay until the child moves.
+      explained = true;
+      await speak('oanquan.soiDone');
+    }
     await afterTurn();
   }
 
@@ -326,6 +401,10 @@ export function mount(screen) {
     game = createGame(rules);
     view = structuredClone(game);
     selected = null;
+    soiChoice = null;
+    fresh = null;
+    trail.clear();
+    hideHand();
     busy = false;
     screen.stage.replaceChildren(layout);
     setExpression(soi, 'happy');

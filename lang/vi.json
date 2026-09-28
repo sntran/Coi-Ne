@@ -341,6 +341,8 @@
   "oanquan.notYours": "Ô này là của Sỏi. Con chọn ô ở hàng dưới nha.",
   "oanquan.emptySquare": "Ô này không có sỏi. Con chọn ô khác nha.",
   "oanquan.soiTurn": "Đến lượt Sỏi. Sỏi nghĩ một chút nha.",
+  "oanquan.soiPicks": "Sỏi lấy sỏi ở ô màu xám, rồi đi theo mũi tên.",
+  "oanquan.soiDone": "Các ô màu vàng là các ô Sỏi vừa bỏ sỏi vô.",
   "oanquan.continue": "Bốc tiếp, rải tiếp!",
   "oanquan.capture": "Ăn được sỏi rồi!",
   "oanquan.captureQuan": "Ăn được quan rồi!",
