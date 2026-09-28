@@ -3,7 +3,7 @@
 import { loadLanguages, setLang, t } from './core/i18n.js';
 import { initSpeech, setSpeechOptions, unlockSpeech, speak, stopSpeech, onCaption, waitForVoices } from './core/speech.js';
 import { unlockSound, sfx } from './core/sound.js';
-import { el, onTap, gameScreen, showCaption } from './core/ui.js';
+import { el, onTap, gameScreen, showCaption, dedication } from './core/ui.js';
 import { icons } from './core/icons.js';
 import { mascot } from './core/mascot.js';
 import { renderHome } from './core/home.js';
@@ -47,6 +47,7 @@ function showStart() {
   const start = el('div', { class: 'screen start-screen' }, [
     mascot('curious', 'start-soi'),
     play,
+    dedication('start-dedication'),
   ]);
   app.replaceChildren(start);
   const begin = () => {

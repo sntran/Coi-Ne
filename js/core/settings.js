@@ -8,7 +8,7 @@ import {
 import { putClip, deleteClip } from './clips.js';
 import { canRecord, startRecording, releaseMicrophone } from './recorder.js';
 import { recordableGroups, clipId } from '../logic/recordings.js';
-import { el, onTap, iconButton, holdButton } from './ui.js';
+import { el, onTap, iconButton, holdButton, dedication } from './ui.js';
 import { icons } from './icons.js';
 import { getSettings, updateSettings, gameLevel, changeLevel, gameStars } from './state.js';
 import { MAX_LEVELS } from '../logic/progress.js';
@@ -304,6 +304,7 @@ async function renderAbout() {
   const list = el('div', { class: 'credits' }, [el('p', { text: t('about.loading') })]);
   const card = el('div', { class: 'settings-card about-card' }, [
     el('div', { class: 'set-head' }, [back, el('h2', { text: t('about.title') })]),
+    dedication('about-dedication'),
     el('p', { text: t('about.goal1') }),
     el('p', { text: t('about.goal2') }),
     el('p', { text: t('about.goal3') }),

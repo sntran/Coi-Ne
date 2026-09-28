@@ -129,6 +129,19 @@ svg { display: block; }
 }
 .play-btn .icon { width: 55%; height: 55%; margin-left: 8%; }
 .play-btn.is-pressed { transform: translateY(6px); box-shadow: 0 4px 0 #a82e27; }
+.dedication { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; color: var(--ink-soft); line-height: 1.35; }
+.dedication-heart { width: 22px; height: 22px; animation: breathe 2.4s ease-in-out infinite; }
+.dedication-heart svg { width: 100%; height: 100%; }
+.dedication-to { font-weight: 800; color: var(--ink); font-size: 17px; }
+.dedication-from { font-size: 15px; font-style: italic; }
+.start-dedication { position: absolute; left: 16px; right: 16px; bottom: calc(14px + var(--safe-bottom)); }
+.about-dedication { padding: 12px 16px; margin: 4px 0 8px; border-radius: 20px; background: #fff1f6; }
+@media (min-width: 700px) and (min-height: 700px) {
+  .start-dedication .dedication-heart { width: 28px; height: 28px; }
+  .start-dedication .dedication-to { font-size: 22px; }
+  .start-dedication .dedication-from { font-size: 18px; }
+  .start-dedication { bottom: calc(28px + var(--safe-bottom)); }
+}
 @media (max-height: 560px) and (orientation: landscape) {
   .start-screen { flex-direction: row; gap: 48px; }
   .start-soi { width: min(38vh, 240px); }

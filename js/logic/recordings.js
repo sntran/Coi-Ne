@@ -7,7 +7,7 @@ const NOT_SPOKEN = new Set([
   'letters.grid', 'taptamvong.hand', 'taptamvong.cup', 'soi.name', 'share.plate', 'share.hole', 'numbers.quickLook',
   'chichi.hand', 'nuna.leg', 'loco.stone', 'bitmat.field', 'rongran.friend', 'rongran.doctor',
 ]);
-const NOT_SPOKEN_PREFIXES = ['settings.', 'about.', 'app.', 'ui.', 'rec.'];
+const NOT_SPOKEN_PREFIXES = ['settings.', 'about.', 'app.', 'ui.', 'rec.', 'dedication.'];
 
 export const GROUPS = ['common', 'games', 'instructions', 'colors', 'numbers', 'letters', 'pictures', 'rhymes'];
 

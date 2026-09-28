@@ -289,6 +289,17 @@ export function langName(lang) {
   return t(`settings.lang.${lang}`, undefined, getLang());
 }
 
+const HEART = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 C4 15 2 11 2 8 C2 4 5 2 8 2 C10 2 11 3 12 5 C13 3 14 2 16 2 C19 2 22 4 22 8 C22 11 20 15 12 21 Z" fill="#e56b9a"/></svg>`;
+
+/** The dedication of Coi Nè: a small heart and two short lines. */
+export function dedication(className = '') {
+  return el('p', { class: `dedication ${className}` }, [
+    el('span', { class: 'dedication-heart', html: HEART }),
+    el('span', { class: 'dedication-to', text: t('dedication.to') }),
+    el('span', { class: 'dedication-from', text: t('dedication.from') }),
+  ]);
+}
+
 /** Open the current game again, for example after the level changes. */
 export function reloadGame() {
   window.dispatchEvent(new Event('coine:reload'));

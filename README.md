@@ -5,6 +5,13 @@ Coi Nè is a set of educational web games for children of 3 to 5 years old.
 
 The site is at <https://sntran.github.io/Coi-Ne/>.
 
+> Built for Trần Quỳnh An Yên, with love from Dad, Trần Nguyễn Sơn.
+>
+> Làm tặng Trần Quỳnh An Yên, với tất cả tình thương của Ba, Trần Nguyễn Sơn.
+
+The dedication is also on the first screen, below the Play button, and at the top of the About page.
+The text is in `dedication.to` and `dedication.from` in the language files.
+
 ## Goal
 
 The children in this family were born in the US. The parents were born in Vietnam. The games:

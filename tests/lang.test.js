@@ -40,7 +40,7 @@ const PREFIXES = [
   'ui', 'praise', 'soi', 'home', 'game', 'settings', 'about', 'coloring', 'color', 'shape', 'size', 'num', 'thing',
   'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'memory', 'oanquan', 'taptamvong', 'oantuti',
   'choichuyen', 'story', 'dongdao', 'pic', 'abc', 'app', 'rec', 'tones', 'trace', 'dots', 'where', 'feel', 'market',
-  'music', 'fest', 'stickers', 'rest', 'share',
+  'music', 'fest', 'stickers', 'rest', 'share', 'dedication',
 ];
 
 test('each text key in the JavaScript files is in the language files', () => {
