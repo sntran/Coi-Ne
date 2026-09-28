@@ -6,7 +6,7 @@ import { LINES as CHICHI_LINES, closeTime, makeRound as chichiRound, lift } from
 import { songWords, makeGame, nextOut, tapLeg, foldingLeg, legsOut } from '../js/logic/nuna.js';
 import { makeRound as locoRound, hopPath, hop, ROWS, SQUARES } from '../js/logic/loco.js';
 import { makeRound as goatRound, nearness, bleatGap, bleatGain, bleatPan, nearestGoat, isOnGoat, catchGoat } from '../js/logic/bitmat.js';
-import { SONG_LINES, AGES, ageChoices, follow, stepToward, isCaught, chaseTime, doctorSpeed } from '../js/logic/rongran.js';
+import { SONG_LINES, AGES, ageChoices, follow, stepToward, doctorMove, isCaught, chaseTime, doctorSpeed } from '../js/logic/rongran.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const vi = readJson('lang/vi.json');
@@ -134,6 +134,22 @@ test('rồng rắn lên mây: the song, the ages, and the chase', () => {
   assert.deepEqual(still, chain);
   assert.deepEqual(stepToward({ x: 0, y: 0 }, { x: 10, y: 0 }, 4), { x: 4, y: 0 });
   assert.deepEqual(stepToward({ x: 0, y: 0 }, { x: 3, y: 0 }, 4), { x: 3, y: 0 });
+  assert.deepEqual(stepToward({ x: 5, y: 5 }, { x: 5, y: 5 }, -1), { x: 5, y: 5 });
+  assert.deepEqual(stepToward({ x: 5, y: 5 }, { x: 9, y: 5 }, 0), { x: 5, y: 5 });
   assert.ok(isCaught({ x: 0, y: 0 }, { x: 3, y: 4 }, 5));
   assert.ok(!isCaught({ x: 0, y: 0 }, { x: 3, y: 4 }, 4.9));
+});
+
+test('rồng rắn lên mây: the head blocks the doctor, and the doctor goes around it', () => {
+  // A straight line: the doctor is at the right, the head is in front of the doctor, and the tail is at the left.
+  const chain = [{ x: 100, y: 0 }, { x: 70, y: 0 }, { x: 40, y: 0 }, { x: 10, y: 0 }];
+  let doc = { x: 200, y: 0 };
+  const room = 27;
+  for (let i = 0; i < 400; i++) {
+    doc = doctorMove(doc, chain, 2, room);
+    for (const p of chain.slice(0, -1)) assert.ok(Math.hypot(doc.x - p.x, doc.y - p.y) >= room - 1e-6);
+    if (isCaught(chain[3], doc, 16)) break;
+  }
+  // The doctor does not stay behind the head. It goes around the line and gets to the tail.
+  assert.ok(isCaught(chain[3], doc, 16));
 });

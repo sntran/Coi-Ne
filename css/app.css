@@ -1543,3 +1543,46 @@ svg { display: block; }
 @media (orientation: landscape) and (max-height: 560px) {
   .bitmat-soi { width: 70px; }
 }
+
+/* Rồng rắn lên mây */
+
+.rr-layout { flex: 1; min-height: 0; display: flex; }
+.rr-yard { position: relative; flex: 1; border-radius: 30px; overflow: hidden; touch-action: none;
+  background: radial-gradient(ellipse at 50% 55%, #f1dfb4 0 55%, #e3cc98 56% 70%, #b5d99c 71%); box-shadow: inset 0 0 0 6px #fff; }
+.rr-member { position: absolute; left: 0; top: 0; transition: transform 0.55s ease; z-index: 2; }
+.rr-member svg { width: 100%; height: auto; display: block; }
+.rr-yard.is-chase .rr-member { transition: none; }
+.rr-head { width: 76px; z-index: 3; }
+.rr-friend { width: 80px; height: 110px; display: grid; place-items: center; }
+.rr-friend svg { width: 64px; }
+.rr-friend:not(.is-joined) svg { animation: bob 2.4s ease-in-out infinite; }
+.rr-friend:not(.is-joined) svg { filter: drop-shadow(0 0 8px #fff4c2); }
+.rr-doctor { width: 88px; }
+.rr-bubble { position: absolute; z-index: 6; width: max-content; max-width: min(240px, 60vw); padding: 6px 14px; border-radius: 18px; background: #fff; box-shadow: 0 6px 16px rgb(59 42 42 / 0.15);
+  font-weight: 800; font-size: 20px; text-align: center; transform: translate(-50%, -100%); opacity: 0; transition: opacity 0.2s ease; pointer-events: none; }
+.rr-bubble.is-on { opacity: 1; }
+.rr-panel { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 7; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.rr-number { width: 80px; height: 80px; }
+.rr-number .big-digit { font-size: 44px; }
+.rr-number .lang-badge { top: -14px; right: -10px; }
+.rr-number.is-next { background: #fff4c2; animation: breathe 1.2s ease-in-out infinite; }
+.rr-number.is-said { opacity: 0.45; }
+.rr-time { position: absolute; top: 12px; left: 50%; width: 50%; height: 14px; transform: translateX(-50%); border-radius: 7px; background: #fff; overflow: hidden; opacity: 0; z-index: 5; }
+.rr-time.is-on { opacity: 1; }
+.rr-time span { display: block; width: 100%; height: 100%; background: var(--bamboo); }
+@media (min-width: 700px) and (min-height: 700px) {
+  .rr-head { width: 100px; }
+  .rr-friend { width: 96px; height: 130px; }
+  .rr-friend svg { width: 84px; }
+  .rr-doctor { width: 116px; }
+  .rr-number { width: 96px; height: 96px; }
+  .rr-number .big-digit { font-size: 54px; }
+  .rr-bubble { font-size: 24px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .rr-head { width: 62px; }
+  .rr-friend { height: 90px; }
+  .rr-friend svg { width: 52px; }
+  .rr-doctor { width: 70px; }
+  .rr-bubble { font-size: 17px; }
+}
