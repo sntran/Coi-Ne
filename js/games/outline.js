@@ -32,13 +32,17 @@ function lightness(rgb) {
   return (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
 }
 
-// Find the fill that a shape gets from itself or from its parent groups.
-function ownFill(el) {
+// Find the value that a shape gets from itself or from its parent groups.
+function inherited(el, name) {
   for (let node = el; node && node.getAttribute; node = node.parentNode) {
-    const fill = node.getAttribute('fill');
-    if (fill) return fill;
+    const value = node.getAttribute(name);
+    if (value) return value;
   }
-  return '#000000';
+  return null;
+}
+
+function ownFill(el) {
+  return inherited(el, 'fill') || '#000000';
 }
 
 /**
@@ -62,7 +66,7 @@ export function makeOutline(svgText, host) {
   const info = shapes.map((el) => ({
     el,
     fill: ownFill(el),
-    stroke: el.getAttribute('stroke'),
+    stroke: inherited(el, 'stroke'),
   }));
   svg.querySelectorAll('*').forEach((el) => {
     REMOVE_ATTRS.forEach((a) => el.removeAttribute(a));
@@ -87,7 +91,7 @@ export function makeOutline(svgText, host) {
     if (!hasFill) {
       // A line in the picture. Keep it as a dark line.
       el.setAttribute('fill', 'none');
-      el.setAttribute('stroke-width', stroke ? '3' : '0');
+      el.setAttribute('stroke-width', stroke && stroke !== 'none' ? '3' : '0');
       el.classList.add('outline-detail');
       details.push(el);
     } else if (side < MIN_SIDE) {

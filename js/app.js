@@ -10,6 +10,7 @@ import { renderHome } from './core/home.js';
 import { onSettingsChange, closeSettings } from './core/settings.js';
 import { getSettings } from './core/state.js';
 import { LEARNING_GAMES, FOLK_GAMES } from './core/game-icons.js';
+import { loadImages } from './core/images.js';
 
 const GAMES = new Set([...LEARNING_GAMES, ...FOLK_GAMES]);
 const app = document.getElementById('app');
@@ -62,7 +63,7 @@ function showStart() {
 
 async function boot() {
   const settings = getSettings();
-  await loadLanguages();
+  await Promise.all([loadLanguages(), loadImages()]);
   setLang(settings.lang);
   await initSpeech();
   setSpeechOptions({ voice: settings.voice, rate: settings.rate });

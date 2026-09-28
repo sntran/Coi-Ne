@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" stroke="#3b2a2a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M0 182 Q100 160 200 182 L200 200 L0 200 Z" fill="#b5d99c"/>
+<rect x="48" y="16" width="28" height="52" rx="9" fill="#7cb87a"/>
+<rect x="48" y="70" width="28" height="52" rx="9" fill="#7cb87a"/>
+<rect x="48" y="124" width="28" height="54" rx="9" fill="#7cb87a"/>
+<rect x="112" y="46" width="28" height="44" rx="9" fill="#9fcf7a"/>
+<rect x="112" y="92" width="28" height="44" rx="9" fill="#9fcf7a"/>
+<rect x="112" y="138" width="28" height="42" rx="9" fill="#9fcf7a"/>
+<path d="M76.0 70.0 Q90.1 36.4 126.2 41.0 Q112.1 74.6 76.0 70.0 Z" fill="#4f8f5a"/>
+<path d="M48.0 122.0 Q13.2 132.8 -6.5 102.2 Q28.3 91.4 48.0 122.0 Z" fill="#4f8f5a"/>
+<path d="M48.0 70.0 Q14.1 73.1 5.4 40.2 Q39.3 37.1 48.0 70.0 Z" fill="#4f8f5a"/>
+<path d="M140.0 92.0 Q159.7 61.4 194.5 72.2 Q174.8 102.8 140.0 92.0 Z" fill="#4f8f5a"/>
+<path d="M112.0 46.0 Q79.1 41.0 79.9 7.7 Q112.8 12.7 112.0 46.0 Z" fill="#4f8f5a"/>
+</svg>

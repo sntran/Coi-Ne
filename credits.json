@@ -1,0 +1,800 @@
+{
+  "pictures/twemoji/1f420.svg": {
+    "title": "Twemoji: Tropical fish",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f420.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f422.svg": {
+    "title": "Twemoji: Turtle",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f422.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f40c.svg": {
+    "title": "Twemoji: Snail",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f40c.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f41d.svg": {
+    "title": "Twemoji: Honeybee",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f41d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f425.svg": {
+    "title": "Twemoji: Front-facing baby chick",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f425.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f438.svg": {
+    "title": "Twemoji: Frog",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f438.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f433.svg": {
+    "title": "Twemoji: Spouting whale",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f433.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f430.svg": {
+    "title": "Twemoji: Rabbit face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f430.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f42e.svg": {
+    "title": "Twemoji: Cow face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f42e.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f413.svg": {
+    "title": "Twemoji: Rooster",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f413.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f418.svg": {
+    "title": "Twemoji: Elephant",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f418.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f427.svg": {
+    "title": "Twemoji: Penguin",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f427.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f33c.svg": {
+    "title": "Twemoji: Blossom",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f33c.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f33b.svg": {
+    "title": "Twemoji: Sunflower",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f33b.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f337.svg": {
+    "title": "Twemoji: Tulip",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f337.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f339.svg": {
+    "title": "Twemoji: Rose",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f339.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f33a.svg": {
+    "title": "Twemoji: Hibiscus",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f33a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f334.svg": {
+    "title": "Twemoji: Palm tree",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f334.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f344.svg": {
+    "title": "Twemoji: Mushroom",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f344.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f34e.svg": {
+    "title": "Twemoji: Red apple",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f34e.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f350.svg": {
+    "title": "Twemoji: Pear",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f350.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f34a.svg": {
+    "title": "Twemoji: Tangerine",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f34a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f347.svg": {
+    "title": "Twemoji: Grapes",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f347.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f353.svg": {
+    "title": "Twemoji: Strawberry",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f353.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f34d.svg": {
+    "title": "Twemoji: Pineapple",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f34d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f955.svg": {
+    "title": "Twemoji: Carrot",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f955.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f33d.svg": {
+    "title": "Twemoji: Ear of corn",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f33d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f345.svg": {
+    "title": "Twemoji: Tomato",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f345.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f382.svg": {
+    "title": "Twemoji: Birthday cake",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f382.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f36d.svg": {
+    "title": "Twemoji: Lollipop",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f36d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f359.svg": {
+    "title": "Twemoji: Rice ball",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f359.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f680.svg": {
+    "title": "Twemoji: Rocket",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f680.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/2708.svg": {
+    "title": "Twemoji: Airplane",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/2708.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/26f5.svg": {
+    "title": "Twemoji: Sailboat",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/26f5.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f6f6.svg": {
+    "title": "Twemoji: Canoe",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f6f6.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f68d.svg": {
+    "title": "Twemoji: Oncoming bus",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f68d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f696.svg": {
+    "title": "Twemoji: Oncoming taxi",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f696.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f698.svg": {
+    "title": "Twemoji: Oncoming automobile",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f698.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f3e0.svg": {
+    "title": "Twemoji: House",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f3e0.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f6aa.svg": {
+    "title": "Twemoji: Door",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f6aa.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f4a1.svg": {
+    "title": "Twemoji: Light bulb",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f4a1.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f9e6.svg": {
+    "title": "Twemoji: Socks",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f9e6.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f455.svg": {
+    "title": "Twemoji: T-shirt",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f455.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f457.svg": {
+    "title": "Twemoji: Dress",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f457.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/2602.svg": {
+    "title": "Twemoji: Umbrella",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/2602.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f9fa.svg": {
+    "title": "Twemoji: Basket",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f9fa.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f381.svg": {
+    "title": "Twemoji: Wrapped gift",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f381.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/26bd.svg": {
+    "title": "Twemoji: Soccer ball",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/26bd.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f514.svg": {
+    "title": "Twemoji: Bell",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f514.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f392.svg": {
+    "title": "Twemoji: Backpack",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f392.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/vietnam/ao-dai.svg": {
+    "title": "Áo dài",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/non-la.svg": {
+    "title": "Nón lá",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/den-ong-sao.svg": {
+    "title": "Đèn ông sao",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/banh-chung.svg": {
+    "title": "Bánh chưng",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/hoa-sen.svg": {
+    "title": "Hoa sen",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/con-trau.svg": {
+    "title": "Con trâu",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/cai-dieu.svg": {
+    "title": "Cái diều",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/bat-pho.svg": {
+    "title": "Bát phở",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/xich-lo.svg": {
+    "title": "Xích lô",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/vietnam/cay-tre.svg": {
+    "title": "Cây tre",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/twemoji/1f986.svg": {
+    "title": "Twemoji: Duck",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f986.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f41f.svg": {
+    "title": "Twemoji: Fish",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f41f.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/2b50.svg": {
+    "title": "Twemoji: Star",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/2b50.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1fab7.svg": {
+    "title": "Twemoji: Lotus",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1fab7.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f3ee.svg": {
+    "title": "Twemoji: Red paper lantern",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f3ee.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f338.svg": {
+    "title": "Twemoji: Cherry blossom",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f338.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f476.svg": {
+    "title": "Twemoji: Baby",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f476.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f414.svg": {
+    "title": "Twemoji: Chicken",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f414.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f426.svg": {
+    "title": "Twemoji: Bird",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f426.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f36c.svg": {
+    "title": "Twemoji: Candy",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f36c.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f343.svg": {
+    "title": "Twemoji: Leaf fluttering in wind",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f343.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f431.svg": {
+    "title": "Twemoji: Cat face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f431.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f697.svg": {
+    "title": "Twemoji: Automobile",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f697.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f336.svg": {
+    "title": "Twemoji: Hot pepper",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f336.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f50b.svg": {
+    "title": "Twemoji: Battery",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f50b.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1faad.svg": {
+    "title": "Twemoji: Folding hand fan",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1faad.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f462.svg": {
+    "title": "Twemoji: Boot",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f462.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f981.svg": {
+    "title": "Twemoji: Lion",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f981.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f6b2.svg": {
+    "title": "Twemoji: Bicycle",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f6b2.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f9d1-200d-2695-fe0f.svg": {
+    "title": "Twemoji: Health worker",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f9d1-200d-2695-fe0f.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f43b.svg": {
+    "title": "Twemoji: Bear",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f43b.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f436.svg": {
+    "title": "Twemoji: Dog face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f436.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f452.svg": {
+    "title": "Twemoji: Hat with bow",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f452.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f366.svg": {
+    "title": "Twemoji: Soft ice cream",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f366.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f9c3.svg": {
+    "title": "Twemoji: Beverage box",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f9c3.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f319.svg": {
+    "title": "Twemoji: Crescent moon",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f319.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1faba.svg": {
+    "title": "Twemoji: Nest with eggs",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1faba.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f437.svg": {
+    "title": "Twemoji: Pig face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f437.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f478.svg": {
+    "title": "Twemoji: Princess",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f478.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/2600.svg": {
+    "title": "Twemoji: Sun",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/2600.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f333.svg": {
+    "title": "Twemoji: Deciduous tree",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f333.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f3bb.svg": {
+    "title": "Twemoji: Violin",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f3bb.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f993.svg": {
+    "title": "Twemoji: Zebra",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f993.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/270a.svg": {
+    "title": "Twemoji: Raised fist",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/270a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/270b.svg": {
+    "title": "Twemoji: Raised hand",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/270b.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/270c.svg": {
+    "title": "Twemoji: Victory hand",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/270c.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1fad6.svg": {
+    "title": "Twemoji: Teapot",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1fad6.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f404.svg": {
+    "title": "Twemoji: Cow",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f404.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f349.svg": {
+    "title": "Twemoji: Watermelon",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f349.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f35a.svg": {
+    "title": "Twemoji: Cooked rice",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f35a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f95a.svg": {
+    "title": "Twemoji: Egg",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f95a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1fa81.svg": {
+    "title": "Twemoji: Kite",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1fa81.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1fa80.svg": {
+    "title": "Twemoji: Yo-yo",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1fa80.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f98a.svg": {
+    "title": "Twemoji: Fox",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f98a.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f42d.svg": {
+    "title": "Twemoji: Mouse face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f42d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f98b.svg": {
+    "title": "Twemoji: Butterfly",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f98b.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f34c.svg": {
+    "title": "Twemoji: Banana",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f34c.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f352.svg": {
+    "title": "Twemoji: Cherries",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f352.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f351.svg": {
+    "title": "Twemoji: Peach",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f351.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f41e.svg": {
+    "title": "Twemoji: Lady beetle",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f41e.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f980.svg": {
+    "title": "Twemoji: Crab",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f980.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f419.svg": {
+    "title": "Twemoji: Octopus",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f419.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f388.svg": {
+    "title": "Twemoji: Balloon",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f388.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f435.svg": {
+    "title": "Twemoji: Monkey face",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f435.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  }
+}

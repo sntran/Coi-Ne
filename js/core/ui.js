@@ -18,7 +18,10 @@ export function el(tag, props = {}, children = []) {
   if (props.class) node.className = props.class;
   if (props.html != null) node.innerHTML = props.html;
   if (props.text != null) node.textContent = props.text;
-  if (props.style) Object.assign(node.style, props.style);
+  for (const [k, v] of Object.entries(props.style || {})) {
+    if (k.startsWith('--')) node.style.setProperty(k, v);
+    else node.style[k] = v;
+  }
   if (props.dataset) Object.assign(node.dataset, props.dataset);
   for (const [k, v] of Object.entries(props.attrs || {})) if (v != null) node.setAttribute(k, v);
   for (const c of children) if (c) node.append(c);

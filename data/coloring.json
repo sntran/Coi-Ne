@@ -1,0 +1,280 @@
+{
+  "groups": [
+    {
+      "id": "animals",
+      "cover": "fish",
+      "pictures": [
+        {
+          "id": "fish",
+          "file": "pictures/twemoji/1f420.svg"
+        },
+        {
+          "id": "turtle",
+          "file": "pictures/twemoji/1f422.svg"
+        },
+        {
+          "id": "snail",
+          "file": "pictures/twemoji/1f40c.svg"
+        },
+        {
+          "id": "bee",
+          "file": "pictures/twemoji/1f41d.svg"
+        },
+        {
+          "id": "chick",
+          "file": "pictures/twemoji/1f425.svg"
+        },
+        {
+          "id": "frog",
+          "file": "pictures/twemoji/1f438.svg"
+        },
+        {
+          "id": "whale",
+          "file": "pictures/twemoji/1f433.svg"
+        },
+        {
+          "id": "rabbit",
+          "file": "pictures/twemoji/1f430.svg"
+        },
+        {
+          "id": "cow",
+          "file": "pictures/twemoji/1f42e.svg"
+        },
+        {
+          "id": "rooster",
+          "file": "pictures/twemoji/1f413.svg"
+        },
+        {
+          "id": "elephant",
+          "file": "pictures/twemoji/1f418.svg"
+        },
+        {
+          "id": "penguin",
+          "file": "pictures/twemoji/1f427.svg"
+        }
+      ]
+    },
+    {
+      "id": "flowers",
+      "cover": "daisy",
+      "pictures": [
+        {
+          "id": "daisy",
+          "file": "pictures/twemoji/1f33c.svg"
+        },
+        {
+          "id": "sunflower",
+          "file": "pictures/twemoji/1f33b.svg"
+        },
+        {
+          "id": "tulip",
+          "file": "pictures/twemoji/1f337.svg"
+        },
+        {
+          "id": "rose",
+          "file": "pictures/twemoji/1f339.svg"
+        },
+        {
+          "id": "hibiscus",
+          "file": "pictures/twemoji/1f33a.svg"
+        },
+        {
+          "id": "palm",
+          "file": "pictures/twemoji/1f334.svg"
+        },
+        {
+          "id": "mushroom",
+          "file": "pictures/twemoji/1f344.svg"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "cover": "apple",
+      "pictures": [
+        {
+          "id": "apple",
+          "file": "pictures/twemoji/1f34e.svg"
+        },
+        {
+          "id": "pear",
+          "file": "pictures/twemoji/1f350.svg"
+        },
+        {
+          "id": "orange",
+          "file": "pictures/twemoji/1f34a.svg"
+        },
+        {
+          "id": "grapes",
+          "file": "pictures/twemoji/1f347.svg"
+        },
+        {
+          "id": "strawberry",
+          "file": "pictures/twemoji/1f353.svg"
+        },
+        {
+          "id": "pineapple",
+          "file": "pictures/twemoji/1f34d.svg"
+        },
+        {
+          "id": "carrot",
+          "file": "pictures/twemoji/1f955.svg"
+        },
+        {
+          "id": "corn",
+          "file": "pictures/twemoji/1f33d.svg"
+        },
+        {
+          "id": "tomato",
+          "file": "pictures/twemoji/1f345.svg"
+        },
+        {
+          "id": "cake",
+          "file": "pictures/twemoji/1f382.svg"
+        },
+        {
+          "id": "lollipop",
+          "file": "pictures/twemoji/1f36d.svg"
+        },
+        {
+          "id": "riceball",
+          "file": "pictures/twemoji/1f359.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicles",
+      "cover": "rocket",
+      "pictures": [
+        {
+          "id": "rocket",
+          "file": "pictures/twemoji/1f680.svg"
+        },
+        {
+          "id": "airplane",
+          "file": "pictures/twemoji/2708.svg"
+        },
+        {
+          "id": "sailboat",
+          "file": "pictures/twemoji/26f5.svg"
+        },
+        {
+          "id": "canoe",
+          "file": "pictures/twemoji/1f6f6.svg"
+        },
+        {
+          "id": "bus",
+          "file": "pictures/twemoji/1f68d.svg"
+        },
+        {
+          "id": "taxi",
+          "file": "pictures/twemoji/1f696.svg"
+        },
+        {
+          "id": "car",
+          "file": "pictures/twemoji/1f698.svg"
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "cover": "house",
+      "pictures": [
+        {
+          "id": "house",
+          "file": "pictures/twemoji/1f3e0.svg"
+        },
+        {
+          "id": "door",
+          "file": "pictures/twemoji/1f6aa.svg"
+        },
+        {
+          "id": "bulb",
+          "file": "pictures/twemoji/1f4a1.svg"
+        },
+        {
+          "id": "socks",
+          "file": "pictures/twemoji/1f9e6.svg"
+        },
+        {
+          "id": "tshirt",
+          "file": "pictures/twemoji/1f455.svg"
+        },
+        {
+          "id": "dress",
+          "file": "pictures/twemoji/1f457.svg"
+        },
+        {
+          "id": "umbrella",
+          "file": "pictures/twemoji/2602.svg"
+        },
+        {
+          "id": "basket",
+          "file": "pictures/twemoji/1f9fa.svg"
+        },
+        {
+          "id": "gift",
+          "file": "pictures/twemoji/1f381.svg"
+        },
+        {
+          "id": "ball",
+          "file": "pictures/twemoji/26bd.svg"
+        },
+        {
+          "id": "bell",
+          "file": "pictures/twemoji/1f514.svg"
+        },
+        {
+          "id": "backpack",
+          "file": "pictures/twemoji/1f392.svg"
+        }
+      ]
+    },
+    {
+      "id": "vietnam",
+      "cover": "nonla",
+      "pictures": [
+        {
+          "id": "aodai",
+          "file": "pictures/vietnam/ao-dai.svg"
+        },
+        {
+          "id": "nonla",
+          "file": "pictures/vietnam/non-la.svg"
+        },
+        {
+          "id": "denongsao",
+          "file": "pictures/vietnam/den-ong-sao.svg"
+        },
+        {
+          "id": "banhchung",
+          "file": "pictures/vietnam/banh-chung.svg"
+        },
+        {
+          "id": "hoasen",
+          "file": "pictures/vietnam/hoa-sen.svg"
+        },
+        {
+          "id": "contrau",
+          "file": "pictures/vietnam/con-trau.svg"
+        },
+        {
+          "id": "caidieu",
+          "file": "pictures/vietnam/cai-dieu.svg"
+        },
+        {
+          "id": "batpho",
+          "file": "pictures/vietnam/bat-pho.svg"
+        },
+        {
+          "id": "xichlo",
+          "file": "pictures/vietnam/xich-lo.svg"
+        },
+        {
+          "id": "caytre",
+          "file": "pictures/vietnam/cay-tre.svg"
+        }
+      ]
+    }
+  ]
+}
