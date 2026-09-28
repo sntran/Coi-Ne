@@ -275,6 +275,54 @@
           "file": "pictures/vietnam/cay-tre.svg"
         }
       ]
+    },
+    {
+      "id": "tet",
+      "cover": "hoamai",
+      "pictures": [
+        {
+          "id": "hoamai",
+          "file": "pictures/festival/hoa-mai.svg"
+        },
+        {
+          "id": "banhtet",
+          "file": "pictures/festival/banh-tet.svg"
+        },
+        {
+          "id": "mamnguqua",
+          "file": "pictures/festival/mam-ngu-qua.svg"
+        },
+        {
+          "id": "lantern",
+          "file": "pictures/twemoji/1f3ee.svg"
+        },
+        {
+          "id": "banhchungtet",
+          "file": "pictures/vietnam/banh-chung.svg"
+        }
+      ]
+    },
+    {
+      "id": "trungthu",
+      "cover": "longdencachep",
+      "pictures": [
+        {
+          "id": "longdencachep",
+          "file": "pictures/festival/long-den-ca-chep.svg"
+        },
+        {
+          "id": "caydachucuoi",
+          "file": "pictures/festival/cay-da-chu-cuoi.svg"
+        },
+        {
+          "id": "denongsaott",
+          "file": "pictures/vietnam/den-ong-sao.svg"
+        },
+        {
+          "id": "moonrabbit",
+          "file": "pictures/twemoji/1f430.svg"
+        }
+      ]
     }
   ]
 }

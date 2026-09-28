@@ -2,7 +2,7 @@
 // so that the site works offline after the first visit.
 // Do not change the list by hand. Run: node tools/build-sw.js
 
-const VERSION = '60761f380b6e';
+const VERSION = '9231862a6fa3';
 const CACHE = `coine-${VERSION}`;
 const TAILWIND_URL = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js';
 
@@ -35,6 +35,7 @@ const FILES = [
   './js/games/coloring.js',
   './js/games/dots.js',
   './js/games/feelings.js',
+  './js/games/festival.js',
   './js/games/letters.js',
   './js/games/market.js',
   './js/games/memory.js',
@@ -56,6 +57,7 @@ const FILES = [
   './js/logic/dots-data.js',
   './js/logic/dots.js',
   './js/logic/feelings.js',
+  './js/logic/festival.js',
   './js/logic/letters.js',
   './js/logic/market.js',
   './js/logic/memory.js',
@@ -81,6 +83,14 @@ const FILES = [
   './data/images.json',
   './data/letters.json',
   './data/strokes.json',
+  './pictures/festival/banh-tet.svg',
+  './pictures/festival/cay-da-chu-cuoi.svg',
+  './pictures/festival/du-du.svg',
+  './pictures/festival/hoa-mai.svg',
+  './pictures/festival/long-den-ca-chep.svg',
+  './pictures/festival/mam-ngu-qua.svg',
+  './pictures/festival/mang-cau.svg',
+  './pictures/twemoji/1f315.svg',
   './pictures/twemoji/1f319.svg',
   './pictures/twemoji/1f329.svg',
   './pictures/twemoji/1f331.svg',
@@ -168,6 +178,7 @@ const FILES = [
   './pictures/twemoji/1f95a.svg',
   './pictures/twemoji/1f965.svg',
   './pictures/twemoji/1f96d.svg',
+  './pictures/twemoji/1f96e.svg',
   './pictures/twemoji/1f980.svg',
   './pictures/twemoji/1f981.svg',
   './pictures/twemoji/1f986.svg',
@@ -177,6 +188,7 @@ const FILES = [
   './pictures/twemoji/1f9c3.svg',
   './pictures/twemoji/1f9d1-200d-2695-fe0f.svg',
   './pictures/twemoji/1f9e6.svg',
+  './pictures/twemoji/1f9e7.svg',
   './pictures/twemoji/1f9f8.svg',
   './pictures/twemoji/1f9fa.svg',
   './pictures/twemoji/1fa80.svg',

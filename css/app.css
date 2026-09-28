@@ -1225,3 +1225,35 @@ svg { display: block; }
 .bau-string.is-hit .bau-line { animation: string-shake 0.5s ease; }
 @keyframes string-shake { 25% { transform: translateY(-4px); } 50% { transform: translateY(3px); } 75% { transform: translateY(-2px); } }
 .music-bau { padding-top: 140px; }
+
+/* Festivals */
+
+.fest-grid { max-width: 700px; }
+.fest-layout { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+.fest-plate { position: relative; width: min(80vw, 320px); aspect-ratio: 1.4; display: grid; place-items: end center; }
+.fest-plate-pic { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.25; }
+.fest-plate-fruits { position: relative; display: flex; gap: 4px; padding-bottom: 20%; }
+.fest-on-plate { width: 64px; height: 64px; animation: pop 0.4s ease; }
+.fest-fruits, .fest-envelopes { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 720px; }
+.fest-fruit, .fest-envelope { width: 104px; height: 104px; }
+.fest-fruit.is-used, .fest-envelope.is-used { opacity: 0.25; transform: scale(0.85); }
+.fest-tree-pic { width: min(40vw, 190px); height: min(40vw, 190px); }
+.fest-count { font-size: 72px; }
+.fest-night { border-radius: 30px; background: linear-gradient(#1f2748, #34406b); padding: 12px; }
+.fest-moon { width: 96px; height: 96px; align-self: flex-end; margin-right: 8%; }
+.fest-lanterns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.fest-lantern { width: min(22vw, 160px); height: min(22vw, 160px); min-width: 90px; min-height: 90px; border-radius: 24px; display: grid; place-items: center; background: rgb(255 255 255 / 0.06); }
+.fest-lantern img { width: 82%; height: 82%; filter: grayscale(1) brightness(0.55); transition: filter 0.4s ease; }
+.fest-lantern.is-lit img { filter: drop-shadow(0 0 14px #ffd166); }
+.fest-lanterns.is-parade .fest-lantern { animation: float 1.6s ease-in-out infinite; }
+.fest-lanterns.is-parade .fest-lantern:nth-child(2n) { animation-delay: 0.5s; }
+@media (orientation: portrait) and (max-width: 600px) {
+  .fest-fruit, .fest-envelope { width: 92px; height: 92px; }
+  .fest-lantern { width: 96px; height: 96px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .fest-layout { flex-direction: row; }
+  .fest-plate { width: 240px; }
+  .fest-fruit, .fest-envelope { width: 86px; height: 86px; }
+  .fest-moon { align-self: flex-start; }
+}

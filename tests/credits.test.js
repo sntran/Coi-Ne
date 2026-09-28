@@ -36,9 +36,9 @@ test('each entry in credits.json has a file, a source, an author, and a known li
   }
 });
 
-test('the Coloring game has at least 30 pictures in the 6 groups', () => {
+test('the Coloring game has at least 30 pictures in its groups', () => {
   const groups = catalog.groups.map((g) => g.id);
-  assert.deepEqual(groups, ['animals', 'flowers', 'food', 'vehicles', 'home', 'vietnam']);
+  assert.deepEqual(groups, ['animals', 'flowers', 'food', 'vehicles', 'home', 'vietnam', 'tet', 'trungthu']);
   assert.ok(allPictures(catalog).length >= 30);
   const ids = allPictures(catalog).map((p) => p.id);
   assert.equal(new Set(ids).size, ids.length, 'picture ids must be different');

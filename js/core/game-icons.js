@@ -92,6 +92,11 @@ export const gameIcons = {
     <path d="M14 40 V70 Q44 88 74 70 V40 Q44 58 14 40 Z" fill="#e0463c" ${st}/>
     <rect x="70" y="80" width="44" height="12" rx="6" fill="#a3c65c" ${st}/><rect x="74" y="98" width="36" height="12" rx="6" fill="#c9d97a" ${st}/>
     <path d="M92 16 V52 M92 16 L108 12 V22 L92 26" fill="none" ${st}/><circle cx="86" cy="54" r="7" fill="#e56b9a" ${st}/>`),
+  festival: w(`
+    <path d="M60 10 V28" ${st}/>
+    <path d="M60 28 L68 46 L88 46 L72 58 L78 78 L60 66 L42 78 L48 58 L32 46 L52 46 Z" fill="#e0463c" ${st}/>
+    <path d="M52 78 L46 104 M68 78 L74 104" stroke="#ffd166" stroke-width="5" stroke-linecap="round"/>
+    ${[[18, 86], [30, 70], [100, 84], [92, 100], [22, 104]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7" fill="#ffd23f" stroke="${INK}" stroke-width="2.5"/>`).join('')}`),
   choichuyen: w(`
     <circle cx="60" cy="26" r="14" fill="#e0463c" ${st}/><path d="M52 18 q4 -4 9 -3" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
     <path d="M18 96 L50 80 M30 104 L72 92 M56 102 L96 84 M78 106 L104 96 M40 90 L82 100" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>
@@ -101,5 +106,5 @@ export const gameIcons = {
 
 export const LEARNING_GAMES = ['coloring', 'numbers', 'patterns', 'shapes', 'sorting', 'letters', 'tones', 'trace', 'dots', 'memory', 'where', 'feelings'];
 export const FOLK_GAMES = ['oanquan', 'taptamvong', 'oantuti', 'choichuyen'];
-export const EXPLORE_GAMES = ['market', 'music'];
+export const EXPLORE_GAMES = ['market', 'music', 'festival'];
 export const ALL_GAMES = [...LEARNING_GAMES, ...FOLK_GAMES, ...EXPLORE_GAMES];

@@ -41,10 +41,11 @@ export function kid(x, y, { shirt = '#e0463c', pants = '#3f6fd8', hair = 'short'
   return `<g transform="translate(${x} ${y}) scale(${s} 1)">${body}${head}</g>`;
 }
 
-function village(extra = '') {
+function village(extra = '', night = false) {
   return `
-    <rect width="400" height="260" fill="#dff1fb"/>
-    <circle cx="340" cy="46" r="24" fill="#ffd166"/>
+    <rect width="400" height="260" fill="${night ? '#34406b' : '#dff1fb'}"/>
+    <circle cx="340" cy="46" r="24" fill="${night ? '#fff4c2' : '#ffd166'}"/>
+    ${night ? [[40, 30], [110, 60], [180, 24], [250, 50], [300, 90]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.5" fill="#fff4c2"/>`).join('') : ''}
     <path d="M0 150 Q80 120 160 146 Q260 110 400 140 V260 H0 Z" fill="#b5d99c"/>
     <path d="M0 190 Q200 170 400 190 V260 H0 Z" fill="#e8d3a3"/>
     <g stroke="${INK}" stroke-width="2.5" stroke-linejoin="round">
@@ -90,6 +91,19 @@ export const scenes = {
     <g stroke="#9c6b43" stroke-width="4" stroke-linecap="round">
       <path d="M180 240 L214 232 M190 246 L226 244 M200 236 L236 238 M214 248 L246 242 M178 250 L206 250"/>
     </g>`),
+  tet: () => village(`
+    ${[[188, 96], [204, 84], [220, 98], [196, 112], [214, 118], [178, 116], [230, 112], [204, 102]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="5" fill="#ffd23f" stroke="${INK}" stroke-width="1.5"/>`).join('')}
+    <g stroke="${INK}" stroke-width="2"><path d="M60 150 V158 M112 150 V158" /><ellipse cx="60" cy="166" rx="9" ry="10" fill="#e0463c"/><ellipse cx="112" cy="166" rx="9" ry="10" fill="#e0463c"/></g>
+    ${kid(160, 196, { shirt: '#e0463c', hair: 'buns', arms: 'front' })}
+    ${kid(262, 190, { shirt: '#9b6bd6', pants: '#3b2a2a', hair: 'bob', arms: 'front', flip: true })}
+    <rect x="200" y="196" width="18" height="24" rx="3" fill="#e0463c" stroke="${INK}" stroke-width="2"/><circle cx="209" cy="206" r="4" fill="#ffd23f"/>`),
+  trungthu: () => village(`
+    ${kid(140, 196, { shirt: '#e0463c', hair: 'buns', arms: 'up' })}
+    ${kid(250, 196, { shirt: '#3fa35b', arms: 'up', flip: true })}
+    <g stroke="${INK}" stroke-width="2"><path d="M116 176 L108 130 M274 176 L282 130" stroke-width="3"/>
+      <path d="M108 104 L113 118 L128 118 L116 127 L121 142 L108 133 L95 142 L100 127 L88 118 L103 118 Z" fill="#e0463c"/>
+      <ellipse cx="284" cy="120" rx="16" ry="11" fill="#f7923a"/><path d="M298 120 L310 112 V128 Z" fill="#ffd23f"/></g>
+    <circle cx="108" cy="124" r="22" fill="#ffd166" opacity="0.25"/><circle cx="284" cy="120" r="22" fill="#ffd166" opacity="0.25"/>`, true),
   soi: () => village(`<g transform="translate(140 110) scale(1)">${mascotMarkup('happy').replace('<svg ', '<svg width="120" height="110" ')}</g>
     ${kid(300, 196, { shirt: '#e0463c', hair: 'buns', arms: 'up', flip: true })}`),
 };

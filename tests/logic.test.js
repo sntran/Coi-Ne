@@ -438,3 +438,34 @@ test('instruments: the notes are in the scale, and the lever bends the pitch up 
   assert.equal(bendRatio(-1), 1);
   assert.equal(bendRatio(2), bendRatio(1));
 });
+
+import { makeTray, placeFruit, TRAY_FRUITS, makeLixi, takeLixi, makeLanterns, lightLantern, LANTERNS } from '../js/logic/festival.js';
+
+test('festivals: the Southern fruit tray, lì xì, and lanterns', () => {
+  const images = readJson('data/images.json');
+  for (const f of [...TRAY_FRUITS, ...LANTERNS, 'lixi', 'mamnguqua', 'fullmoon']) assert.ok(images[f], f);
+  let s = makeTray(seeded(4));
+  assert.equal(s.choices.length, 6);
+  const wrong = s.choices.find((c) => !TRAY_FRUITS.includes(c));
+  assert.equal(placeFruit(s, wrong).event, 'wrong');
+  TRAY_FRUITS.forEach((f, i) => {
+    const r = placeFruit(s, f);
+    assert.equal(r.event, 'placed');
+    assert.equal(r.done, i === TRAY_FRUITS.length - 1);
+    s = r.state;
+  });
+  assert.equal(placeFruit(s, TRAY_FRUITS[0]).event, 'old');
+  let l = makeLixi(seeded(5));
+  assert.ok(l.n >= 1 && l.n <= 5);
+  for (let i = 0; i < l.n; i++) l = takeLixi(l).state;
+  assert.equal(takeLixi(l).event, 'enough');
+  let lan = makeLanterns(seeded(6));
+  assert.ok(lan.lanterns.length >= 3 && lan.lanterns.length <= 6);
+  let r;
+  for (let i = 0; i < lan.lanterns.length; i++) {
+    r = lightLantern(lan, i);
+    lan = r.state;
+  }
+  assert.equal(r.done, true);
+  assert.equal(lightLantern(lan, 0).event, 'old');
+});

@@ -873,5 +873,75 @@
     "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f9e7.svg": {
+    "title": "Twemoji: Red envelope",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f9e7.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f96e.svg": {
+    "title": "Twemoji: Moon cake",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f96e.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f315.svg": {
+    "title": "Twemoji: Full moon",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f315.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/festival/hoa-mai.svg": {
+    "title": "Hoa mai",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/banh-tet.svg": {
+    "title": "Bánh tét",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/mam-ngu-qua.svg": {
+    "title": "Mâm ngũ quả",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/long-den-ca-chep.svg": {
+    "title": "Lồng đèn cá chép",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/cay-da-chu-cuoi.svg": {
+    "title": "Cây đa chú Cuội",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/mang-cau.svg": {
+    "title": "Trái mãng cầu",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
+  },
+  "pictures/festival/du-du.svg": {
+    "title": "Trái đu đủ",
+    "source": "original",
+    "author": "Coi Nè",
+    "license": "original",
+    "licenseUrl": ""
   }
 }
