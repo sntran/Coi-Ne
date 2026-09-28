@@ -129,6 +129,11 @@ svg { display: block; }
 }
 .play-btn .icon { width: 55%; height: 55%; margin-left: 8%; }
 .play-btn.is-pressed { transform: translateY(6px); box-shadow: 0 4px 0 #a82e27; }
+@media (max-height: 560px) and (orientation: landscape) {
+  .start-screen { flex-direction: row; gap: 48px; }
+  .start-soi { width: min(38vh, 240px); }
+  .play-btn { width: min(44vh, 200px); height: min(44vh, 200px); }
+}
 
 /* Home screen */
 

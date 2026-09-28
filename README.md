@@ -20,7 +20,9 @@ no scores that go down, and no "game over" screen. A wrong answer gets a kind "T
 
 1. Open the site. Tap the large red **Play** button. (iPad browsers speak only after a tap.)
 2. The home screen shows Sỏi, the pebble, and one picture button for each game.
-   The top group has the learning games. The bottom group has the folk games (Trò chơi dân gian).
+   The first group has the learning games. The second group has the folk games (Trò chơi dân gian).
+   The third group has the explore games: the floating market, the instruments, and the festivals.
+   The **sticker book** button is at the left of Sỏi.
 3. Tap a game. The voice says the name of the game, and then the game opens.
 4. In each game:
    - The **Home** button (the house) is at the top left.
@@ -29,6 +31,9 @@ no scores that go down, and no "game over" screen. A wrong answer gets a kind "T
      and then the English word. In English mode, the button is **VI**.
 5. After 5 correct answers in a row, the child gets a star. If the game has a next level,
    Sỏi asks to play a harder level. The child taps the green check for yes, or the round arrow for no.
+6. Each star also gives a new sticker for the sticker book.
+7. After the rest time (20 minutes by default), Sỏi gets sleepy and asks the child to rest.
+   A parent holds the button for 3 seconds to play again.
 
 ### Settings for parents
 
@@ -40,6 +45,7 @@ Hold the gear button on the home screen for 3 seconds. The settings let you chan
 - The voice for Vietnamese and for English, if the device has more than one voice. Tap a voice to hear it.
 - **Record your own voice** (see below).
 - The level of each game.
+- The **rest time**: off, 15, 20, or 30 minutes.
 - The **About** page: the goal of Coi Nè, and the source and license of each picture.
 
 The settings also show if the device has a voice for Vietnamese and for English.
@@ -52,13 +58,18 @@ On an iPad, you can add a Vietnamese voice in **Settings → Accessibility → S
 
 | Game | Levels |
 | --- | --- |
-| Tô màu (Coloring) | Choose a picture in 6 groups. Tap a color, then tap an area. Undo, Clear, and Save. Saved pictures go to the Gallery. |
+| Tô màu (Coloring) | Choose a picture in 8 groups (also Tết and Trung Thu). Tap a color, then tap an area. Undo, Clear, and Save. Saved pictures go to the Gallery. |
 | Số đếm (Numbers) | 1: match a digit to a group. 2: count to 20. 3: which group has more or fewer. 4: add to 10. |
 | Quy luật (Patterns) | 1–3: AB. 4–6: AAB and ABB. 7–9: ABC. Colors, then shapes, then sizes. |
 | Ghép hình (Shape builder) | Drag shapes into an outline. Tap a shape to turn it. 2, then 4, then 6 shapes. |
 | Phân loại (Sorting) | Drag things into boxes. 1: one rule. 2: two rules, for example "big and red". |
 | Chữ cái (Letters) | 29 Vietnamese letters or 26 English letters. 1: listen. 2: find the first letter of a picture. 3: find the letter that Sỏi says. |
+| Thanh điệu (Tones) | 1: listen to the 6 tones of a syllable (ma, má, mà, mả, mã, mạ). 2: hear a word and choose its picture, for example cá or cà. 3: hear a syllable and choose its tone. The game never asks the child to hear the difference between hỏi and ngã, because they sound the same in the South. |
+| Tập viết (Trace a letter) | Move a finger along the strokes of a letter. Start at the green dot. 1: letters. 2: digits. |
+| Nối điểm (Dot-to-dot) | Tap the dots in order. A picture comes. 1: 10 dots or fewer. 2: up to 20 dots. |
 | Lật hình (Memory pairs) | 4, then 6, then 8, then 12 cards. |
+| Sỏi trốn đâu? (Where is Sỏi hiding?) | Words for places: on, under, in, behind, in front of, next to. 1: find Sỏi. 2: choose the right picture. 3: drag Sỏi to the place. |
+| Cảm xúc (Feelings) | 1: meet 6 faces of Sỏi. 2: a short story, then choose how Sỏi feels. 3: breathe slowly with Sỏi. |
 
 ### Folk games (Trò chơi dân gian)
 
@@ -70,6 +81,20 @@ Each folk game starts with a short picture story about children in a Vietnamese 
 | Tập tầm vông | 1: 2 hands. 2: Sỏi moves the hands. 3: 3 cups. |
 | Oẳn tù tì | Rock (búa), paper (bao), scissors (kéo) against Sỏi. |
 | Chơi chuyền | 1: 1 stick for each throw. 2: 2 sticks. 3: 3 sticks. The ball waits for the child. |
+
+### Explore games (Khám phá)
+
+| Game | Levels |
+| --- | --- |
+| Chợ nổi (Floating market) | Mom asks for fruit. Find the boat with the fruit on its pole, and tap the fruit. 1: 1 to 3 of one fruit. 2: 1 to 5. 3: two kinds of fruit. |
+| Nhạc cụ (Musical instruments) | Play the t'rưng, the drum, the bamboo flute (sáo trúc), and the đàn bầu. The notes use the Vietnamese five-note scale, so all notes sound good together. |
+| Lễ hội (Festivals) | Tết: a short story, the five-fruit tray (cầu vừa đủ xài), lucky money, and coloring. Trung Thu: a short story, the lantern parade with the đồng dao "Ông giẳng ông giăng", and coloring. |
+
+### The sticker book (Sổ nhãn dán)
+
+The child starts with 3 stickers. Each star gives one more sticker, up to 36.
+The child drags the stickers onto 3 pictures: the village, the moon night, and the river.
+Drag a sticker out of the picture to remove it. The book stays in the `localStorage` of the browser.
 
 ### The rules of Ô ăn quan
 
@@ -103,6 +128,7 @@ The đồng dao texts are in `lang/vi.json`:
 - `dongdao.oantuti`: Oẳn tù tì.
 - `dongdao.choichuyen.01` to `dongdao.choichuyen.28`: Chơi chuyền, one key for each line.
   Each throw of the ball sings the next line.
+- `dongdao.onggiang`: Ông giẳng ông giăng, in the Trung Thu festival.
 
 Ô ăn quan has no well-known đồng dao, so the game has none. The folk games always sing the đồng dao in
 Vietnamese, also in English mode. `lang/en.json` has a simple English meaning of each line.
@@ -111,6 +137,9 @@ The texts come from common sources, for example the Chơi chuyền text from
 [Trường mầm non Hoa Thủy Tiên](https://mnhoathuytien.hanoi.edu.vn/dong-dao-ve-cho-be/dong-dao-choi-chuyen/ctmb/6072/52370)
 and the Tập tầm vông text from
 [thivien.net](https://www.thivien.net/Khuy%E1%BA%BFt-danh-Vi%E1%BB%87t-Nam/T%E1%BA%ADp-t%E1%BA%A7m-v%C3%B4ng-tay-kh%C3%B4ng-tay-c%C3%B3/poem-37I5cYt0RfU-lRheaosBDg).
+The Ông giẳng ông giăng text is from
+[thivien.net](https://www.thivien.net/Khuy%E1%BA%BFt-danh-Vi%E1%BB%87t-Nam/%C3%94ng-gi%E1%BA%B3ng-%C3%B4ng-gi%C4%83ng-xu%E1%BB%91ng-ch%C6%A1i-v%E1%BB%9Bi-t%C3%B4i/poem-_bk_ZgUUyidf5axGSiPloA) and
+[Trường mầm non Hoa Sen](https://mnhoasen.longbien.edu.vn/tho-ve-ca-dao-dong-dao/dong-dao-ong-giang-ong-giang/ctmb/6816/688657).
 The parents must check the texts.
 
 ## Run the site on your computer
@@ -230,9 +259,9 @@ The đồng dao texts are the traditional texts.
 
 The About page in the app shows the source and the license of each picture. The full list is in `credits.json`.
 
-- 10 original pictures in the Vietnam group, drawn for Coi Nè.
-- 104 pictures from [Twemoji](https://github.com/jdecked/twemoji) v15.1.0 (graphics © Twitter, Inc and other
-  contributors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). 50 of them are in the Coloring game.
+- 10 original pictures in the Vietnam group and 7 original pictures for Tết and Trung Thu, drawn for Coi Nè.
+- 118 pictures from [Twemoji](https://github.com/jdecked/twemoji) v15.1.0 (graphics © Twitter, Inc and other
+  contributors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)). 52 of them are in the Coloring game.
 - Sỏi, the story pictures, the icons, and the game buttons are original SVG drawings in the code.
 
 ## Privacy
