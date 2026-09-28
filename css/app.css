@@ -1391,9 +1391,9 @@ svg { display: block; }
   .share-plate { min-height: 88px; }
   .share-on-plate { width: 36px; height: 36px; }
   .share-slot { width: 32px; height: 32px; }
-  .share-row { gap: 6px; grid-template-columns: repeat(var(--cols), 72px); }
-  .share-hole { width: 72px; height: 72px; }
-  .share-field { padding: 10px 40px 10px 8px; gap: 6px; }
+  .share-row { gap: 4px; padding: 4px; grid-template-columns: repeat(var(--cols), 80px); }
+  .share-field { padding: 6px 14px 6px 6px; gap: 6px; }
+  .share-row.is-counted::after { top: -8px; right: -12px; transform: none; min-width: 38px; height: 38px; font-size: 22px; }
   .share-layout .num-digits { flex-direction: row; }
   .share-layout .digit-choice .big-digit { font-size: 54px; }
 }
@@ -1403,7 +1403,6 @@ svg { display: block; }
   .share-pool { grid-column: 1; grid-row: 1; min-height: 88px; }
   .share-friends { grid-column: 1; grid-row: 2; align-self: start; }
   .share-ask { grid-column: 2; grid-row: 1 / span 2; }
-  .share-pool .share-thing { width: 72px; height: 72px; }
   .share-face { width: 56px; height: 56px; }
   .share-card { flex-direction: row; padding: 6px; }
   .share-plate { min-height: 80px; border-radius: 40px; }

@@ -59,7 +59,8 @@ On an iPad, you can add a Vietnamese voice in **Settings → Accessibility → S
 | Game | Levels |
 | --- | --- |
 | Tô màu (Coloring) | Choose a picture in 8 groups (also Tết and Trung Thu). Tap a color, then tap an area. Undo, Clear, and Save. Saved pictures go to the Gallery. |
-| Số đếm (Numbers) | 1: match a digit to a group. 2: count to 20. 3: which group has more or fewer. 4: add to 10. |
+| Số đếm (Numbers) | 1: match a digit to a group. 2: quick look: see 1 to 6 pebbles for a short time, and tell the number without counting. 3: count to 20. 4: which group has more or fewer. 5: add to 10. |
+| Chia đều (Fair share) | 1: share things between 2 or 3 friends, so that each friend has the same number. A friend with fewer things is sad. Tap a thing on a plate to take it back. 2: each friend wants the same number of things. Fill the plates, then tell how many in all. Sỏi counts by plates: 2, 4, 6. 3: plant rice in rows, and count by rows. Then the field turns, and the total stays the same. |
 | Quy luật (Patterns) | 1–3: AB. 4–6: AAB and ABB. 7–9: ABC. Colors, then shapes, then sizes. |
 | Ghép hình (Shape builder) | Drag shapes into an outline. Tap a shape to turn it. 2, then 4, then 6 shapes. |
 | Phân loại (Sorting) | Drag things into boxes. 1: one rule. 2: two rules, for example "big and red". |
@@ -70,6 +71,18 @@ On an iPad, you can add a Vietnamese voice in **Settings → Accessibility → S
 | Lật hình (Memory pairs) | 4, then 6, then 8, then 12 cards. |
 | Sỏi trốn đâu? (Where is Sỏi hiding?) | Words for places: on, under, in, behind, in front of, next to. 1: find Sỏi. 2: choose the right picture. 3: drag Sỏi to the place. |
 | Cảm xúc (Feelings) | 1: meet 6 faces of Sỏi. 2: a short story, then choose how Sỏi feels. 3: breathe slowly with Sỏi. |
+
+### Before the times table
+
+Children of 3 to 5 do not learn the times table (bảng cửu chương). But some games teach the ideas
+that come before it:
+
+- **Quick look** (Numbers, level 2): see a small number without counting.
+- **Fair share** (Chia đều, level 1): share fairly. This is the start of division.
+- **Equal groups** (Chia đều, level 2, and the bags in the Floating market): count by groups: 2, 4, 6.
+  This is the start of multiplication.
+- **Rows** (Chia đều, level 3): 2 rows of 3 is the same number as 3 rows of 2.
+- **Add to 10** (Numbers, level 5) and the patterns (Patterns) also help.
 
 ### Folk games (Trò chơi dân gian)
 
@@ -86,7 +99,7 @@ Each folk game starts with a short picture story about children in a Vietnamese 
 
 | Game | Levels |
 | --- | --- |
-| Chợ nổi (Floating market) | Mom asks for fruit. Find the boat with the fruit on its pole, and tap the fruit. 1: 1 to 3 of one fruit. 2: 1 to 5. 3: two kinds of fruit. |
+| Chợ nổi (Floating market) | Mom asks for fruit. Find the boat with the fruit on its pole, and tap the fruit. 1: 1 to 3 of one fruit. 2: 1 to 5. 3: two kinds of fruit. 4: equal bags, for example 3 bags with 2 mangoes in each bag. Sỏi counts by bags. |
 | Nhạc cụ (Musical instruments) | Play the t'rưng, the drum, the bamboo flute (sáo trúc), and the đàn bầu. The notes use the Vietnamese five-note scale, so all notes sound good together. |
 | Lễ hội (Festivals) | Tết: a short story, the five-fruit tray (cầu vừa đủ xài), lucky money, and coloring. Trung Thu: a short story, the lantern parade with the đồng dao "Ông giẳng ông giăng", and coloring. |
 
