@@ -1473,3 +1473,48 @@ svg { display: block; }
   .nuna-leg { height: 150px; }
   .nuna-leg svg { height: 118px; }
 }
+
+/* Nhảy lò cò */
+
+.loco-layout { flex: 1; min-height: 0; display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 12px; }
+.loco-board { --sq: 88px; display: grid; grid-template-columns: repeat(4, calc(var(--sq) / 2)); grid-template-rows: repeat(6, var(--sq)); padding: 12px; border-radius: 26px; background: #b9b2a6; box-shadow: inset 0 0 0 4px rgb(255 255 255 / 0.15); }
+.loco-square { position: relative; display: grid; place-items: center; border: 4px solid #fff; margin: -2px; background: rgb(255 255 255 / 0.06); border-radius: 4px; }
+.loco-square.row-1 { grid-row: 6; } .loco-square.row-2 { grid-row: 5; } .loco-square.row-3 { grid-row: 4; }
+.loco-square.row-4 { grid-row: 3; } .loco-square.row-5 { grid-row: 2; } .loco-square.row-6 { grid-row: 1; }
+.loco-square.lane-mid { grid-column: 2 / span 2; }
+.loco-square.lane-a { grid-column: 1 / span 2; }
+.loco-square.lane-b { grid-column: 3 / span 2; }
+.loco-number { font-size: 40px; font-weight: 900; color: #fff; text-shadow: 0 2px 0 rgb(59 42 42 / 0.25); pointer-events: none; }
+.loco-square.is-visited { background: rgb(255 255 255 / 0.18); }
+.loco-square.is-next { background: rgb(255 244 194 / 0.55); animation: breathe 1.2s ease-in-out infinite; }
+.loco-square.has-pebble .loco-number { opacity: 0.35; }
+.loco-start { display: flex; align-items: center; gap: 20px; min-height: 90px; }
+.loco-soi { width: 76px; pointer-events: none; }
+.loco-square .loco-soi { position: absolute; width: 64px; bottom: 6px; z-index: 2; }
+.loco-soi.is-hop { animation: loco-hop 0.35s ease; }
+@keyframes loco-hop { 50% { transform: translateY(-22px) scale(1.05); } }
+.loco-pebble { width: 88px; height: 88px; display: grid; place-items: center; transition: transform 0.45s cubic-bezier(0.3, -0.4, 0.6, 1); }
+.loco-pebble svg { width: 60px; height: 50px; }
+.loco-pebble.is-thrown { transform: translateY(-160px) scale(0.6) rotate(200deg); opacity: 0.7; }
+.loco-square .loco-pebble { position: absolute; width: 50px; height: 44px; pointer-events: none; }
+.loco-square .loco-pebble svg { width: 44px; height: 36px; }
+@media (min-width: 700px) and (min-height: 760px) {
+  .loco-board { --sq: 108px; }
+  .loco-number { font-size: 50px; }
+}
+@media (orientation: portrait) and (max-height: 760px) {
+  .loco-layout { flex-direction: row; }
+  .loco-start { flex-direction: column; }
+  .loco-board { --sq: 80px; padding: 8px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .loco-layout { flex-direction: row; }
+  .loco-start { flex-direction: column; gap: 6px; }
+  .loco-board { --sq: 84px; grid-template-columns: repeat(6, var(--sq)); grid-template-rows: repeat(4, calc(var(--sq) / 2)); }
+  .loco-square.row-1 { grid-row: auto; grid-column: 1; } .loco-square.row-2 { grid-row: auto; grid-column: 2; }
+  .loco-square.row-3 { grid-row: auto; grid-column: 3; } .loco-square.row-4 { grid-column: 4; }
+  .loco-square.row-5 { grid-row: auto; grid-column: 5; } .loco-square.row-6 { grid-column: 6; }
+  .loco-square.lane-mid { grid-row: 2 / span 2; }
+  .loco-square.lane-a { grid-row: 1 / span 2; }
+  .loco-square.lane-b { grid-row: 3 / span 2; }
+}
