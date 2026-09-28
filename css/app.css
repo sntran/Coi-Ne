@@ -937,8 +937,8 @@ svg { display: block; }
 /* Memory pairs */
 
 .memory-layout { flex: 1; min-height: 0; display: grid; place-items: center; }
-.memory-grid { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 14px; width: 100%; max-width: calc(var(--cols) * 190px); }
-.memory-card { position: relative; aspect-ratio: 1; perspective: 800px; min-width: 80px; max-height: calc((100dvh - 180px) / 3); margin: auto; width: 100%; }
+.memory-grid { display: grid; grid-template-columns: repeat(var(--cols), var(--size, 150px)); gap: 12px; justify-content: center; }
+.memory-card { position: relative; width: var(--size, 150px); height: var(--size, 150px); perspective: 800px; }
 .card-inner { position: absolute; inset: 0; transition: transform 0.45s ease; transform-style: preserve-3d; }
 .memory-card.is-open .card-inner { transform: rotateY(180deg); }
 .card-face { position: absolute; inset: 0; border-radius: 24px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 5px 0 #e7d7c3; }
@@ -947,7 +947,3 @@ svg { display: block; }
 .card-front { background: #fff; transform: rotateY(180deg); }
 .card-front img { width: 72%; height: 72%; }
 .memory-card.is-matched .card-front { background: #eaf7e6; box-shadow: 0 5px 0 var(--bamboo); }
-@media (orientation: landscape) and (max-height: 560px) {
-  .memory-grid { gap: 8px; max-width: calc(var(--cols) * 120px); }
-  .memory-card { max-height: calc((100dvh - 40px) / 3); }
-}

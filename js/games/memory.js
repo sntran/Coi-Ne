@@ -17,8 +17,16 @@ export function mount(screen) {
   let waiting = false;
   const landscape = matchMedia('(orientation: landscape)');
 
+  // Make the cards as large as possible, but all the cards must fit on the screen.
   function setColumns(grid) {
-    grid.style.setProperty('--cols', String(columns(state.cards.length, landscape.matches)));
+    const count = state.cards.length;
+    const cols = columns(count, landscape.matches);
+    const rows = Math.ceil(count / cols);
+    const box = screen.stage.getBoundingClientRect();
+    const gap = 12;
+    const size = Math.max(80, Math.floor(Math.min((box.width - 24 - gap * (cols - 1)) / cols, (box.height - 24 - gap * (rows - 1)) / rows, 200)));
+    grid.style.setProperty('--cols', String(cols));
+    grid.style.setProperty('--size', `${size}px`);
   }
 
   function start() {
@@ -34,8 +42,8 @@ export function mount(screen) {
       grid.append(node);
       return node;
     });
-    setColumns(grid);
     screen.stage.replaceChildren(el('div', { class: 'memory-layout' }, [grid]));
+    setColumns(grid);
     screen.say('memory.instruction');
   }
 
@@ -82,9 +90,11 @@ export function mount(screen) {
     if (grid && state) setColumns(grid);
   };
   landscape.addEventListener('change', onTurn);
+  window.addEventListener('resize', onTurn);
   start();
   return () => {
     alive = false;
     landscape.removeEventListener('change', onTurn);
+    window.removeEventListener('resize', onTurn);
   };
 }

@@ -163,6 +163,7 @@ export function mount(screen) {
   const pace = () => (rules.sowOnly ? 750 : 600);
 
   async function animate(events, player) {
+    let picks = 0;
     for (const ev of events) {
       if (!alive) return;
       if (ev.type === 'pick') {
@@ -171,6 +172,9 @@ export function mount(screen) {
         render();
         highlight(ev.pos);
         sfx.tap();
+        picks += 1;
+        // The player picks up the pebbles of the next square and goes on. The count starts again.
+        if (picks > 1) await speak('oanquan.continue');
         await wait(400);
       } else if (ev.type === 'drop') {
         view.cells[ev.pos] += 1;
