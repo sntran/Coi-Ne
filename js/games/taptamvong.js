@@ -42,6 +42,7 @@ export function mount(screen) {
 
   function build() {
     table.replaceChildren();
+    table.style.setProperty('--n', String(round.count));
     items = [];
     slots = [];
     for (let k = 0; k < round.count; k++) {

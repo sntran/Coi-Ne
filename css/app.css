@@ -242,6 +242,12 @@ svg { display: block; }
 }
 
 /* A short and wide screen, for example a phone in landscape: put the bar on the left side. */
+@media (orientation: landscape) and (min-height: 561px) {
+  .game-grid { grid-template-columns: repeat(auto-fill, minmax(clamp(100px, 12vw, 160px), 1fr)); }
+  .home-header { min-height: 100px; }
+  .home-soi { width: 110px; }
+  .home-groups { gap: 14px; }
+}
 @media (orientation: landscape) and (max-height: 560px) {
   :root { --tap: 80px; }
   .game-screen { flex-direction: row; }
@@ -624,9 +630,9 @@ svg { display: block; }
 .ttv-item {
   position: absolute;
   top: 20px;
-  width: 150px;
-  height: 150px;
-  margin-left: -75px;
+  width: min(180px, calc(92% / var(--n, 2)));
+  aspect-ratio: 1;
+  translate: -50% 0;
   border-radius: 40px;
   transition: left 0.7s ease, transform 0.35s ease, opacity 0.4s ease;
   display: grid;
@@ -660,7 +666,7 @@ svg { display: block; }
 @media (orientation: landscape) and (max-height: 560px) {
   .ttv-soi { width: 110px; }
   .ttv-table { height: 170px; }
-  .ttv-item { width: 130px; height: 130px; margin-left: -65px; top: 16px; }
+  .ttv-item { width: min(130px, calc(92% / var(--n, 2))); top: 16px; }
 }
 
 /* Numbers */
@@ -714,7 +720,7 @@ svg { display: block; }
   .count-thing { width: 80px; height: 80px; }
   .add-row { flex: 1; }
 }
-.digit-choice .lang-badge { top: -20px; right: -20px; }
+.digit-choice .lang-badge { top: -18px; right: -12px; }
 
 /* Patterns */
 
