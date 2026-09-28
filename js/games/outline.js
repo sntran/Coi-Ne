@@ -73,6 +73,8 @@ export function makeOutline(svgText, host) {
     el.removeAttribute('fill');
     el.removeAttribute('stroke');
   });
+  // Start with white shapes, so that the picture does not show black for a moment.
+  shapes.forEach((el) => el.setAttribute('fill', '#ffffff'));
 
   host.replaceChildren(svg);
   const box = svg.getBoundingClientRect();

@@ -33,13 +33,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Copy only the files of the site
-        run: |
-          mkdir _site
-          for item in index.html manifest.webmanifest sw.js credits.json css js lang data pictures icons audio; do
-            if [ -e "$item" ]; then cp -R "$item" _site/; fi
-          done
-          find _site -name '*.test.js' -delete
+        run: node tools/copy-site.js _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

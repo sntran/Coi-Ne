@@ -494,7 +494,7 @@ svg { display: block; }
 .outline-area { cursor: pointer; transition: fill 0.15s ease; }
 .outline-area.just-filled { animation: fill-pop 0.3s ease; transform-box: fill-box; transform-origin: center; }
 .outline-detail { pointer-events: none; }
-.picture-name { position: absolute; top: 4px; right: 4px; }
+.picture-name { position: absolute; top: 16px; right: 16px; }
 .palette {
   flex: none;
   display: grid;

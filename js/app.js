@@ -79,6 +79,10 @@ async function boot() {
   });
   showStart();
   waitForVoices();
+  // The service worker keeps the files for offline use.
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
 }
 
 boot();
