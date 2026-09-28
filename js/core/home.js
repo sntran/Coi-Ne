@@ -5,7 +5,7 @@ import { speak, stopSpeech } from './speech.js';
 import { sfx } from './sound.js';
 import { el, onTap, wait } from './ui.js';
 import { mascot, setExpression } from './mascot.js';
-import { gameIcons, LEARNING_GAMES, FOLK_GAMES } from './game-icons.js';
+import { gameIcons, LEARNING_GAMES, FOLK_GAMES, EXPLORE_GAMES } from './game-icons.js';
 import { settingsButton } from './settings.js';
 
 let opening = false;
@@ -59,6 +59,7 @@ export function renderHome(container) {
     el('div', { class: 'home-groups' }, [
       group('home.learning', LEARNING_GAMES, 'group-learning'),
       group('home.folk', FOLK_GAMES, 'group-folk'),
+      group('home.explore', EXPLORE_GAMES, 'group-explore'),
     ]),
   ]);
   container.replaceChildren(root);

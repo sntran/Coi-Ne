@@ -13,7 +13,7 @@ import { icons } from './icons.js';
 import { getSettings, updateSettings, gameLevel, changeLevel, gameStars } from './state.js';
 import { MAX_LEVELS } from '../logic/progress.js';
 import { REST_OPTIONS } from '../logic/rest.js';
-import { LEARNING_GAMES, FOLK_GAMES } from './game-icons.js';
+import { ALL_GAMES } from './game-icons.js';
 
 export const HOLD_MS = 3000;
 let changeHandler = () => {};
@@ -95,7 +95,7 @@ function voiceStatus() {
 
 function levelRows() {
   const box = el('div', { class: 'set-levels' });
-  for (const id of [...LEARNING_GAMES, ...FOLK_GAMES]) {
+  for (const id of ALL_GAMES) {
     const max = MAX_LEVELS[id];
     const value = el('span', { class: 'level-value' });
     const show = () => {

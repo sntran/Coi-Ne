@@ -866,5 +866,12 @@
     "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "pictures/twemoji/1f96d.svg": {
+    "title": "Twemoji: Mango",
+    "source": "https://github.com/jdecked/twemoji/blob/v15.1.0/assets/svg/1f96d.svg",
+    "author": "Twitter, Inc and other contributors (jdecked/twemoji)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
   }
 }

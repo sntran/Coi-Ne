@@ -19,6 +19,7 @@ export const MAX_LEVELS = Object.freeze({
   dots: 2,
   where: 3,
   feelings: 3,
+  market: 3,
 });
 
 export function emptyProgress() {

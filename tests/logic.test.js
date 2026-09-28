@@ -397,3 +397,33 @@ test('feelings: each feeling has a face of Sỏi, and each story has one right f
     assert.equal(q.choices.filter((c) => checkFeeling(q, c)).length, 1);
   }
 });
+
+import { makeOrder, addFruit, isComplete as orderDone, FRUITS, BOATS } from '../js/logic/market.js';
+
+test('floating market: the order is on the boats, and the basket takes only what is needed', () => {
+  const images = readJson('data/images.json');
+  for (const pic of Object.values(FRUITS)) assert.ok(images[pic], pic);
+  for (const level of [1, 2, 3]) {
+    for (const seed of SEEDS) {
+      let o = makeOrder(level, seeded(seed));
+      assert.equal(o.items.length, level === 3 ? 2 : 1);
+      assert.equal(o.boats.length, BOATS);
+      assert.equal(new Set(o.boats).size, BOATS);
+      for (const i of o.items) {
+        assert.ok(o.boats.includes(i.fruit));
+        assert.ok(i.n >= 1 && i.n <= (level === 2 ? 5 : 3));
+      }
+      const other = o.boats.find((b) => !o.items.some((i) => i.fruit === b));
+      assert.equal(addFruit(o, other).event, 'notNeeded');
+      for (const i of o.items) {
+        for (let k = 0; k < i.n; k++) {
+          const r = addFruit(o, i.fruit);
+          assert.equal(r.event, 'added');
+          o = r.order;
+        }
+        assert.equal(addFruit(o, i.fruit).event, 'enough');
+      }
+      assert.ok(orderDone(o));
+    }
+  }
+});

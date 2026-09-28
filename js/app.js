@@ -9,11 +9,11 @@ import { mascot } from './core/mascot.js';
 import { renderHome } from './core/home.js';
 import { onSettingsChange, closeSettings } from './core/settings.js';
 import { getSettings } from './core/state.js';
-import { LEARNING_GAMES, FOLK_GAMES } from './core/game-icons.js';
+import { ALL_GAMES } from './core/game-icons.js';
 import { loadImages } from './core/images.js';
 import { startRestClock } from './core/rest.js';
 
-const GAMES = new Set([...LEARNING_GAMES, ...FOLK_GAMES]);
+const GAMES = new Set(ALL_GAMES);
 const app = document.getElementById('app');
 let cleanup = () => {};
 let started = false;
